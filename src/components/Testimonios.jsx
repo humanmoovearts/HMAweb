@@ -29,7 +29,7 @@ export default function Testimonios() {
   ];
 
   return (
-    <section id="testimonios" className="bg-[#0b1b33] text-white py-20 px-6 md:py-28 md:px-12 lg:px-20 min-h-screen flex items-center">
+    <section id="testimonios" className="bg-[#13263F] text-white py-20 px-6 md:py-28 md:px-12 lg:px-20 min-h-screen flex items-center">
       <div className="max-w-7xl mx-auto w-full">
         
         {/* TÍTULO SECCIÓN */}

@@ -25,9 +25,21 @@ export default function Hero() {
         </h1>
         
         {/* BOTÓN DIFUMINADO (FROSTED GLASS EFFECT) */}
-        <button className="px-10 py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs md:text-sm tracking-widest uppercase hover:bg-white/20 transition-all duration-300 shadow-lg">
-          Inscribirme
-        </button>
+<a 
+  href="#inversion" 
+  className="relative inline-block text-center px-10 py-3.5 rounded-full bg-white/[0.06] backdrop-blur-xl text-xs md:text-sm tracking-widest uppercase font-bold text-white transition-all duration-300 shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4),0_10px_25px_-5px_rgba(0,0,0,0.3)] hover:bg-white/[0.12] hover:shadow-[inset_0_2px_4px_rgba(255,255,255,0.4),0_15px_30px_-5px_rgba(62,74,100,0.4)] group overflow-hidden"
+>
+  {/* Borde exterior hiper-suave que imita el halo líquido de la tarjeta */}
+  <span className="absolute inset-0 rounded-full border border-white/20 pointer-events-none opacity-80" />
+  <span className="absolute inset-[-2px] rounded-full border-2 border-[#3e4a64]/30 blur-[1px] pointer-events-none" />
+  
+  {/* Reflejo de luz interno */}
+  <span className="absolute top-0 left-1/2 -translate-x-1/2 w-[85%] h-[40%] bg-gradient-to-b from-white/[0.15] to-transparent rounded-full blur-[1px] pointer-events-none" />
+  
+  <span className="relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+    Inscribirme
+  </span>
+</a>
       </div>
 
       {/* AVAL BUAP (ESQUINA INFERIOR DERECHA) */}
@@ -36,7 +48,7 @@ export default function Hero() {
           Avalado por la BUAP
         </span>
         <img 
-          src="/path-to-buap-logo.png" // <-- Cambia esto por la ruta del logo de la BUAP
+          src="LogoBuap.png" 
           alt="Logo BUAP" 
           className="h-8 w-auto object-contain brightness-0 invert opacity-90"
         />

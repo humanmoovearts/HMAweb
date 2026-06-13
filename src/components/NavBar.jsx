@@ -8,7 +8,7 @@ export default function Navbar() {
         {/* LOGO */}
         <div className="flex items-center">
           <img 
-            src="/path-to-your-logo.png" 
+            src="HMA.png" 
             alt="Human Mooveart Logo" 
             className="h-10 w-auto object-contain brightness-0 invert" 
           />

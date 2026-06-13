@@ -7,6 +7,7 @@ import Testimonios from './components/Testimonios.jsx'
 import Contenido from './components/Contenido.jsx'
 import Proposito from './components/Propósito.jsx'
 import ContactoFooter from './components/ContactoFooter.jsx'
+import MaestrosSection from './components/Maestros.jsx'
 
 function App() {
 
@@ -19,6 +20,7 @@ function App() {
     <Inversion />
     <Testimonios />
     <Contenido />
+    <MaestrosSection />
     <Proposito />
     <ContactoFooter />
   </div>

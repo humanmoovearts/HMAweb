@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import CardModulo from './CardModulo.jsx';
 
 export default function Contenido() {
@@ -30,27 +30,44 @@ export default function Contenido() {
     }
   ];
 
+  const scrollContainerRef = useRef(null);
+
+  // Función para desplazar el contenedor con los botones de flecha
+  const handleScroll = (direction) => {
+    if (scrollContainerRef.current) {
+      const cardWidth = 320; // Ancho base aproximado de la tarjeta + gap
+      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
+      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   return (
-    /* Forzamos h-screen estricto y overflow-y-hidden para bloquear cualquier scroll hacia abajo */
-    <section id="contenido" className="relative w-full h-screen max-h-screen flex items-center overflow-y-hidden overflow-x-hidden bg-gradient-to-br from-[#776c95] via-[#a36872] to-[#b35e46] py-6 md:py-12">
+    /* Forzamos h-screen estricto y alineamos al inicio (justify-start) para empujar el título arriba */
+    <section id="contenido" className="relative w-full h-screen min-h-[660px] flex flex-col justify-start items-center overflow-hidden bg-gradient-to-br from-[#776c95] via-[#a36872] to-[#b35e46] pt-12 md:pt-16 lg:pt-20 pb-8 select-none">
       
       {/* DESTELLO ORGÁNICO EN EL CENTRO */}
       <div className="absolute top-1/3 left-1/3 w-[500px] h-[300px] bg-gradient-to-r from-red-600 via-orange-500 to-transparent rounded-full blur-[80px] opacity-70 mix-blend-color-dodge pointer-events-none" />
 
-      {/* Cambiamos a un layout flex vertical para distribuir título y tarjetas matemáticamente */}
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-center px-6 md:px-12 lg:px-20 relative z-10 overflow-hidden">
+      {/* Contenedor limitador de Viewport (Previene desbordamientos y controla alturas) */}
+      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-start px-6 md:px-12 lg:px-20 relative z-10 max-h-[85vh]">
         
-        {/* TÍTULO SECCIÓN (Reducimos margen inferior para ganar espacio) */}
-        <div className="w-full flex justify-end mb-6 md:mb-10 shrink-0">
-          <h2 className="text-white text-4xl md:text-6xl font-black tracking-wide uppercase opacity-95 select-none">
+        {/* TÍTULO SECCIÓN - Fijado arriba a la derecha */}
+        <div className="w-full flex justify-end mb-4 shrink-0">
+          <h2 className="text-white text-4xl md:text-6xl font-black tracking-wide uppercase opacity-95">
             Contenido
           </h2>
         </div>
 
-        {/* CONTENEDOR FLUIDO CON SCROLL HORIZONTAL */}
-        <div className="flex overflow-x-auto pb-4 pt-2 space-x-6 snap-x snap-mandatory scrollbar-none shrink-0 lg:space-x-8">
+        {/* CONTENEDOR DE TARJETAS CENTRADAS VERTICALMENTE
+            - flex-grow toma todo el espacio vertical sobrante.
+            - items-center asegura que la fila completa de tarjetas flote justo al centro del viewport.
+        */}
+        <div 
+          ref={scrollContainerRef}
+          className="w-full flex-grow flex items-center overflow-x-auto space-x-6 snap-x snap-mandatory scrollbar-none px-2 justify-start"
+        >
           {modulosData.map((modulo, index) => (
-            <div key={index} className="snap-center shrink-0 w-[85vw] sm:w-[340px]">
+            <div key={index} className="snap-center shrink-0 w-[85vw] sm:w-[340px] flex justify-center">
               <CardModulo 
                 year={modulo.year}
                 title={modulo.title}
@@ -58,6 +75,29 @@ export default function Contenido() {
               />
             </div>
           ))}
+        </div>
+
+        {/* BOTONES DE NAVEGACIÓN (Estilo Liquid Frosted Glass) */}
+        <div className="flex items-center justify-center space-x-4 mt-6 shrink-0">
+          <button 
+            onClick={() => handleScroll('left')}
+            className="w-11 h-11 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:scale-95 transition-all shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] hover:bg-white/[0.12]"
+            aria-label="Anterior"
+          >
+            <svg className="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          
+          <button 
+            onClick={() => handleScroll('right')}
+            className="w-11 h-11 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:scale-95 transition-all shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] hover:bg-white/[0.12]"
+            aria-label="Siguiente"
+          >
+            <svg className="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
         </div>
 
       </div>
