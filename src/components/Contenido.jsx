@@ -1,103 +1,111 @@
-import React, { useRef } from 'react';
-import CardModulo from './CardModulo.jsx';
+import React, { useState } from 'react';
+import { useTranslation } from 'react-i18next';
 
 export default function Contenido() {
-  const modulosData = [
-    {
-      year: "2026",
-      title: "Modulo 1",
-      text: "Bienestar Integral, Subjetividad y Pensamiento Crítico. Clases: Bienvenida e introducción; Bienestar integral; Identidad, género y desarrollo humano; Cuerpo, danza y arte."
-    },
-    {
-      year: "2026",
-      title: "Modulo 2",
-      text: "Corporalidad, Producción de Subjetividad y Resistencia. Clases: Composición en la danza para procesos colectivos; Psicoanálisis del arte: movimiento, cuerpo, psique y subjetividad; Arte, cuerpo y memoria: la corporalidad como territorio de la memoria; Danza terapia y juego: el juego como camino a la sanación; Expresión corporal y biodanza."
-    },
-    {
-      year: "2026",
-      title: "Modulo 3",
-      text: "Corporalidad y Subjetividades desde los Cuidados. Clases: Corporalidades y autocuidado: autocuidado, gozo y colectividad; Cuerpo y salud mental: el cuerpo como espejo de las emociones; Cuidado colectivo y redes de apoyo: tejiendo comunidad desde la empatía y la solidaridad; Expresión artística y resiliencia: el arte como medio de transformación; Movimiento y conciencia corporal: técnicas de respiración y relajación."
-    },
-    {
-      year: "2026",
-      title: "Modulo 4",
-      text: "Gestión de Proyectos Artísticos y Comunitarios. Clases: Herramientas para la creación de proyectos interdisciplinarios; Vinculación social y territorio; Sostenibilidad, financiamiento y economías alternativas en las artes escénicas."
-    },
-    {
-      year: "2026",
-      title: "Modulo 5",
-      text: "Laboratorio de Creación e Investigación Corporal. Clases: Integración de metodologías psicocorporales; Tutorías de proyectos finales; Presentación comunitaria, muestra colectiva, cierre y evaluación formativa de los egresados."
-    }
-  ];
+  const { t, i18n } = useTranslation();
+  // Estado para el módulo activo (inicia en Índice 0)
+  const [activeModulo, setActiveModulo] = useState(0);
 
-  const scrollContainerRef = useRef(null);
+  const totalModulos = [0, 1, 2, 3, 4];
 
-  // Función para desplazar el contenedor con los botones de flecha
-  const handleScroll = (direction) => {
-    if (scrollContainerRef.current) {
-      const cardWidth = 320; // Ancho base aproximado de la tarjeta + gap
-      const scrollAmount = direction === 'left' ? -cardWidth : cardWidth;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
-  };
+  // Extraemos estrictamente los datos reales del JSON
+  const clasesArray = t(`contenido_tematico.modulos.${activeModulo}.clases`, { returnObjects: true }) || [];
+  const moduloTitulo = t(`contenido_tematico.modulos.${activeModulo}.titulo`);
+
+  // Lógica dinámica para internacionalizar todos los textos base según el idioma activo
+  const isEnglish = i18n.language === 'en';
+  const seccionTitulo = isEnglish ? 'Content' : 'Contenido';
+  const moduloLabel = isEnglish ? 'MODULE' : 'MÓDULO';
+  const tabLabel = isEnglish ? 'MOD' : 'MÓD';
 
   return (
-    /* Forzamos h-screen estricto y alineamos al inicio (justify-start) para empujar el título arriba */
-    <section id="contenido" className="relative w-full h-screen min-h-[660px] flex flex-col justify-start items-center overflow-hidden bg-gradient-to-br from-[#776c95] via-[#a36872] to-[#b35e46] pt-12 md:pt-16 lg:pt-20 pb-8 select-none">
-      
-      {/* DESTELLO ORGÁNICO EN EL CENTRO */}
-      <div className="absolute top-1/3 left-1/3 w-[500px] h-[300px] bg-gradient-to-r from-red-600 via-orange-500 to-transparent rounded-full blur-[80px] opacity-70 mix-blend-color-dodge pointer-events-none" />
+    <section 
+      id="contenido" 
+      style={{ fontFamily: "var(--font-darker, 'Darker Grotesque', sans-serif)" }}
+      className="relative w-full h-screen max-h-screen flex flex-col justify-between items-center overflow-hidden bg-gradient-to-br from-[#13263F] via-[#8B7AA8] to-[#C46A4A] pt-24 pb-8 px-4 sm:px-6 md:px-12 lg:px-20 select-none"
+    >
+      {/* DESTELLO ORGÁNICO CORPORATIVO */}
+      <div className="absolute top-1/3 left-1/3 w-[500px] h-[300px] bg-gradient-to-r from-[#E88973] via-[#C46A4A] to-transparent rounded-full blur-[90px] opacity-40 mix-blend-color-dodge pointer-events-none" />
 
-      {/* Contenedor limitador de Viewport (Previene desbordamientos y controla alturas) */}
-      <div className="max-w-7xl mx-auto w-full h-full flex flex-col justify-start px-6 md:px-12 lg:px-20 relative z-10 max-h-[85vh]">
+      {/* CONTENEDOR LIMITADOR A PANTALLA COMPLETA */}
+      <div className="max-w-6xl mx-auto w-full h-full flex flex-col justify-between relative z-10 overflow-hidden">
         
-        {/* TÍTULO SECCIÓN - Fijado arriba a la derecha */}
-        <div className="w-full flex justify-end mb-4 shrink-0">
-          <h2 className="text-white text-4xl md:text-6xl font-black tracking-wide uppercase opacity-95">
-            Contenido
-          </h2>
+        {/* ENCABEZADO DE LA SECCIÓN (Ahora cambia dinámicamente) */}
+        <div className="w-full flex flex-col md:flex-row justify-between items-start md:items-end mb-4 shrink-0 border-b border-[#F4F1ED]/10 pb-3">
+          <div>
+            <h2 className="text-[#F4F1ED] text-3xl md:text-5xl font-black tracking-wide uppercase opacity-95">
+              {seccionTitulo}
+            </h2>
+          </div>
+
+          {/* SELECTOR DE MÓDULOS */}
+          <div className="flex flex-wrap gap-1.5 bg-[#13263F]/60 p-1 rounded-full border border-[#F4F1ED]/10 shadow-inner mt-2 md:mt-0">
+            {totalModulos.map((index) => (
+              <button
+                key={index}
+                onClick={() => setActiveModulo(index)}
+                className={`px-3 py-1.5 text-xs font-bold tracking-widest uppercase rounded-full transition-all duration-300 ${
+                  activeModulo === index
+                    ? 'bg-[#E88973] text-white shadow-md scale-105'
+                    : 'text-[#F4F1ED]/60 hover:text-[#F4F1ED] hover:bg-white/[0.05]'
+                }`}
+              >
+                {tabLabel} 0{index + 1}
+              </button>
+            ))}
+          </div>
         </div>
 
-        {/* CONTENEDOR DE TARJETAS CENTRADAS VERTICALMENTE
-            - flex-grow toma todo el espacio vertical sobrante.
-            - items-center asegura que la fila completa de tarjetas flote justo al centro del viewport.
-        */}
-        <div 
-          ref={scrollContainerRef}
-          className="w-full flex-grow flex items-center overflow-x-auto space-x-6 snap-x snap-mandatory scrollbar-none px-2 justify-start"
-        >
-          {modulosData.map((modulo, index) => (
-            <div key={index} className="snap-center shrink-0 w-[85vw] sm:w-[340px] flex justify-center">
-              <CardModulo 
-                year={modulo.year}
-                title={modulo.title}
-                text={modulo.text}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* BOTONES DE NAVEGACIÓN (Estilo Liquid Frosted Glass) */}
-        <div className="flex items-center justify-center space-x-4 mt-6 shrink-0">
-          <button 
-            onClick={() => handleScroll('left')}
-            className="w-11 h-11 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:scale-95 transition-all shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] hover:bg-white/[0.12]"
-            aria-label="Anterior"
-          >
-            <svg className="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
+        {/* TARJETA PRINCIPAL PREMIUM GLASSMORPHISM */}
+        <div className="w-full flex-grow bg-[#13263F]/30 backdrop-blur-xl border border-[#F4F1ED]/15 p-6 md:p-8 rounded-2xl text-[#F4F1ED] shadow-2xl overflow-hidden grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch mb-2">
           
-          <button 
-            onClick={() => handleScroll('right')}
-            className="w-11 h-11 rounded-full bg-white/[0.06] backdrop-blur-md border border-white/20 flex items-center justify-center text-white active:scale-95 transition-all shadow-[inset_0_1px_2px_rgba(255,255,255,0.3)] hover:bg-white/[0.12]"
-            aria-label="Siguiente"
-          >
-            <svg className="w-5 h-5 stroke-[2.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
+          {/* DETALLES DEL MÓDULO (Izquierda - Info 100% real) */}
+          <div className="md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#F4F1ED]/10 pb-4 md:pb-0 md:pr-6 overflow-y-auto">
+            <div>
+              <h3 className="text-xl md:text-2xl font-black leading-none tracking-widest text-[#E88973] uppercase">
+                {moduloLabel} {activeModulo + 1}
+              </h3>
+              
+              <p className="text-base md:text-xl font-medium text-[#F4F1ED]/90 tracking-wide mt-4 leading-relaxed">
+                {moduloTitulo}
+              </p>
+            </div>
+
+            <div className="hidden md:block pt-4">
+              <span className="text-[10px] uppercase font-bold tracking-widest text-[#8B7AA8] block">
+                Human Moovearts
+              </span>
+            </div>
+          </div>
+
+          {/* LISTA DE CLASES NUMERADAS (Derecha - Scroll interno exclusivo) */}
+          <div className="md:col-span-7 flex flex-col justify-start overflow-hidden h-full">
+            <div className="flex-grow overflow-y-auto pr-1 space-y-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent max-h-full">
+              {clasesArray.map((clase, i) => {
+                const numeroClase = String(i + 1).padStart(2, '0');
+                return (
+                  <div 
+                    key={i} 
+                    className="flex items-start bg-white/[0.03] border border-white/[0.05] p-3 rounded-xl hover:bg-white/[0.07] hover:border-[#E88973]/20 transition-all duration-200"
+                  >
+                    {/* Número Identificador */}
+                    <span className="text-sm font-black text-[#E88973] tracking-wider shrink-0 mt-0.5 w-6 text-center">
+                      {numeroClase}
+                    </span>
+                    
+                    {/* Separador */}
+                    <div className="w-[1px] h-4 bg-[#F4F1ED]/20 mx-3 shrink-0 self-center" />
+                    
+                    {/* Texto de la lección */}
+                    <span className="text-xs md:text-sm font-light leading-snug text-[#F4F1ED]/90 tracking-wide">
+                      {clase}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
         </div>
 
       </div>

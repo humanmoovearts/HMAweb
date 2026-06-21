@@ -1,5 +1,14 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
 
+
+@theme {
+  /* Helvetica suele estar instalada de forma nativa en la mayoría de los sistemas */
+  --font-helvetica: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+  
+  /* Registramos Darker Grotesque */
+  --font-darker: 'Darker Grotesque', sans-serif;
+}
 :root {
   font-family: Inter, ui-sans-serif, system-ui, sans-serif;
   color: #e5eefb;

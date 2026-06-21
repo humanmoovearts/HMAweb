@@ -1,0 +1,337 @@
+{
+  "navegacion": [
+    { "etiqueta": "Inicio", "enlace": "#inicio" },
+    { "etiqueta": "Quienes Somos", "enlace": "#quienes-somos" },
+    { "etiqueta": "Inversión", "enlace": "#inversion" },
+    { "etiqueta": "Perfil del Egresado", "enlace": "#perfil-egresado" },
+    { "etiqueta": "Contacto", "enlace": "#contacto" }
+  ],
+  "organizacion": {
+    "descripcion": "Organización educativa interdisciplinaria que integra psicología, artes escénicas y ciencias sociales para generar experiencias formativas que conectan cuerpo, mente y sociedad. Más que cursos, crea espacios de investigación, comunidad y transformación humana.",
+    "filosofia": {
+      "lema_fundamental": "Creemos que el cuerpo, la mente y el entorno social no pueden entenderse por separado."
+    },
+    "proposito": "Construimos comunidad a través del conocimiento compartido y tendemos un puente entre la teoría y la experiencia, convirtiendo la introspección en movimiento y el movimiento en conciencia social para generar un desarrollo humano profundo con impacto real.",
+    "metodologia": "Apostamos por el pensamiento crítico, la investigación y el arte como herramientas reales de transformación humana y colectiva."
+  },
+  "diplomado": {
+    "nombre": "Human Moove Arts",
+    "aval": "Avalado por la Benemérita Universidad Autónoma de Puebla (BUAP)",
+    "informacion_general": {
+      "fecha_inicio": "15 de Agosto",
+      "horarios": "Sábados de 9:00 am a 1:00 pm (Hora CDMX)",
+      "sedes": [
+        "Facultad de Psicología de la BUAP",
+        "Salón de danza de LEACT (Laboratorio de Experimentación Artística y Cultural Tragaluz)"
+      ]
+    },
+    "perfil_egreso": {
+      "vision_general": "Formación de profesionales con visión interdisciplinaria y crítica, capaces de entender el bienestar como un process colectivo ligado al contexto social. Desarrolla la habilidad de diseñar proyectos de intervención, investigación o creación utilizando el arte como herramienta de resistencia, memoria, cuidado comunitario y transformación con verdadero impacto cultural.",
+      "enfoques_por_disciplina": [
+        {
+          "id": 1,
+          "disciplina": "El Egresado desde la psicología",
+          "resumen": "Lleva la práctica clínica fuera del consultorio tradicional hacia la realidad social. Permite comprender la psique desde el entorno sociocultural, despatologizando el sufrimiento mediante herramientas artísticas y un enfoque ético de derechos humanos y bienestar colectivo."
+        },
+        {
+          "id": 2,
+          "disciplina": "El Egresado desde las ciencias sociales",
+          "resumen": "Aterriza la teoría crítica directamente en el territorio y el cuerpo. Brinda metodologías creativas para co-crear proyectos con comunidades, diseñar estrategias de bienestar interdisciplinarias y activar espacios de resistencia frente a las desigualdades del sistema."
+        },
+        {
+          "id": 3,
+          "disciplina": "El Egresado desde las artes escénicas",
+          "resumen": "Dota al proceso creativo de un sentido político, social y metodológico riguroso, idóneo para convocatorias internacionales. Permite utilizar el cuerpo como vehículo de memoria y colaborar horizontalmente con la psicología o sociología en laboratorios de cuidado colectivo."
+        }
+      ]
+    }
+  },
+  "contenido_tematico": {
+    "modulos": [
+      {
+        "numero": 1,
+        "titulo": "Bienestar integral, subjetividad y pensamiento crítico",
+        "clases": [
+          "Bienvenida e introducción",
+          "Bienestar integral",
+          "Identidad, crisis y desarrollo humano",
+          "Teoría crítica y el arte"
+        ]
+      },
+      {
+        "numero": 2,
+        "titulo": "Colonialismo, producción de otredad y resistencia",
+        "clases": [
+          "Comprensión de la Otredad para la práctica profesional",
+          "La colonialidad del saber: cuestionando la psicología y las artes eurocéntricas",
+          "Artes y representaciones: La mirada colonial masculina en la estética",
+          "Descolonizar el saber, el sentir y el hacer a través del arte",
+          "Laboratorio Práctico 1: Metodologías y herramientas decoloniales y de intervención artística, psicológica y social."
+        ]
+      },
+      {
+        "numero": 3,
+        "titulo": "Capitalismo y resistencias desde los cuidados",
+        "clases": [
+          "Comprendiendo el capitalismo: acumulación, power, y desigualdad",
+          "Salud mental y clase: La psicopatologización de la precariedad",
+          "Sistemas corporales y psicosomáticos: cuerpos sensibles y saludables vs el cuerpo productivo.",
+          "Repensando el trabajo desde una perspectiva de cuidados",
+          "Laboratorio Práctico 2: Estrategias de autogestión y redes de apoyo"
+        ]
+      },
+      {
+        "numero": 4,
+        "titulo": "Patriarcado, género y producción de subjetividades",
+        "clases": [
+          "Comprendiendo el género: la historia del feminismo",
+          "Geopolítica feminista como metodología de análisis: de lo global a lo personal",
+          "Violencia de género en México: implicaciones para la salud mental",
+          "Cuerpos, identidades y diversidad sexual",
+          "Laboratorio Práctico 3: Herramientas de intervención y creación con perspectiva de género / Seguimiento y propuesta de proyectos finales"
+        ]
+      },
+      {
+        "numero": 5,
+        "titulo": "Consolidación de capacidades y profesionalización",
+        "clases": [
+          "Jornada de conferencias especializadas",
+          "Taller de aplicación: desarrollo de proyectos críticos, integrales e interdisciplinarios",
+          "Seminario: el rol del egresado en el bienestar integral actual",
+          "Mentoría grupal y seguimiento de proyectos",
+          "1º Ensayo general de presentaciones, obras escénicas, proyectos y retroalimentación final",
+          "2º Ensayo general de presentaciones, obras escénicas, proyectos y retroalimentación final",
+          "Coloquio de proyectos finales"
+        ]
+      }
+    ],
+    "evento_cierre": {
+      "nombre": "Encuentro de Saberes",
+      "descripcion": "Es el evento de cierre del diplomado, diseñado para funcionar al mismo tiempo como una convención académica y un festival artístico y comunitario. Durante una semana, dejaremos de lado los exámenes tradicionales para abrir un espacio vivo donde podrás compartir los proyectos, reflexiones y propuestas escénicas que desarrollaste en las clases, además de conectar con investigaciones e invitados locales e internacionales. A través de actividades como charlas, talleres, exposiciones y presentaciones artísticas, este encuentro es el momento clave para sacar el conocimiento de la libreta, y ver cómo se transforma en creación real y celebración colectiva, un enfoque de bienestar integral que genera comunidad."
+    }
+  },
+  "costos_y_financiamiento": {
+    "inscripcion": {
+      "monto": 1500,
+      "moneda": "MXN",
+      "descripcion": "Pago inicial obligatorio requerido para asegurar el lugar y habilitar el acceso a los esquemas de financiamiento y pago de colegiaturas.",
+      "detalles_adicionales": {
+        "modalidad_stripe": "El pago de la inscripción SI se abona al pago del certificado BUAP ($2,200 MXN), por lo que solamente pagarías $700 pesos en ese rubro.",
+        "modalidad_transferencia_efectivo": "El pago de la inscripción NO se abona al pago del certificado BUAP ($2,200 MXN)."
+      }
+    },
+    "programas": [
+      {
+        "id": 1,
+        "modalidad": "Presencial",
+        "metodo_pago": "Tarjeta (Stripe)",
+        "base_mensual": 3000,
+        "duracion_programa_meses": 8,
+        "costo_total_sin_beca": 24000,
+        "moneda": "MXN",
+        "opciones_financiamiento": [
+          { "plazo_mensualidades": 9, "porcentaje_beca": 20, "monto_total_colegiaturas": 19200, "pago_mensual": 2133 },
+          { "plazo_mensualidades": 12, "porcentaje_beca": 15, "monto_total_colegiaturas": 20400, "pago_mensual": 1700 }
+        ]
+      },
+      {
+        "id": 2,
+        "modalidad": "Presencial",
+        "metodo_pago": "Transferencia o Efectivo (Mes a Mes)",
+        "base_mensual": 3000,
+        "duracion_programa_meses": 8,
+        "costo_total_sin_beca": 24000,
+        "moneda": "MXN",
+        "opciones_financiamiento": [
+          { "plazo_mensualidades": 8, "porcentaje_beca": 30, "monto_total_colegiaturas": 16800, "pago_mensual": 2100 },
+          { "plazo_mensualidades": 8, "porcentaje_beca": 35, "monto_total_colegiaturas": 15600, "pago_mensual": 1950 }
+        ]
+      },
+      {
+        "id": 3,
+        "modalidad": "Online",
+        "metodo_pago": "Tarjeta (Stripe)",
+        "base_mensual": 2600,
+        "duracion_programa_meses": 8,
+        "costo_total_sin_beca": 20800,
+        "moneda": "MXN",
+        "opciones_financiamiento": [
+          { "plazo_mensualidades": 9, "porcentaje_beca": 20, "monto_total_colegiaturas": 16640, "pago_mensual": 1849 },
+          { "plazo_mensualidades": 12, "porcentaje_beca": 15, "monto_total_colegiaturas": 17680, "pago_mensual": 1473 }
+        ]
+      },
+      {
+        "id": 4,
+        "modalidad": "Online",
+        "metodo_pago": "Transferencia o Efectivo (Mes a Mes)",
+        "base_mensual": 2600,
+        "duracion_programa_meses": 8,
+        "costo_total_sin_beca": 20800,
+        "moneda": "MXN",
+        "opciones_financiamiento": [
+          { "plazo_mensualidades": 8, "porcentaje_beca": 30, "monto_total_colegiaturas": 14560, "pago_mensual": 1820 },
+          { "plazo_mensualidades": 8, "porcentaje_beca": 35, "monto_total_colegiaturas": 13520, "pago_mensual": 1690 }
+        ]
+      }
+    ],
+    "politicas": [
+      { "tipo": "Periodo de pago ordinario", "regla": "Los pagos de las mensualidades deben realizarse estrictamente del 14 al 18 de cada mes para conservar el beneficio de la beca asignada." },
+      { "tipo": "Pago tardío", "regla": "A partir del día 19 de cada mes, se aplicará un cargo moratorio automático del 8% sobre el valor del pago regular." },
+      { "tipo": "Penalización por morosidad acumulada", "regla": "La acumulación de tres pagos tardíos resultará en la anulación total y definitiva de la beca otorgada, teniendo que cubrir el costo regular." },
+      { "tipo": "Certificación externa", "regla": "El costo del certificado BUAP es de $2,200 MXN (sujeto a las condiciones de bonificación de la inscripción según la pasarela de pago elegida)." }
+    ]
+  },
+  "maestros": [
+    {
+      "nombre": "Bryan Chavarría Campos",
+      "pais": "Costa Rica",
+      "perfil": "Coreógrafo, intérprete, pedagogo y filólogo. Galardonado con el Premio Nacional de Cultura en Danza 2024, su trabajo entrelaza la creación, la investigación y la decolonialidad del cuerpo. Es co-director de los colectivos Yunta y Reinas Arte Escénico, y a través de laboratorios como su taller \"Maleable\", propone potenciar un \"cuerpo escénico extra-cotidiano\", compartiendo su metodología en Costa Rica, Guatemala y México."
+    },
+    {
+      "nombre": "Sahira Barrios Hernández",
+      "pais": "México",
+      "perfil": "Directora General y Fundadora de Human MooveArts. Psicóloga por la BUAP, Licenciada en Danza por la UDLAP y maestrante en Terapias Artístico-Creativas, cuenta con formación en psicoterapia, orientación psicológica y habilidades clínicas. Con más de 15 años de trayectoria escénica y docente, ha tejido un puente importante entre la salud mental and las artes del movimiento. Su labor abarca la docencia en todos los niveles académicos, la investigación coreográfica y el liderazgo en proyectos de intervención comunitaria. Su participación en proyectos artísticos y en sectores vulnerables fuera de México recorren Costa Rica, Guatemala y Nueva York. Su pedagogía fusiona la psicología integrativa y la praxis corporal bajo una convicción profunda: \"En un mundo lleno de violencia, la ternura es revolución\"."
+    },
+    {
+      "nombre": "Ang García Azofeifa",
+      "pais": "Costa Rica",
+      "perfil": "Artista escénicx, docente, creadore y filólogx en literatura inglesa. Su praxis artística e investigativa se nutre desde la dirección teatral, el performance y la palabra hablada (spoken word) disidente. Con un enfoque profundamente arraigado en las narrativas decoloniales, de género y de las corporalidades, ha compartido su labor y ponencias en espacios internacionales de México, El Salvador, Kenia y Estados Unidos, utilizando el arte escénico como un territorio de resistencia, memoria y transformación social."
+    },
+    {
+      "nombre": "Laura Cruz Torres",
+      "pais": "Costa Rica",
+      "perfil": "Artista multidisciplinar, investigadora, escritora y facilitadora. Su práctica entrelaza de forma pionera las artes del movimiento, la educación somática, la neurociencia y la ecología. Con una sólida formación internacional en Suecia, España y Dinamarca, Laura investiga los procesos psicocorporales en entornos naturales y acuáticos a través de metodologías propias como \"Danzar el Paisaje\". Su labor pedagógica aborda la kinesis desde miradas ecofeministas y de bienestar integral, facilitando laboratorios en Latinoamérica y Europa."
+    },
+    {
+      "nombre": "José Roberto Romero Espinosa",
+      "pais": "México",
+      "perfil": "Especialista en comunicación política, branding, estrategia digital y construcción de narrativa pública. Maestro en Opinión Pública y Marketing Político por la BUAP y egresado de la UDLAP, cuenta con una sólida trayectoria como consultor de marca, docente y coordinador académico. Su experiencia abarca la dirección de comunicación social e institucional, vinculando estrategias de comunicación verbal y no verbal para potenciar la identidad corporativa y el desarrollo de proyectos con impacto social y comunitario."
+    },
+    {
+      "nombre": "Luis Ángel Carranza Pérez",
+      "pais": "México",
+      "perfil": "Psicólogo social, investigador y docente. Es candidato a Doctor en Investigación Psicológica por el ITESO y Maestro en Psicología Social por la BUAP. Su trabajo se especializa en la investigación cualitativa, el análisis del discurso y el abordaje psicosocial del territorio, el espacio público, el género y la política cultural de las emociones. Ha participado en proyectos de investigación internacional sobre dinámicas sociales y es coautor de publicaciones enfocadas en los juicios morales y la categorización social en América Latina."
+    },
+    {
+      "nombre": "Jimmy Ortiz Chinchilla",
+      "pais": "Costa Rica",
+      "perfil": "Coreógrafo, director, actor, pedagogo y psicólogo por la Universidad de Costa Rica (UCR). Es Máster Académico en Artes y doctorando en Estudios de la Sociedad y la Cultura (UCR). Pionero y líder de la danza contemporánea centroamericana, fundó la emblemática compañía Losdenmedium y el revolucionario Conservatorio El Barco. Ha sido galardonado con más de diez Premios Nacionales de Danza y Teatro, y su innovador enfoque pedagógico basado en los conceptos de Juego, ficción y Sorpresa ha formado a generaciones de creadores. Actualmente es profesor universitario, docente invitado internacional y director general de la plataforma ENSIMISMADOS."
+    },
+    {
+      "nombre": "Claudia Ronson",
+      "pais": "México",
+      "perfil": "Internacionalista, maestra en Pedagogía (UPAEP) y maestrante en Estudios de Género (IAP). Es especialista en Derechos Humanos, perspectiva de género, prevención de la violencia y políticas educativas, con estancias de investigación y ponencias internacionales en EE.UU., España, Colombia y Ecuador. Ha colaborado con la Secretaría de Educación y la Secretaría de Igualdad Sustantiva de Puebla como facilitadora de círculos de reflexión y diseñadora curricular. Activista y cofundadora de la Colectiva Kindaa, su trabajo se enfoca en la construcción colectiva de la ciudad, el espacio público y la educación comunitaria desde el enfoque feminista."
+    },
+    {
+      "nombre": "Dra. Verónica Adriana Rosas Jiménez",
+      "pais": "México",
+      "perfil": "Psicóloga, socióloga, investigadora y docente con perspectiva humanista y crítica. Es Doctora en Sociología por la BUAP y cuenta con una destacada trayectoria en docencia universitaria (IBERO, BUAP, UPAEP) y en la coordinación de proyectos sociales de incidencia comunitaria. Ha sido responsable del Centro Comunitario de la IBERO Puebla y cuenta con diversas publicaciones enfocadas en las cuestiones territoriales urbanas, las metodologías participativas, el género, la apropiación del espacio y alternativas ecotecnológicas en zonas periféricas."
+    },
+    {
+      "nombre": "Mariana Marín Mendoza",
+      "pais": "México",
+      "perfil": "Internacionalista (IBERO Puebla), investigadora y bailarina dedicada a la defense de los derechos humanos y la construcción comunitaria. Con líneas de investigación en género, geopolítica y decolonialidad, cuenta con publicaciones académicas en las revistas Incidencias y Contratiempo. Se ha formado en plataformas de danza internacionales como REVÉS (Costa Rica) y CONNATURAL (Guatemala); actualmente colabora en Mexiro A.C. en la propuesta de ley de maternidades a nivel nacional. Desde el activismo y el movimiento, entiende la danza como un acto político para cuestionar las estructuras sociales y habitar el cuerpo-territorio."
+    },
+    {
+      "nombre": "Yeajean Choi",
+      "pais": "Corea del Sur",
+      "perfil": "Coreógrafo, creadora de video danzas, docente y performer internacional. Es Maestra en Bellas Artes (M.F.A.) en Danza por la Texas Woman’s University y por la Sung Kyun Kwan University de Seúl. Fue profesora de tiempo completo y coordinadora del programa de Danza en la UDLAP. Su trabajo interdisciplinario, premiado en festivales de cine y danza en Asia, Europa y América, investiga la improvisación de contacto, las danzas tradicionales coreanas y el site-specific. Es cofundadora de la organización artística kNOwBOX Dance y directora de programación del festival con el mismo nombre."
+    },
+    {
+      "nombre": "Grei Quezac",
+      "pais": "Costa Rica",
+      "perfil": "Coreógrafo, bailarín, docente y productor artístico. Maestro en Danza con énfasis en pedagogía por la Universidad Nacional de Costa Rica y egresado del prestigioso Conservatorio El Barco. Fue Director de la Compañía Nacional de Danza de Costa Rica (2023-2025). Su propuesta pedagógica e investigación del movimiento —materializada en talleres internacionales como Eyectado y Cyborg— se centra en la autonomía corporal, la horizontalidad y la subjetividad en el movimiento. Es cofundador de la plataforma internacional ENSIMISMADOS y del colectivo Reinas Arte Escénico, entrelazando una sólida trayectoria de creación en redes universitarias y festivales de toda Latinoamérica."
+    },
+    {
+      "nombre": "María Isabel Quechol Delgado",
+      "pais": "México",
+      "perfil": "Psicóloga por la BUAP, cuenta con una doble Maestría en Psicoterapia Psicoanalítica (Centro Eleia) y en Pedagogía (UPAEP), además de estudios de Doctorado en Clínica Psicoanalítica. Con más de 8 años de trayectoria, es especialista en salud mental institucional, bienestar organizacional y psicología educativa. Ha diseñado e implementado programas de intervención en crisis, contención psicológica y prevención de riesgos psicosociales en contextos escolares de alta escala. Destaca su experiencia como Gerente Senior en Fundación Azteca y Jefa de Departamento en la SEP de Puebla, así como su colaboración multidisciplinaria con UNICEF en atención a emergencias. Cuenta con certificación oficial por CONOCER para la atención a mujeres víctimas de violencia, consolidando una visión integradora que une el rigor clínico con la gestión psicopedagógica contemporánea."
+    },
+    {
+      "nombre": "Gabriela Carrasco Prisco",
+      "pais": "México",
+      "perfil": "Músico, flautista y educadora musical especializada en musicoterapia aplicada a la educación y estimulación psicomotriz. Con una sólida formación en neurociencias y pedagogías musicales inclusivas, ha compartido sus investigaciones en foros y congresos internacionales en Cuba y Brasil. Su práctica entrelaza la música de cámara, el teatro musical y el estudio de la neurodiversidad, explorando el sonido y la rítmica como herramientas fundamentales para el desarrollo humano integral y el bienestar."
+    },
+    {
+      "nombre": "Mtro. José Eduardo Espinosa Martínez",
+      "pais": "México",
+      "perfil": "Ingeniero Electrónico y de Comunicaciones con un MBA en Mercadotecnia de Servicios por la UDLAP. Es especialista en tecnología escénica, diseño de iluminación y videomapping. Cuenta con una trayectoria de más de dos décadas en la dirección técnica, logística y materialización de cientos de montajes de teatro, danza, ópera y festivales internacionales como Performatica. Destaca su experiencia como Crew Chief en el show Joya del Cirque du Soleil y su gestión actual como Coordinador de Producciones de Artes Escénicas en la UDLAP, fusionando de manera única la ingeniería, la docencia y la sensibilidad artística."
+    },
+    {
+      "nombre": "Pablo Antolín Blanco",
+      "pais": "España",
+      "perfil": "Maestro de Educación Primaria, funcionario de carrera y Jefe de Estudios especializado en innovación educativa, metodologías activas y competencia digital docente. Con una destacada trayectoria en la coordinación pedagógica y el diseño de situaciones de aprendizaje inclusivas, su trabajo se enfoca en la integración didáctica de las TIC, la inteligencia artificial aplicada a la educación, la robótica educativa y la radio escolar como herramienta competencial. Colaborador en grupos de innovación pedagógica, destaca por su enfoque en el diseño de espacios de aprendizaje y la creación de recursos didácticos motivadores y conectados con la comunidad."
+    },
+    {
+      "nombre": "Alejandra Carmona",
+      "pais": "España",
+      "perfil": "Educadora social, traumaterapeuta infantojuvenil y especialista en contextos de vulnerabilidad. Cuenta con una Diplomatura en Traumaterapia Sistémica Infantojuvenil. Su trayectoria profesional y de voluntariado se centra en la intervención socioeducativa con menores en el sistema de protección, el acompañamiento en procesos de desarrollo y aprendizaje, y la gestión de conflictos. Es experta en la detección y abordaje del trauma temprano, el maltrato y las dinámicas de apego, promoviendo una práctica clínica y educativa con un enfoque profundamente reparador."
+    },
+    {
+      "nombre": "Lu Bermúdez",
+      "pais": "México",
+      "perfil": "Artista escénica, comunicadora social, gestora dancística y activista. Especializada en danzas urbanas con una trayectoria de 10 años en la escena nacional e internacional, ha representado a México en festivales de batallas de baile en países como Colombia y se ha formado en destacadas compañías del país. Su trabajo como coreógrafa fusiona el movimiento con el activismo, creando puestas en escena enfocadas en la salud mental, la equidad de género y la visibilización de las mujeres en colaboración con artistas como Audry Funk. Es fundadora e impulsora de iniciativas dadas a la creación de espacios seguros en el medio dancístico."
+    },
+    {
+      "nombre": "Alejandra Garavito Aguilar",
+      "pais": "Guatemala",
+      "perfil": "Psicóloga clínica (Cum Laude) con diploma en Neurociencia (URL), bailarina y terapeuta psicocorporal. Especializada en la metodología de \"Terapia de Reencuentro\" y el Movimiento Auténtico, cuenta con una sólida trayectoria internacional en el acompañamiento a sobrevivientes de trauma, juventud en riesgo y procesos de arteterapia. Es investigadora escénica, ganadora del premio Iberescena y de la Bienal en Resistencia, y cofundadora de la destacada plataforma centroamericana CONNATURAL. Como docente y facilitadora, entrelaza la psicología profunda con la Improvisación de Contacto para la transformación y la sanación colectiva."
+    },
+    {
+      "nombre": "Dr. José Luis Rodríguez Sánchez",
+      "pais": "México",
+      "perfil": "Psicólogo, terapeuta, investigador y actual Director de la Facultad de Psicología de la Benemérita Universidad Autónoma de Puebla (BUAP) para el periodo 2024-2028. Doctor en Investigación Psicológica, se ha desempeñado como Coordinador de las Maestrías en Psicoterapia y en Diagnóstico y Rehabilitación Neuropsicológica en la misma institución. Su gestión y líneas de investigación se centran en el bienestar integral, la cultura de paz, la psicopatología y la personalidad, destacando por su impulso a la excelencia de los posgrados y la creación de nuevos planes de estudio con impacto social."
+    },
+    {
+      "nombre": "Andrei Niconoff",
+      "pais": "México",
+      "perfil": "Comunicador, productor musical y curador sonoro con más de 15 años de trayectoria en la industria de los medios, el entretenimiento y el bienestar digital. Es Licenciado en Ciencias de la Comunicación por la Universidad de León y fundador de Subconscious Alchemy, una innovadora marca de audio enfocada en el bienestar que fusiona la producción musical con principios de neuroplasticidad, frecuencias binaurales y estimulación del sistema nervioso. Especialista en identidad sonora y sensory branding, su trabajo explora el poder del diseño de audio y la curaduría musical como herramientas de transformación, sanación y equilibrio psicofísico."
+    },
+    {
+      "nombre": "Brahim Zamora Salazar",
+      "pais": "México",
+      "perfil": "Activista, consultor en políticas públicas, comunicador y poeta con más de 25 años de trayectoria en la defensa de los derechos humanos. Es consejero consultivo de la CDH Puebla, miembro de la junta de la CEEAVI y Director de Comunicación en Odesyr AC. Especialista en el diseño de modelos didácticos sobre género, masculinidades y derechos sexuales, su trabajo entrelaza el rigor de las ciencias sociales con la potencia del arte. Es ganador del Premio Letras Poblanas 2025 en Poesía y un referente histórico en la gestión cultural y el activismo comunitario en la región."
+    }
+  ],
+  "testimonios": [
+    {
+      "id": 1,
+      "autor": "Sadali K.",
+      "calificacion": 4.85,
+      "resumen": "Una experiencia profundamente transformadora que invita a cuestionar las certezas sobre el cuerpo, el cuidado y la comunidad. Destaca la riqueza de compartir con distintas disciplinas y el valor de la colectividad y la escucha para desarrollar una práctica profesional más crítica, sensible y humana."
+    },
+    {
+      "id": 2,
+      "autor": "Anel de Rodrigo",
+      "calificacion": 5.0,
+      "resumen": "El diplomado impulsa el crecimiento profesional abriendo nuevos caminos para aplicar el conocimiento en favor de los demás. A nivel personal, la práctica corporal y de movimiento permite liberar emociones, guiada por docentes capaces de transmitir conocimientos, esperanza y cambio."
+    },
+    {
+      "id": 3,
+      "autor": "Pato",
+      "calificacion": 5.0,
+      "resumen": "Un programa increíble con información, actividades y profesores de primer nivel. Involucra a los participantes como individuos, logrando crear vínculos auténticos a través de experiencias compartidas. Es un verdadero nodo de crecimiento, aprendizaje profundo y comunidad."
+    },
+    {
+      "id": 4,
+      "autor": "Finn",
+      "calificacion": 5.0,
+      "resumen": "Sumamente valioso para cuestionar con contexto histórico y social las actitudes duras normalizadas en la enseñanza del arte. Ofrece herramientas de exploración corporal que enriquecen la comprensión del movimiento y la expresión emocional, siendo de gran utilidad incluso para otras áreas visuales como la animación."
+    },
+    {
+      "id": 5,
+      "autor": "Brenda ArSa",
+      "calificacion": 5.0,
+      "resumen": "Ideal para complementar la labor docente en danza desde una perspectiva psicológica y social consciente. El diplomado brinda herramientas prácticas que van más allá de la teoría; se viven en el cuerpo y transforman los procesos personales, profesionales y de género."
+    }
+  ],
+  "contacto": {
+    "manifiesto_invitacion": "El arte y el movimiento no son privilegios de unos cuantos, son herramientas de resistencia y transformación al alcance de cualquier cuerpo dispuesto a habitarlos. En HUMAN MOOVEARTS te damos el espacio, la teoría crítica y la comunidad; tú solo pon la intención. No lo pienses más. El momento de conectar tu mente con la experiencia colectiva, cuestionar el entorno y transformar tu realidad a través del movimiento es ahora.",
+    "redes_sociales": [
+      { "plataforma": "Instagram", "url": "https://www.instagram.com/human.moovearts?igsh=MzljcDVxaG9xNWk3" },
+      { "plataforma": "TikTok", "url": "https://www.tiktok.com/@human.moovearts?_r=1&_t=ZS-96E7wfVSqPw" },
+      { "plataforma": "YouTube", "url": "https://youtube.com/@human.moovearts?si=dveDpkFDTPyCuhj7" },
+      { "plataforma": "Email", "url": "mailto:mooveartshumanmoovearts@gmail.com" }
+    ]
+  }
+}
