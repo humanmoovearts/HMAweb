@@ -1,37 +1,55 @@
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Darker+Grotesque:wght@300..900&family=Oswald:wght@500;750&display=swap');
 
 @theme {
-  /* Helvetica suele estar instalada de forma nativa en la mayoría de los sistemas */
   --font-helvetica: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
-  
-  /* Registramos Darker Grotesque */
   --font-darker: 'Darker Grotesque', sans-serif;
-}
-:root {
-  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
-  color: #e5eefb;
-  background:
-    radial-gradient(circle at top, rgba(59, 130, 246, 0.28), transparent 30%),
-    linear-gradient(180deg, #07111f 0%, #0f172a 45%, #020617 100%);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --font-oswald: 'Oswald', sans-serif;
+  
+  --color-hueso: #F4F1ED;
+  --color-azulOscuro: #13263F;
+  --color-violeta: #8B7AA8;
+  --color-coral: #E88973;
+  --color-terracota: #C46A4A;
 }
 
-* {
-  box-sizing: border-box;
+/* Animación líquida de fondo */
+@keyframes gradientFluid {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
-html,
-body,
-#root {
+.bg-fluid-art {
+  background: linear-gradient(-45deg, #13263F, #8B7AA8, #C46A4A, #13263F);
+  background-size: 400% 400%;
+  animation: gradientFluid 15s infinite ease-in-out;
+}
+
+/* Textura de grano analógico cinemático */
+.film-grain {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0; left: 0;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Rotación lenta para el diagrama abstracto */
+@keyframes slowRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.animate-diagram {
+  animation: slowRotate 45s infinite linear;
+}
+
+html, body, #root {
   min-height: 100%;
   margin: 0;
-}
-
-body {
-  min-height: 100vh;
+  background-color: #13263F;
 }

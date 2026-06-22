@@ -11,13 +11,16 @@ export default function Proposito() {
 
   // Arreglo de imágenes apuntando a /public/edicion-pasada/
   const galeriaFotos = [
-    "/edicion-pasada/1.webp", 
-    "/edicion-pasada/2.webp",
-    "/edicion-pasada/3.webp",
-    "/edicion-pasada/4.webp",
-    "/edicion-pasada/6.webp",
-    "/edicion-pasada/9.webp",
-    "/edicion-pasada/10.webp"
+    "/edicion-pasada/1.jpeg", 
+    "/edicion-pasada/2.jpeg",
+    "/edicion-pasada/3.jpeg",
+    "/edicion-pasada/4.jpeg",
+    "/edicion-pasada/5.jpeg",
+    "/edicion-pasada/6.jpeg",
+    "/edicion-pasada/7.jpeg",
+    "/edicion-pasada/8.jpeg",
+    "/edicion-pasada/9.jpeg",
+    "/edicion-pasada/10.jpeg"
   ];
 
   const nextSlide = () => {
@@ -110,7 +113,7 @@ export default function Proposito() {
           <img 
             src={galeriaFotos[currentImg]} 
             alt={`Human Moovearts Gallery ${currentImg + 1}`} 
-            className="w-full h-full object-cover grayscale contrast-115 transition-all duration-750 group-hover:grayscale-0 group-hover:scale-102 select-none pointer-events-none"
+            className="w-full h-full object-cover contrast-115 transition-all duration-750  group-hover:scale-102 select-none pointer-events-none"
             onError={(e) => {
               e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' h='100' viewBox='0 0 24 24' fill='none' stroke='%2313263F' stroke-width='0.5' opacity='0.3'%3E%3Crect x='3' y='3' width='18' h='18' rx='2' ry='2'/%3E%3Ccircle cx='8.5' cy='8.5' r='1.5'/%3E%3Cpolyline points='21 15 16 10 5 21'/%3E%3C/svg%3E";
             }}

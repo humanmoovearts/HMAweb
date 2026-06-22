@@ -111,7 +111,7 @@ const getFotoUrl = (name) => {
                       <img 
                         src={getFotoUrl(maestroNombre)} 
                         alt={maestroNombre} 
-                        className="w-full h-full object-cover grayscale contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
+                        className="w-full h-full object-cover  contrast-115 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out"
                         onError={(e) => {
                           e.target.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' h='100' viewBox='0 0 24 24' fill='none' stroke='%23F4F1ED' stroke-width='1'%3E%3Cpath d='M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E";
                         }}

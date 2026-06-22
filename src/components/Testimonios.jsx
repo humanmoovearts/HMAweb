@@ -54,7 +54,7 @@ export default function Testimonios() {
   const getFotoUrl = (name) => {
     const nameClean = name.trim();
     if (nameClean.toUpperCase().includes('SADALI')) {
-      return '/testimonios/SADALI K..jpeg'; // Doble punto exacto
+      return '/testimonios/Sadali K.jpeg'; // Doble punto exacto
     }
     if (nameClean.toLowerCase().includes('anel')) {
       return '/testimonios/Anel De Rodrigo.jpeg';
@@ -63,7 +63,7 @@ export default function Testimonios() {
       return '/testimonios/Brenda ArSa.jpeg';
     }
     if (nameClean.toLowerCase().includes('finn')) {
-      return '/testimonios/FINN.jpeg';
+      return '/testimonios/Finn.jpeg';
     }
     if (nameClean.toLowerCase().includes('pato')) {
       return '/testimonios/Pato.jpeg';
@@ -104,7 +104,7 @@ export default function Testimonios() {
               <img
                 src={getFotoUrl(autorName)}
                 alt={autorName}
-                className="w-full h-full object-cover grayscale brightness-110 contrast-105 transition-all duration-300 hover:grayscale-0"
+                className="w-full h-full object-cover brightness-110 contrast-105 transition-all duration-300 hover:grayscale-0"
                 onError={(e) => { 
                   e.target.src = '/HMA.png'; 
                 }}
