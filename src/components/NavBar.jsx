@@ -11,7 +11,7 @@ const localNav = {
     { etiqueta: "Contacto", href: "#contacto" }
   ],
   en: [
-    { etiqueta: "Home", href: "#inicio" },
+    { etiqueta: "Home", href: "#heroRef" },
     { etiqueta: "About Us", href: "#quienes-somos" },
     { etiqueta: "Investment", href: "#inversion" },
     { etiqueta: "Graduate Profile", href: "#perfil-egresado" },
