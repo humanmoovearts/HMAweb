@@ -5,11 +5,12 @@ import { gsap } from 'gsap';
 export default function Hero() {
   const { t } = useTranslation();
   const heroRef = useRef(null);
+  const videoRef = useRef(null);
   
   const word1 = "Human";
   const word2 = "Moovearts";
 
-useEffect(() => {
+  useEffect(() => {
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: 'power4.out' } });
 
@@ -29,6 +30,12 @@ useEffect(() => {
           scale: 1,
           duration: 1.1,
           stagger: 0.06,
+          onComplete: () => {
+            // Intentar reproducir el video justo antes de que caiga la cortina para evitar saltos visuales
+            if (videoRef.current) {
+              videoRef.current.play().catch((err) => console.log("Video autoplay bloqueado o pausado:", err));
+            }
+          }
         }
       )
       // 2. Fundido suave de la cortina blanca
@@ -62,18 +69,17 @@ useEffect(() => {
       .fromTo('.anim-bg-diagram', 
         { opacity: 0, scale: 0.85, rotate: -15 }, 
         { 
-          opacity: 0.15, 
+          opacity: 0.25, // Un poco más de opacidad para resaltar sobre el video de fondo
           scale: 1, 
           rotate: 0, 
           duration: 1.8, 
           ease: 'power2.out',
-          // TRUCO MAESTRO: Cuando termine de entrar, disparamos el giro infinito
           onComplete: () => {
             gsap.to('.anim-bg-diagram', {
-              rotate: 360,          // Giro completo
-              duration: 45,         // Súper suave (45 segundos por vuelta) para que sea hipnótico y elegante
-              repeat: -1,           // Infinito
-              ease: 'none'          // Velocidad constante sin tirones
+              rotate: 360,          
+              duration: 45,         
+              repeat: -1,           
+              ease: 'none'          
             });
           }
         }, 
@@ -91,14 +97,30 @@ useEffect(() => {
 
   // RENDERIZADOR UNIFICADO: Ambas capas comparten exactamente el mismo layout, paddings y clases
   const renderLayoutContent = (isIntroLayer) => (
-    <section className={`absolute inset-0 flex min-h-screen w-full flex-col items-center justify-between px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-12 antialiased font-helvetica ${isIntroLayer ? 'hero-white-loader z-50 bg-[#F4F1ED]' : 'bg-fluid-art text-hueso z-10'}`}>
+    <section className={`absolute inset-0 flex min-h-dvh w-full flex-col items-center justify-between px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-12 antialiased font-helvetica ${isIntroLayer ? 'hero-white-loader z-50 bg-[#F4F1ED]' : 'z-10 bg-[#13263F] text-[#F4F1ED]'}`}>
       
-      <div className={isIntroLayer ? 'film-grain opacity-5' : 'film-grain'} />
-
-      {/* DIAGRAMA GEOMÉTRICO (Solo en la capa real para evitar duplicidad visual) */}
+      {/* CAPA DE VIDEO (Solo se inyecta en la capa real para no duplicar carga de red) */}
       {!isIntroLayer && (
-        <div className="anim-bg-diagram absolute top-1/2 left-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-0 opacity-0 md:h-[600px] md:w-[600px]">
-          <svg viewBox="0 0 300 300" className="h-full w-full fill-none stroke-hueso" strokeWidth="0.5">
+        <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
+          {/* Overlay oscuro para garantizar contraste premium de los textos blancos */}
+          <div className="absolute inset-0 bg-[#13263F]/50 backdrop-blur-[2px] z-10 pointer-events-none" />
+          <video
+            ref={videoRef}
+            src="/hero_background.mp4" // Reemplaza aquí la ruta exacta de tu archivo de video en /public
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover object-center"
+          />
+        </div>
+      )}
+
+      <div className={isIntroLayer ? 'film-grain opacity-5 z-20' : 'film-grain z-20'} />
+
+      {/* DIAGRAMA GEOMÉTRICO */}
+      {!isIntroLayer && (
+        <div className="anim-bg-diagram absolute top-1/2 left-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 opacity-0 md:h-[600px] md:w-[600px]">
+          <svg viewBox="0 0 300 300" className="h-full w-full fill-none stroke-[#F4F1ED]" strokeWidth="0.5">
             <circle cx="150" cy="110" r="65" strokeDasharray="2 2" />
             <circle cx="105" cy="180" r="65" />
             <circle cx="195" cy="180" r="65" />
@@ -108,17 +130,17 @@ useEffect(() => {
         </div>
       )}
 
-      {/* BLOQUE SUPERIOR: Cápsula de Estado con colchón controlado */}
+      {/* BLOQUE SUPERIOR: Cápsula de Estado */}
       <div className={`w-full flex justify-center pt-4 shrink-0 relative z-20 ${isIntroLayer ? 'opacity-0 invisible' : 'anim-badge opacity-0'}`}>
-        <div className="rounded-full border border-white/10 bg-white/[0.04] px-5 py-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] backdrop-blur-md">
-          <span className="font-oswald text-[10px] font-medium uppercase tracking-wildest block whitespace-nowrap sm:text-xs md:tracking-[0.35em]">
+        <div className="rounded-full border border-white/10 bg-black/20 px-5 py-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] backdrop-blur-md">
+          <span className="font-helvetica text-[10px] font-bold uppercase tracking-[0.25em] block whitespace-nowrap sm:text-xs md:tracking-[0.35em] text-[#F4F1ED]">
             {t('hero.statusOpen', 'Inscripciones Abiertas')}
           </span>
         </div>
       </div>
 
       {/* BLOQUE CENTRAL: Título Máster y Lema Editorial */}
-      <div className="w-full max-w-4xl flex flex-col items-center justify-center text-center my-auto py-4 relative z-10 select-none">
+      <div className="w-full max-w-4xl flex flex-col items-center justify-center text-center my-auto py-4 relative z-20 select-none">
         <h1 className="font-helvetica text-3xl font-normal uppercase tracking-[0.35em] leading-none w-full pl-[0.35em] sm:text-5xl md:text-6xl lg:text-7xl flex flex-col items-center justify-center gap-y-3 sm:gap-y-6 mb-6 md:mb-8 text-white">
           
           {/* Renglón 1: Human */}
@@ -126,7 +148,7 @@ useEffect(() => {
             {word1.split("").map((char, charIndex) => (
               <span 
                 key={charIndex} 
-                className={`inline-block ${isIntroLayer ? 'hero-char opacity-0 bg-gradient-to-r from-[#1F3A5F] to-[#E88973] bg-clip-text text-transparent font-bold' : 'text-white font-normal'}`}
+                className={`inline-block ${isIntroLayer ? 'hero-char opacity-0 bg-gradient-to-r from-[#1F3A5F] to-[#E88973] bg-clip-text text-transparent font-bold' : 'text-[#F4F1ED] font-normal'}`}
                 style={isIntroLayer ? { WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } : {}}
               >
                 {char}
@@ -139,7 +161,7 @@ useEffect(() => {
             {word2.split("").map((char, charIndex) => (
               <span 
                 key={charIndex} 
-                className={`inline-block ${isIntroLayer ? 'hero-char opacity-0 bg-gradient-to-r from-[#E88973] to-[#C46A4A] bg-clip-text text-transparent font-bold' : 'text-white font-normal'}`}
+                className={`inline-block ${isIntroLayer ? 'hero-char opacity-0 bg-gradient-to-r from-[#E88973] to-[#C46A4A] bg-clip-text text-transparent font-bold' : 'text-[#F4F1ED] font-normal'}`}
                 style={isIntroLayer ? { WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' } : {}}
               >
                 {char}
@@ -150,18 +172,18 @@ useEffect(() => {
         </h1>
 
         {/* Lema Editorial Centrado */}
-        <p className={`font-darker text-base sm:text-lg md:text-xl italic tracking-wide max-w-xl leading-relaxed text-center w-full block ${isIntroLayer ? 'text-transparent select-none' : 'anim-tagline text-hueso/90 opacity-0'}`}>
+        <p className={`font-darker text-base sm:text-lg md:text-xl italic tracking-wide max-w-xl leading-relaxed text-center w-full block ${isIntroLayer ? 'text-transparent select-none' : 'anim-tagline text-[#F4F1ED]/90 opacity-0'}`}>
           {t('hero.tagline', '"Quédate con nosotros porque aquí seguimos en movimiento"')}
         </p>
       </div>
 
       {/* BLOQUE INFERIOR: Botón CTA y Aval BUAP */}
-      <div className="w-full flex flex-col items-center gap-y-12 shrink-0 relative z-20 pb-4">
+      <div className="w-full flex flex-col items-center gap-y-12 shrink-0 relative z-25 pb-4">
         
         {/* Botón CTA */}
         <a 
           href="#inversion" 
-          className={`relative inline-block overflow-hidden rounded-full px-10 py-3.5 text-center text-xs font-bold uppercase tracking-widest shadow-[inset_0_1.5px_3px_rgba(255,255,255,0.3),inset_0_-1px_2px_rgba(0,0,0,0.4),0_10px_25px_-5px_rgba(0,0,0,0.3)] transition-all duration-300 backdrop-blur-xl md:text-sm ${isIntroLayer ? 'bg-transparent text-transparent border-transparent pointer-events-none shadow-none select-none' : 'anim-cta bg-white/[0.06] text-white hover:bg-white/12 opacity-0'}`}
+          className={`relative inline-block overflow-hidden rounded-full px-10 py-3.5 text-center text-xs font-bold uppercase tracking-widest shadow-[0_10px_25px_-5px_rgba(0,0,0,0.4)] transition-all duration-300 backdrop-blur-xl md:text-sm ${isIntroLayer ? 'bg-transparent text-transparent border-transparent pointer-events-none shadow-none select-none' : 'anim-cta bg-white/10 text-white hover:bg-white/20 opacity-0'}`}
         >
           <span className={`absolute inset-0 rounded-full border pointer-events-none ${isIntroLayer ? 'border-transparent' : 'border-white/20 opacity-80'}`} />
           <span className={isIntroLayer ? '' : 'relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]'}>
@@ -171,8 +193,8 @@ useEffect(() => {
 
         {/* Aval BUAP */}
         <div className="w-full flex justify-center md:justify-end">
-          <div className={`border border-white/10 bg-black/20 shadow-[0_4px_12px_rgba(0,0,0,0.15)] flex items-center space-x-3 rounded-full px-5 py-2 backdrop-blur-md ${isIntroLayer ? 'opacity-0 invisible' : 'anim-footer opacity-0'}`}>
-            <span className="font-helvetica text-[9px] font-light uppercase tracking-wider md:text-[10px]">
+          <div className={`border border-white/10 bg-black/40 shadow-[0_4px_12px_rgba(0,0,0,0.25)] flex items-center space-x-3 rounded-full px-5 py-2 backdrop-blur-md ${isIntroLayer ? 'opacity-0 invisible' : 'anim-footer opacity-0'}`}>
+            <span className="font-helvetica text-[9px] font-light uppercase tracking-wider md:text-[10px] text-[#F4F1ED]">
               {t('hero.certified', 'Avalado por la BUAP')}
             </span>
             <img 
@@ -189,11 +211,11 @@ useEffect(() => {
   );
 
   return (
-    <div ref={heroRef} className="relative w-full min-h-screen overflow-hidden select-none bg-fluid-art text-hueso">
+    <div ref={heroRef} className="relative w-full h-dvh max-h-dvh overflow-hidden select-none bg-[#13263F] text-[#F4F1ED]">
       {/* Capa 1: Clon Superior de Intro (Fondo Blanco, Letras con Gradiente) */}
       {renderLayoutContent(true)}
 
-      {/* Capa 2: Capa Inferior Definitiva (Fondo Oscuro, Elementos Blancos) */}
+      {/* Capa 2: Capa Inferior Definitiva con Video de Fondo */}
       {renderLayoutContent(false)}
     </div>
   );

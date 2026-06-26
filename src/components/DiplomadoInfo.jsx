@@ -98,7 +98,7 @@ export default function DiplomadoInfo() {
     <section 
       id="diplomado-info" 
       ref={sectionRef}
-      className="w-full min-h-screen flex flex-col justify-center items-center bg-[#F4F1ED] pt-6 pb-12 xl:py-24 px-6 md:px-12 lg:px-20 select-none text-[#13263F] font-darker overflow-hidden"
+      className="w-full min-h-h-dvhflex flex-col justify-center items-center bg-[#F4F1ED] pt-6 pb-12 xl:py-24 px-6 md:px-12 lg:px-20 select-none text-[#13263F] font-darker overflow-hidden"
     >
       {/* CONTENEDOR PRINCIPAL */}
       <div className="max-w-6xl mx-auto w-full flex flex-col xl:flex-row justify-between items-start gap-4 xl:gap-24">

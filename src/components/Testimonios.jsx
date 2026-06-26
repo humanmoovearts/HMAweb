@@ -82,7 +82,7 @@ export default function Testimonios() {
   return (
     <section
       id="testimonios"
-      className="bg-[#1F3A5F] text-[#F4F1ED] py-20 px-6 md:py-28 md:px-12 lg:px-20 min-h-screen flex items-center font-['Darker_Grotesque',_sans-serif]"
+      className="bg-[#1F3A5F] text-[#F4F1ED] py-20 px-6 md:py-28 md:px-12 lg:px-20 min-h-dvh flex items-center font-['Darker_Grotesque',_sans-serif]"
     >
       <div className="max-w-4xl mx-auto w-full">
 

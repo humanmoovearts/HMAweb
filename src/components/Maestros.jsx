@@ -99,7 +99,7 @@ useEffect(() => {
     <section 
       id="maestros" 
       ref={sectionRef}
-      className="relative w-full min-h-screen flex flex-col justify-center items-center bg-[#F4F1ED] py-16 select-none font-['Darker_Grotesque',_sans-serif] overflow-hidden"
+      className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-[#F4F1ED] py-16 select-none font-['Darker_Grotesque',_sans-serif] overflow-hidden"
     >
       <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#8B7AA8]/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#E88973]/10 blur-[120px] pointer-events-none" />

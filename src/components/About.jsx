@@ -72,7 +72,7 @@ export default function About() {
       ref={sectionRef}
       style={{ fontFamily: "var(--font-darker, 'Darker Grotesque', sans-serif)" }}
       // He añadido overflow-x-hidden para evitar scrollbars horizontales durante la animación
-      className="bg-[#F4F1ED] text-[#13263F] py-16 px-6 md:py-24 md:px-12 lg:px-20 min-h-screen flex items-center overflow-x-hidden"
+      className="bg-[#F4F1ED] text-[#13263F] py-16 px-6 md:py-24 md:px-12 lg:px-20 min-h-dvh flex items-center overflow-x-hidden"
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
         

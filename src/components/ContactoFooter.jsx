@@ -1,23 +1,19 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Diccionario local autónomo para las traducciones del footer
-const localFooter = {
-  es: {
-    contactLabel: "Contacto"
-  },
-  en: {
-    contactLabel: "Contact"
-  }
-};
-
 export default function ContactoFooter() {
   const { t, i18n } = useTranslation();
 
-  const currentLang = localFooter[i18n.language] ? i18n.language : 'es';
-  const text = localFooter[currentLang];
+  // Helper para formatear los saltos de línea e indicaciones de texto del JSON en HTML real
+  const formatTranslationHtml = (text) => {
+    if (!text) return '';
+    return text.replace(/-\s*\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
+  };
 
-  // Consumo de enlaces oficiales directo del JSON
+  // Idioma activo para etiquetas locales de sección de forma consistente
+  const contactLabel = i18n.language?.startsWith('en') ? 'CONTACT' : 'CONTACTO';
+
+  // Consumo de enlaces oficiales directo del JSON de traducción
   const instagramUrl = t('contacto.redes_sociales.0.url');
   const tiktokUrl = t('contacto.redes_sociales.1.url');
   const youtubeUrl = t('contacto.redes_sociales.2.url');
@@ -26,11 +22,12 @@ export default function ContactoFooter() {
   return (
     <footer 
       id="contacto"
-      className="w-full h-screen min-h-[600px] bg-terracota text-hueso overflow-hidden flex flex-col justify-between font-darker select-none"
+      style={{ fontFamily: "var(--font-darker, 'Darker Grotesque', sans-serif)" }}
+      className="w-full h-dvh min-h-[600px] bg-[#C46A4A] text-[#F4F1ED] overflow-hidden flex flex-col justify-between select-none"
     >
       {/* 📸 SECCIÓN DE LA IMAGEN PANORÁMICA - Ocupa el 45% de la pantalla completa */}
       <div className="w-full h-[45%] overflow-hidden relative border-b border-white/5">
-        <div className="absolute inset-0 bg-azulOscuro/10 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#13263F]/10 pointer-events-none" />
         <img 
           src="/footer_foto.JPG" 
           alt="Human Moovearts Colectivo" 
@@ -39,22 +36,26 @@ export default function ContactoFooter() {
             e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 24 24' fill='none' stroke='%23F4F1ED' stroke-width='0.2' opacity='0.2'%3E%3Crect width='24' height='24'/%3E%3Cpath d='M1 12h22M12 1v22'/%3E%3C/svg%3E";
           }}
         />
-        <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-terracota to-transparent pointer-events-none" />
+        <div className="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-[#C46A4A] to-transparent pointer-events-none" />
       </div>
 
       {/* 🧱 BLOQUE DE TEXTO Y REDES - Ocupa el 55% restante de la pantalla completa */}
       <div className="w-full h-[55%] max-w-5xl mx-auto px-6 py-8 flex flex-col items-center justify-between text-center">
         
-        {/* TEXTO MANIFIESTO REAL (Consumido del JSON) */}
-        <p className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light text-hueso/95 max-w-4xl tracking-wide my-auto px-2">
-          {t('contacto.manifiesto_invitacion')}
-        </p>
+        {/* TEXTO MANIFIESTO REAL (Consumido del JSON interpretando anotaciones HTML) */}
+        <p 
+          className="text-sm sm:text-base md:text-lg lg:text-xl leading-relaxed font-light text-[#F4F1ED]/95 max-w-4xl tracking-wide my-auto px-2"
+          dangerouslySetInnerHTML={{ __html: formatTranslationHtml(t('contacto.manifiesto_invitacion')) }}
+        />
 
         {/* ESTRUCTURA DE CONTACTO E ICONOS AL FONDO */}
         <div className="w-full flex flex-col items-center mt-auto">
           {/* ETIQUETA DE CONTACTO */}
-          <h3 className="text-[11px] font-bold tracking-[0.35em] uppercase text-hueso/80 mb-5 font-helvetica">
-            {text.contactLabel}
+          <h3 
+            style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+            className="text-[11px] font-bold tracking-[0.35em] uppercase text-[#F4F1ED]/80 mb-5"
+          >
+            {contactLabel}
           </h3>
 
           {/* 📱 ICONOS DE REDES SOCIALES REALES */}
@@ -64,7 +65,7 @@ export default function ContactoFooter() {
               href={instagramUrl}
               target="_blank" 
               rel="noreferrer" 
-              className="text-hueso hover:text-azulOscuro hover:scale-110 transition-all duration-300 focus:outline-none"
+              className="text-[#F4F1ED] hover:text-[#13263F] hover:scale-110 transition-all duration-300 focus:outline-none"
               aria-label="Instagram"
             >
               <svg className="w-5 h-5 stroke-current fill-none" strokeWidth="1.75" viewBox="0 0 24 24">
@@ -79,7 +80,7 @@ export default function ContactoFooter() {
               href={tiktokUrl}
               target="_blank" 
               rel="noreferrer" 
-              className="text-hueso hover:text-azulOscuro hover:scale-110 transition-all duration-300 focus:outline-none"
+              className="text-[#F4F1ED] hover:text-[#13263F] hover:scale-110 transition-all duration-300 focus:outline-none"
               aria-label="TikTok"
             >
               <svg className="w-5 h-5 stroke-current fill-none" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -92,7 +93,7 @@ export default function ContactoFooter() {
               href={youtubeUrl}
               target="_blank" 
               rel="noreferrer" 
-              className="text-hueso hover:text-azulOscuro hover:scale-110 transition-all duration-300 focus:outline-none"
+              className="text-[#F4F1ED] hover:text-[#13263F] hover:scale-110 transition-all duration-300 focus:outline-none"
               aria-label="YouTube"
             >
               <svg className="w-5 h-5 stroke-current fill-none" strokeWidth="1.75" viewBox="0 0 24 24">
@@ -104,7 +105,7 @@ export default function ContactoFooter() {
             {/* EMAIL */}
             <a 
               href={emailUrl}
-              className="text-hueso hover:text-azulOscuro hover:scale-110 transition-all duration-300 focus:outline-none"
+              className="text-[#F4F1ED] hover:text-[#13263F] hover:scale-110 transition-all duration-300 focus:outline-none"
               aria-label="Email"
             >
               <svg className="w-5 h-5 stroke-current fill-none" strokeWidth="1.75" viewBox="0 0 24 24">
@@ -115,7 +116,10 @@ export default function ContactoFooter() {
           </div>
 
           {/* Derechos de Autor */}
-          <p className="font-helvetica text-[9px] tracking-[0.25em] text-hueso/30 uppercase">
+          <p 
+            style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+            className="text-[9px] tracking-[0.25em] text-[#F4F1ED]/30 uppercase"
+          >
             © 2026 Human Moovearts.
           </p>
         </div>
