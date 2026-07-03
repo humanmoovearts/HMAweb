@@ -1,0 +1,69 @@
+{
+  "inscripcion": {
+    "monto": 1500,
+    "moneda": "MXN",
+    "disponible": true,
+    "linkStripe": "https://buy.stripe.com/bJe9AT5YPeyQ8go8lv5AQ05"
+  },
+  "programas": [
+    {
+      "id": "presencial_stripe",
+      "modalidad": "Presencial",
+      "disponible": true,
+      "link9Meses": "https://buy.stripe.com/eVqaEX86X9ew408cBL5AQ00",
+      "link12Meses": "https://buy.stripe.com/00wdR9fzp9ew4081X75AQ02",
+      "detalles": {
+        "9": { "beca": "20%", "mensual": 2133 },
+        "12": { "beca": "15%", "mensual": 1700 }
+      }
+    },
+    {
+      "id": "online_stripe",
+      "modalidad": "Online",
+      "disponible": true,
+      "link9Meses": "https://buy.stripe.com/7sY14n9b1duM0NWeJT5AQ03",
+      "link12Meses": "https://buy.stripe.com/dRm9AT72T76oaowdFP5AQ04",
+      "detalles": {
+        "9": { "beca": "20%", "mensual": 1849 },
+        "12": { "beca": "15%", "mensual": 1473 }
+      }
+    }
+  ],
+  "modulos": [
+    {
+      "numero": 1,
+      "monto": 2500,
+      "disponible": true,
+      "linkStripe": "https://buy.stripe.com/dRm14nbj99eweEMfNX5AQ08",
+      "cuponesValidos": ["HUMAN20", "SUBJETIVIDAD"]
+    },
+    {
+      "numero": 2,
+      "monto": 2900,
+      "disponible": true,
+      "linkStripe": "https://buy.stripe.com/28E7sL1IzgGY408gS15AQ07",
+      "cuponesValidos": ["ALMA30", "CULTURAL"]
+    },
+    {
+      "numero": 3,
+      "monto": 2900,
+      "disponible": true,
+      "linkStripe": "https://buy.stripe.com/00wcN586XcqIbsA1X75AQ0a",
+      "cuponesValidos": ["SALUD10"]
+    },
+    {
+      "numero": 4,
+      "monto": 2900,
+      "disponible": true,
+      "linkStripe": "https://buy.stripe.com/fZuaEXbj90I02W41X75AQ09",
+      "cuponesValidos": ["GENERO50"]
+    },
+    {
+      "numero": 5,
+      "monto": 0,
+      "disponible": false,
+      "linkStripe": "",
+      "cuponesValidos": []
+    }
+  ]
+}

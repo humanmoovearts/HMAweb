@@ -19,15 +19,16 @@ export default function Contenido() {
   const totalModulos = [0, 1, 2, 3, 4, 5];
   const esEventoCierre = activeModulo === 5;
 
-  // Extracción segura de arreglos y textos desde el JSON de traducción
-  const maestrosArray = t(`contenido_tematico.modulos.${activeModulo}.clases`, { returnObjects: true }) || [];
+  // Extracción segura de la estructura del JSON de traducción
+  const clasesArray = t(`contenido_tematico.modulos.${activeModulo}.clases`, { returnObjects: true }) || [];
   const moduloTitulo = t(`contenido_tematico.modulos.${activeModulo}.titulo`);
 
   const isEnglish = i18n.language === 'en';
   const seccionTitulo = isEnglish ? 'Content' : 'Contenido';
   const moduloLabel = isEnglish ? 'MODULE' : 'MÓDULO';
   const tabLabel = isEnglish ? 'MOD' : 'MÓD';
-  const maestrosLabel = isEnglish ? 'FACULTY' : 'MAESTROS';
+  const clasesLabel = isEnglish ? 'CLASSES' : 'CLASES';
+  const maestrosLabel = isEnglish ? 'Faculty' : 'Docentes';
   const cierreLabel = isEnglish ? 'CLOSING' : 'CIERRE';
 
   // 1. Animación de entrada inicial por ScrollTrigger
@@ -82,7 +83,6 @@ export default function Contenido() {
       duration: 0.25,
       ease: 'power2.in',
       onComplete: () => {
-        // Cambiamos el estado exactamente cuando el elemento no es visible
         setActiveModulo(index);
         
         // Animación de entrada del nuevo contenido (Aparece desde la derecha)
@@ -150,7 +150,7 @@ export default function Contenido() {
           ref={cardRef}
           className="w-full flex-grow bg-[#13263F]/30 backdrop-blur-xl border border-[#F4F1ED]/15 p-6 md:p-8 rounded-2xl text-[#F4F1ED] shadow-2xl overflow-hidden mb-2"
         >
-          {/* Sub-contenedor animable interno para el intercambio de información */}
+          {/* Sub-contenedor animable interno */}
           <div 
             ref={contentWrapperRef}
             className="w-full h-full grid grid-cols-1 md:grid-cols-12 gap-6 items-stretch"
@@ -178,27 +178,28 @@ export default function Contenido() {
                   </div>
                 </div>
 
-                {/* LISTA DE MAESTROS DEL MÓDULO (Derecha - Scroll exclusivo) */}
+                {/* LISTA DE CLASES Y DOCENTES DEL MÓDULO (Derecha) */}
                 <div className="md:col-span-7 flex flex-col justify-start overflow-hidden h-full">
                   <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#8B7AA8] mb-3 font-helvetica">
-                    {maestrosLabel}
+                    {clasesLabel}
                   </h4>
-                  <div className="flex-grow overflow-y-auto pr-1 space-y-2 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent max-h-full">
-                    {maestrosArray.map((maestro, i) => (
+                  <div className="flex-grow overflow-y-auto pr-1 space-y-3 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent max-h-full">
+                    {clasesArray.map((clase, i) => (
                       <div 
                         key={i} 
-                        className="flex items-center bg-white/[0.03] border border-white/[0.05] p-3 rounded-xl hover:bg-white/[0.07] hover:border-[#E88973]/20 transition-all duration-200"
+                        className="flex flex-col bg-white/[0.02] border border-white/[0.05] p-4 rounded-xl hover:bg-white/[0.06] hover:border-[#E88973]/20 transition-all duration-200"
                       >
-                        {/* Indicador estético minimalista */}
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#E88973] shrink-0 ml-1" />
-                        
-                        {/* Separador */}
-                        <div className="w-[1px] h-4 bg-[#F4F1ED]/20 mx-3 shrink-0" />
-                        
-                        {/* Nombre del Profesor */}
-                        <span className="text-xs md:text-sm font-light leading-none text-[#F4F1ED]/90 tracking-wide truncate">
-                          {maestro}
-                        </span>
+                        {/* Título de la Clase ahora en Coral Destacado */}
+                        <h5 className="text-sm md:text-base font-bold text-[#F4F1ED] leading-snug tracking-wide mb-1.5">
+                          {clase.titulo}
+                        </h5>
+
+                        {/* Docentes en color Hueso/Blanco de alto contraste */}
+                        {clase.docentes && clase.docentes.length > 0 && (
+                          <p className="text-xs text-[#E88973/80  font-light tracking-wide">
+                            <span className="font-semibold text-[#E88973]/60">{maestrosLabel}:</span> {clase.docentes.join(', ')}
+                          </p>
+                        )}
                       </div>
                     ))}
                   </div>

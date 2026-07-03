@@ -48,66 +48,171 @@
   },
   "contenido_tematico": {
 "modulos": [
-      {
-        "numero": 1,
-        "titulo": "Perspectivas contemporáneas y epistemologías de la subjetividad",
-        "clases": [
-          "Mtra. Ma. Isabel Quechol Delgado",
-          "Lic. Bryan Chavarría Campos",
-          "Lic. Sahira Barrios Hernández",
-          "Mtro. Greivin Quesada Acuña"
-        ]
-      },
-      {
-        "numero": 2,
-        "titulo": "Psicología Cultural: Diversidad, contexto sociocultural y nuevas perspectivas en la práctica psicológica y artística",
-        "clases": [
-          "Dra. Verónica A. Rosas Jiménez",
-          "Mtro. Jimmy Ortiz Chinchilla",
-          "Mtro. Greivin Quesada Acuña",
-          "Lic. Bryan Chavarría Campos",
-          "Mtre. Ang Garcia Azofeifa"
-        ]
-      },
-      {
-        "numero": 3,
-        "titulo": "Entornos contemporáneos, salud laboral y modelos de cuidado integral",
-        "clases": [
-          "Mtra. Yea Jean Choi",
-          "Dra. Verónica A. Rosas Jiménez",
-          "Mtro. Luis A. Carranza Pérez",
-          "Mtra. Ma. Isabel Quechol Delgado",
-          "Mtro. José Roberto Romero Espinosa"
-        ]
-      },
-      {
-        "numero": 4,
-        "titulo": "Perspectiva de género, diversidad y enfoques de intervención en salud mental",
-        "clases": [
-          "Mtro. Greivin Quesada Acuña",
-          "Mtra. Claudia Ronson Trejo (Colectivo KINDAA)",
-          "Lic. Bryan Chavarría Campos",
-          "Lic. Sahira Barrios Hernández",
-          "Mtra. Yea Jean Choi"
-        ]
-      },
-      {
-        "numero": 5,
-        "titulo": "Consolidación de competencias y profesionalización: Práctica interdisciplinaria e innovación en proyecto de bienestar integral",
-        "clases": [
-          "Mtro. José Roberto Romero Espinosa",
-          "Lic. Bryan Chavarría Campos",
-          "Dra. Verónica A. Rosas Jiménez",
-          "Mtro. Greivin Quesada Acuña",
-          "Lic. Sahira Barrios Hernández"
-        ]
-      }
-    ],
-    "evento_cierre": {
-      "nombre": "Encuentro de Saberes",
-      "descripcion": "Es el evento de cierre del diplomado, diseñado para funcionar al mismo tiempo como una convención académica y un festival artístico y comunitario. Durante una semana, dejaremos de lado los exámenes tradicionales para abrir un espacio vivo donde podrás compartir los proyectos, reflexiones y propuestas escénicas que desarrollaste en las clases, además de conectar con investigaciones e invitados locales e internacionales. A través de actividades como charlas, talleres, exposiciones y presentaciones artísticas, este encuentro es el momento clave para sacar el conocimiento de la libreta, y ver cómo se transforma en creación real y celebración colectiva, un enfoque de bienestar integral que genera comunidad."
+    {
+      "numero": 1,
+      "titulo": "Perspectivas contemporáneas y epistemologías de la subjetividad",
+      "clases": [
+        {
+          "numero": 1,
+          "titulo": "Encuadre epistemológico, metodologías cualitativas y co-construcción del espacio",
+          "docentes": ["Lic. Sahira Barrios", "Lic. Mariana Marín"]
+        },
+        {
+          "numero": 2,
+          "titulo": "Dimensiones del bienestar e integralidad desde los enfoques humanistas y existenciales para la psicología de la salud",
+          "docentes": ["Mtra. Isabel Quechol", "Lic. Sahira Barrios"]
+        },
+        {
+          "numero": 3,
+          "titulo": "Procesos de identidad, desarrollo humano y estrategias de afrontamiento ante la crisis: del crecimiento a la autorrealización",
+          "docentes": ["Mtra. Isabel Quechol", "Lic. Sahira Barrios"]
+        },
+        {
+          "numero": 4,
+          "titulo": "Epistemologías de la subjetividad: Análisis de contexto y mediación creativa",
+          "docentes": ["Lic. Bryan Chavarría", "Mtro. Greivin Quesada"]
+        }
+      ]
+    },
+    {
+      "numero": 2,
+      "titulo": "Psicología Cultural: diversidad, contexto sociocultural y nuevas perspectivas en la práctica psicológica y artística",
+      "clases": [
+        {
+          "numero": 1,
+          "titulo": "Psicología social del reconocimiento: Dimensión comunitaria y relacional de la alteridad",
+          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+        },
+        {
+          "numero": 2,
+          "titulo": "Epistemologías situadas: Contextualización transcultural en la psicología y las artes",
+          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+        },
+        {
+          "numero": 3,
+          "titulo": "Estudios de género, representaciones y corporalidad en la estética contemporánea",
+          "docentes": ["Mtre. Ang. García"]
+        },
+        {
+          "numero": 4,
+          "titulo": "Integración del saber, el sentir y el hacer a través de los lenguajes expresivos",
+          "docentes": ["Mtro. Jimmy Ortiz"]
+        },
+        {
+          "numero": 5,
+          "titulo": "Laboratorio práctico 1: Metodologías y herramientas creativas de intervención psicológica y comunitaria",
+          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada", "Lic. Bryan Chavarría"]
+        }
+      ]
+    },
+    {
+      "numero": 3,
+      "titulo": "Entornos contemporáneos, salud laboral y modelos de cuidado Integral",
+      "clases": [
+        {
+          "numero": 1,
+          "titulo": "Determinantes socioeconómicos y subjetividad en la salud mental contemporánea",
+          "docentes": ["Mtro. Luis A. Carranza", "Dra. Verónica Rosas"]
+        },
+        {
+          "numero": 2,
+          "titulo": "Contexto social y salud mental: Una mirada integral a la vulnerabilidad",
+          "docentes": ["Mtra. Isabel Quechol", "Mtro. Luis A. Carranza"]
+        },
+        {
+          "numero": 3,
+          "titulo": "Psicosomática, corporeidad y salud: El bienestar somático frente a la enfermedad",
+          "docentes": ["Lic. Laura Cruz"]
+        },
+        {
+          "numero": 4,
+          "titulo": "Psicología del trabajo y salud ocupacional: Perspectivas éticas del cuidado",
+          "docentes": ["Mexiro, A.C.", "Mtro. Roberto Romero"]
+        },
+        {
+          "numero": 5,
+          "titulo": "Laboratorio de intervención psicosocial: Estrategias de corresponsabilidad y redes de apoyo colectivo",
+          "docentes": ["Lic. Sahira Barrios", "Lic. Mariana Marín", "Mtra. Yea Jean Choi"]
+        }
+      ]
+    },
+    {
+      "numero": 4,
+      "titulo": "Perspectiva de género, diversidad y enfoques de intervención en salud mental",
+      "clases": [
+        {
+          "numero": 1,
+          "titulo": "Introducción a la perspectiva de género y su relevancia para la psicología",
+          "docentes": ["Mtra. Claudia Ronson (Colectivo KINDAA)"]
+        },
+        {
+          "numero": 2,
+          "titulo": "Contexto global, cultura y procesos",
+          "docentes": ["Lic. Mariana Marín", "Mtra. Yea Jean Choi"]
+        },
+        {
+          "numero": 3,
+          "titulo": "Trauma psicosocial y abordajes integrales en violencia de género",
+          "docentes": ["Mtra. Claudia Ronson (Colectivo KINDAA)", "Lic. Sahira Barrios"]
+        },
+        {
+          "numero": 4,
+          "titulo": "Psicología de la diversidad, corporalidad e identidades",
+          "docentes": ["Mtro. Greivin Quesada", "Lic. Bryan Chavarría"]
+        },
+        {
+          "numero": 5,
+          "titulo": "Laboratorio Práctico 3: Diseño de proyectos y herramientas de intervención con perspectiva de género",
+          "docentes": ["Lic. Sahira Barrios", "Lic. Mariana Marín"]
+        }
+      ]
+    },
+    {
+      "numero": 5,
+      "titulo": "Consolidación de competencias y profesionalización: Práctica interdisciplinaria e innovación en proyectos de bienestar integral",
+      "clases": [
+        {
+          "numero": 1,
+          "titulo": "Jornada de conferencias especializadas",
+          "docentes": []
+        },
+        {
+          "numero": 2,
+          "titulo": "Taller de aplicación: Diseño, viabilidad y operacionalización de proyectos interdisciplinarios",
+          "docentes": ["Mtro. Roberto Romero", "Lic. Bryan Chavarría"]
+        },
+        {
+          "numero": 3,
+          "titulo": "Seminario: Prospectiva profesional, ética y campos de incidencia en el bienestar integral",
+          "docentes": ["Dra. Verónica Rosas", "Lic. Sahira Barrios"]
+        },
+        {
+          "numero": 4,
+          "titulo": "Supervisión colegiada y acompañamiento metodológico para el desarrollo de proyectos",
+          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+        },
+        {
+          "numero": 5,
+          "titulo": "Laboratorio de validación técnica y metodológica I: Estructuración y argumentación",
+          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+        },
+        {
+          "numero": 6,
+          "titulo": "Laboratorio de validación y viabilidad II: Simulación de presentación y diseño de impacto",
+          "docentes": ["Dra. Verónica Rosas", "Lic. Bryan Chavarría"]
+        },
+        {
+          "numero": 7,
+          "titulo": "Coloquio académico y presentación pública de proyectos aplicados",
+          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+        }
+      ]
     }
-  
+  ],
+  "evento_cierre": {
+    "nombre": "Encuentro de Saberes",
+  "descripcion": "Es el evento de cierre del diplomado, diseñado para funcionar al mismo tiempo como una <strong>convención académica</strong> y un <strong>festival artístico y comunitario.</strong>\n\nDurante una semana, dejaremos de lado los exámenes tradicionales para abrir un espacio vivo donde <strong>podrás compartir los proyectos, reflexiones y propuestas</strong> escénicas que desarrollaste en las clases, además de conectar con investigaciones e invitados locales e internacionales.\n\nA través de actividades como charlas, talleres, exposiciones y presentaciones artísticas, este encuentro es el momento clave para sacar el conocimiento de la libreta, y <strong>ver cómo se transforma en conexión real y celebración colectiva</strong>, un enfoque de bienestar integral que genera comunidad."
+}
   },
   "costos_y_financiamiento": {
     "inscripcion": {
@@ -115,7 +220,7 @@
       "moneda": "MXN",
       "descripcion": "Pago inicial obligatorio requerido para asegurar el lugar y habilitar el acceso a los esquemas de financiamiento y pago de colegiaturas.",
       "detalles_adicionales": {
-        "modalidad_stripe": "El pago de la inscripción SI se abona al pago del certificado BUAP ($2,200 MXN), por lo que solamente pagarías $700 pesos en ese rubro.",
+        "modalidad_stripe": "El pago de la inscripción SÍ se abona al pago del certificado BUAP ($2,200 MXN), por lo que solamente pagarías $700 pesos en ese rubro.",
         "modalidad_transferencia_efectivo": "El pago de la inscripción NO se abona al pago del certificado BUAP ($2,200 MXN)."
       }
     },
@@ -123,7 +228,7 @@
       {
         "id": 1,
         "modalidad": "Presencial",
-        "metodo_pago": "Tarjeta (Stripe)",
+        "metodo_pago": "Pago con Tarjeta",
         "base_mensual": 3000,
         "duracion_programa_meses": 8,
         "costo_total_sin_beca": 24000,
@@ -134,22 +239,9 @@
         ]
       },
       {
-        "id": 2,
-        "modalidad": "Presencial",
-        "metodo_pago": "Transferencia o Efectivo (Mes a Mes)",
-        "base_mensual": 3000,
-        "duracion_programa_meses": 8,
-        "costo_total_sin_beca": 24000,
-        "moneda": "MXN",
-        "opciones_financiamiento": [
-          { "plazo_mensualidades": 8, "porcentaje_beca": 30, "monto_total_colegiaturas": 16800, "pago_mensual": 2100 },
-          { "plazo_mensualidades": 8, "porcentaje_beca": 35, "monto_total_colegiaturas": 15600, "pago_mensual": 1950 }
-        ]
-      },
-      {
         "id": 3,
         "modalidad": "Online",
-        "metodo_pago": "Tarjeta (Stripe)",
+        "metodo_pago": "Pago con Tarjeta",
         "base_mensual": 2600,
         "duracion_programa_meses": 8,
         "costo_total_sin_beca": 20800,
@@ -158,19 +250,6 @@
           { "plazo_mensualidades": 9, "porcentaje_beca": 20, "monto_total_colegiaturas": 16640, "pago_mensual": 1849 },
           { "plazo_mensualidades": 12, "porcentaje_beca": 15, "monto_total_colegiaturas": 17680, "pago_mensual": 1473 }
         ]
-      },
-      {
-        "id": 4,
-        "modalidad": "Online",
-        "metodo_pago": "Transferencia o Efectivo (Mes a Mes)",
-        "base_mensual": 2600,
-        "duracion_programa_meses": 8,
-        "costo_total_sin_beca": 20800,
-        "moneda": "MXN",
-        "opciones_financiamiento": [
-          { "plazo_mensualidades": 8, "porcentaje_beca": 30, "monto_total_colegiaturas": 14560, "pago_mensual": 1820 },
-          { "plazo_mensualidades": 8, "porcentaje_beca": 35, "monto_total_colegiaturas": 13520, "pago_mensual": 1690 }
-        ]
       }
     ],
     "politicas": [
@@ -178,7 +257,17 @@
       { "tipo": "Pago tardío", "regla": "A partir del día 19 de cada mes, se aplicará un cargo moratorio automático del 8% sobre el valor del pago regular." },
       { "tipo": "Penalización por morosidad acumulada", "regla": "La acumulación de tres pagos tardíos resultará en la anulación total y definitiva de la beca otorgada, teniendo que cubrir el costo regular." },
       { "tipo": "Certificación externa", "regla": "El costo del certificado BUAP es de $2,200 MXN (sujeto a las condiciones de bonificación de la inscripción según la pasarela de pago elegida)." }
-    ]
+    ],
+    "ui": {
+      "paso1": "Paso 1",
+      "asegurar_lugar": "Asegurar mi lugar",
+      "comprar_modulo": "Adquirir Módulo",
+      "proximamente": "Próximamente",
+      "codigo": "CÓDIGO",
+      "aplicar": "Aplicar",
+      "cupon_ok": "Cupón aplicado",
+      "politicas_titulo": "Políticas de Financiamiento y Uso"
+    }
   },
   "maestros": [
     {
