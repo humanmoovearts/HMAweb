@@ -19,7 +19,7 @@ export default function About() {
       gsap.fromTo(videoContainerRef.current,
         { 
           opacity: 0, 
-          x: 100,      
+          x: window.innerWidth < 768 ? 40 : 100,      
           scale: 0.95, 
         },
         {
@@ -43,7 +43,7 @@ export default function About() {
       gsap.fromTo(textElements,
         { 
           opacity: 0, 
-          x: -80,      
+          x: window.innerWidth < 768 ? -40 : -80,      
         },
         {
           opacity: 1,
@@ -65,6 +65,9 @@ export default function About() {
     return () => ctx.revert();
   }, []);
 
+  // URL oficial de Google Drive que no se corrompe ni da error de "archivo no existe"
+  const videoUrl = "https://drive.google.com/file/d/1lsgRblrZWbu3tcHNdNklGIghqoSKsUR8/preview";
+
   return (
     <section 
       id="quienes-somos" 
@@ -74,7 +77,7 @@ export default function About() {
     >
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-center w-full">
         
-        {/* COLUMNA IZQUIERDA: TEXTOS */}
+        {/* COLUMNA IZQUIERDA: TEXTOS (Animados con entrada por la izquierda) */}
         <div 
           ref={textContainerRef}
           className="flex flex-col justify-center order-2 md:order-1"
@@ -88,22 +91,21 @@ export default function About() {
           </p>
         </div>
 
-        {/* COLUMNA DERECHA: REPRODUCTOR NATIVO DE YOUTUBE */}
+        {/* COLUMNA DERECHA: VIDEO EN DRIVE (Animado con entrada por la derecha) */}
         <div 
           ref={videoContainerRef}
-          className="w-full aspect-[4/3] bg-[#1F3A5F]/10 overflow-hidden shadow-2xl order-1 md:order-2 rounded-sm border border-[#13263F]/5"
+          className="w-full aspect-[4/3] bg-[#1F3A5F]/10 overflow-hidden shadow-2xl order-1 md:order-2 rounded-sm border border-[#13263F]/5 relative"
         >
           <iframe
-            src="https://www.youtube.com/embed/ty94mMsn2AA?controls=1&rel=0"
+            src={videoUrl}
             className="w-full h-full object-cover"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; encrypted-media"
             allowFullScreen
-            title="YouTube video player"
+            title="Human Moovearts Video Player"
           />
         </div>
 
       </div>
     </section>
   );
-
 }

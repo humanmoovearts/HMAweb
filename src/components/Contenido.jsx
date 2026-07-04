@@ -160,7 +160,9 @@ export default function Contenido() {
             {!esEventoCierre && (
               <>
                 {/* DETALLES DEL MÓDULO (Izquierda) */}
-                <div className="md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#F4F1ED]/10 pb-4 md:pb-0 md:pr-6 overflow-y-auto">
+                <div 
+                data-lenis-prevent
+                className="md:col-span-5 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#F4F1ED]/10 pb-4 md:pb-0 md:pr-6 overflow-y-auto">
                   <div>
                     <h3 className="text-xl md:text-2xl font-black leading-none tracking-widest text-[#E88973] uppercase">
                       {moduloLabel} {activeModulo + 1}
@@ -183,7 +185,9 @@ export default function Contenido() {
                   <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#8B7AA8] mb-3 font-helvetica">
                     {clasesLabel}
                   </h4>
-                  <div className="flex-grow overflow-y-auto pr-1 space-y-3 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent max-h-full">
+                  <div 
+                  data-lenis-prevent
+                  className="flex-grow overflow-y-auto pr-1 space-y-3 scrollbar-thin scrollbar-thumb-white/10 scrollbar-track-transparent max-h-full">
                     {clasesArray.map((clase, i) => (
                       <div 
                         key={i} 

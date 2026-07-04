@@ -55,7 +55,7 @@
         {
           "numero": 1,
           "titulo": "Encuadre epistemológico, metodologías cualitativas y co-construcción del espacio",
-          "docentes": ["Lic. Sahira Barrios", "Lic. Mariana Marín"]
+          "docentes": ["Lic. Sahira Barrios", "Dra. Verónica Rosas"]
         },
         {
           "numero": 2,
@@ -127,12 +127,12 @@
         {
           "numero": 4,
           "titulo": "Psicología del trabajo y salud ocupacional: Perspectivas éticas del cuidado",
-          "docentes": ["Mexiro, A.C.", "Mtro. Roberto Romero"]
+          "docentes": [ "Mtro. Roberto Romero"]
         },
         {
           "numero": 5,
           "titulo": "Laboratorio de intervención psicosocial: Estrategias de corresponsabilidad y redes de apoyo colectivo",
-          "docentes": ["Lic. Sahira Barrios", "Lic. Mariana Marín", "Mtra. Yea Jean Choi"]
+          "docentes": ["Lic. Sahira Barrios", "Mtra. Yea Jean Choi"]
         }
       ]
     },
@@ -148,7 +148,7 @@
         {
           "numero": 2,
           "titulo": "Contexto global, cultura y procesos",
-          "docentes": ["Lic. Mariana Marín", "Mtra. Yea Jean Choi"]
+          "docentes": ["Mtra. Yea Jean Choi", "Mtra. Claudia Ronson (Colectivo KINDAA)"]
         },
         {
           "numero": 3,
@@ -163,7 +163,7 @@
         {
           "numero": 5,
           "titulo": "Laboratorio Práctico 3: Diseño de proyectos y herramientas de intervención con perspectiva de género",
-          "docentes": ["Lic. Sahira Barrios", "Lic. Mariana Marín"]
+          "docentes": ["Lic. Sahira Barrios", "Mtra. Claudia Ronson (Colectivo KINDAA)"]
         }
       ]
     },
@@ -174,7 +174,7 @@
         {
           "numero": 1,
           "titulo": "Jornada de conferencias especializadas",
-          "docentes": []
+          "docentes": ["Mtro. Roberto Romero", "Dr. José Luis Rodriguez", "Mtra. Yea Jean Choi", "Mtro. José Eduardo Espinoza", "Lic. Sahira Barrios"]
         },
         {
           "numero": 2,
@@ -189,12 +189,12 @@
         {
           "numero": 4,
           "titulo": "Supervisión colegiada y acompañamiento metodológico para el desarrollo de proyectos",
-          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+          "docentes": ["Mtro. Roberto Romero", "Dra. Verónica Rosas", "Lic. Sahira Barrios"]
         },
         {
           "numero": 5,
           "titulo": "Laboratorio de validación técnica y metodológica I: Estructuración y argumentación",
-          "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
+          "docentes": ["Lic. Sahira Barrios","Mtro. Greivin Quesada"]
         },
         {
           "numero": 6,
@@ -256,7 +256,7 @@
       { "tipo": "Periodo de pago ordinario", "regla": "Los pagos de las mensualidades deben realizarse estrictamente del 14 al 18 de cada mes para conservar el beneficio de la beca asignada." },
       { "tipo": "Pago tardío", "regla": "A partir del día 19 de cada mes, se aplicará un cargo moratorio automático del 8% sobre el valor del pago regular." },
       { "tipo": "Penalización por morosidad acumulada", "regla": "La acumulación de tres pagos tardíos resultará en la anulación total y definitiva de la beca otorgada, teniendo que cubrir el costo regular." },
-      { "tipo": "Certificación externa", "regla": "El costo del certificado BUAP es de $2,200 MXN (sujeto a las condiciones de bonificación de la inscripción según la pasarela de pago elegida)." }
+      { "tipo": "Certificación externa", "regla": "El costo del certificado BUAP es de $2,200 MXN. Al adquirir el diplomado completo (en su versión presencial u online), el monto de la inscripción se bonifica en este concepto, por lo que el alumno solo pagará $700 MXN por el certificado." }
     ],
     "ui": {
       "paso1": "Paso 1",

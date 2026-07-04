@@ -99,7 +99,8 @@ useEffect(() => {
     <section 
       id="maestros" 
       ref={sectionRef}
-      className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-[#F4F1ED] py-16 select-none font-['Darker_Grotesque',_sans-serif] overflow-hidden"
+      data-lenis-prevent
+      className="relative w-full min-h-dvh flex flex-col justify-center items-center bg-[#F4F1ED] py-10 select-none font-['Darker_Grotesque',_sans-serif] overflow-y-auto"
     >
       <div className="absolute top-[-10%] left-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#8B7AA8]/10 blur-[120px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[50vw] h-[50vw] rounded-full bg-[#E88973]/10 blur-[120px] pointer-events-none" />
@@ -129,7 +130,7 @@ useEffect(() => {
 
           <div 
             ref={scrollContainerRef}
-            className="w-full flex items-stretch overflow-x-auto overflow-y-hidden space-x-6 snap-x snap-mandatory scrollbar-none px-12 py-6"
+            className="w-full flex items-stretch overflow-x-auto overflow-y-hidden space-x-6 snap-x snap-mandatory scrollbar-none px-12 py-1"
           >
             <div 
               ref={cardsContainerRef}
@@ -143,7 +144,7 @@ useEffect(() => {
                 return (
                   <div 
                     key={index} 
-                    className="snap-center shrink-0 relative w-[80vw] sm:w-[340px] min-h-[520px] md:min-h-[560px] rounded-[40px] p-8 flex flex-col items-center justify-start text-[#F4F1ED] bg-[#13263F] border border white/5 shadow-2xl transition-all duration-500 group"
+                    className="snap-center shrink-0 relative w-[80vw] sm:w-[340px] min-h-[520px] md:min-h-[480px] rounded-[40px] p-8 flex flex-col items-center justify-start text-[#F4F1ED] bg-[#13263F] border border white/5 shadow-2xl transition-all duration-500 group"
                   >
                     <div className="absolute -top-16 -right-16 w-44 h-44 bg-[#E88973]/10 rounded-full blur-2xl pointer-events-none transition-transform duration-700 group-hover:translate-x-3" />
                     
@@ -170,7 +171,9 @@ useEffect(() => {
                       </p>
                     </div>
                     
-                    <div className="w-full mt-4 flex-grow overflow-y-auto scrollbar-none text-center pr-1 max-h-[260px]">
+                    <div 
+                    data-lenis-prevent
+                    className="w-full mt-4 flex-grow overflow-y-auto scrollbar-none text-center pr-1 max-h-[260px]">
                       <p className="text-sm md:text-base leading-relaxed text-[#F4F1ED]/80 font-light tracking-wide group-hover:text-[#F4F1ED] transition-colors duration-300">
                         {maestroPerfil}
                       </p>

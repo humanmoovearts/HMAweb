@@ -106,7 +106,7 @@ export default function Hero() {
           <div className="absolute inset-0 bg-[#13263F]/50 backdrop-blur-[2px] z-10 pointer-events-none" />
           <video
             ref={videoRef}
-            src="/hero_background.mp4" // Reemplaza aquí la ruta exacta de tu archivo de video en /public
+            src="/hero_background.webm" // Reemplaza aquí la ruta exacta de tu archivo de video en /public
             loop
             muted
             playsInline

@@ -30,17 +30,13 @@ export default function Proposito() {
     "/edicion-pasada/10.jpeg"
   ];
 
-  // Helper para formatear los saltos de línea e indicaciones de texto del JSON en HTML real
   const formatTranslationHtml = (text) => {
     if (!text) return '';
-    // Reemplaza los guiones con saltos de línea estéticos por etiquetas <br />
     return text.replace(/-\s*\n\n/g, '<br/><br/>').replace(/\n/g, '<br/>');
   };
 
-  // 1. Animaciones de Entrada Optimizadas con gsap.context
   useEffect(() => {
     let ctx = gsap.context(() => {
-      
       // Galería (Izquierda)
       gsap.fromTo(leftColumnRef.current,
         { opacity: 0, x: -30 },
@@ -72,13 +68,11 @@ export default function Proposito() {
           }
         }
       );
-
     }, sectionRef);
 
-    return () => ctx.revert(); // Limpieza estricta de ScrollTrigger
+    return () => ctx.revert();
   }, []);
 
-  // 2. Manejo de cambio de imágenes (Carrusel automatizado y gestos táctiles)
   useEffect(() => {
     const intervalo = setInterval(() => {
       nextImage();
@@ -121,7 +115,6 @@ export default function Proposito() {
     if (touchStartX.current - touchEndX.current < -50) prevImage();
   };
 
-  // Idioma activo para etiquetas de sección
   const activeLabel = {
     proposito: i18n.language?.startsWith('en') ? 'PURPOSE' : 'PROPÓSITO',
     metodologia: i18n.language?.startsWith('en') ? 'METHODOLOGY' : 'METODOLOGÍA'
@@ -129,19 +122,20 @@ export default function Proposito() {
 
   return (
     <section 
-      id="quienes-somos"
+      id="proposito-interno"
       ref={sectionRef}
-      className="min-h-dvh bg-[#F4F1ED] py-20 px-6 md:px-12 lg:px-24 flex items-center justify-center overflow-hidden selection:bg-[#E88973]/30 selection:text-[#13263F]"
+      className="w-full h-full bg-[#F4F1ED] py-12 md:py-20 px-6 md:px-12 lg:px-24 flex items-center justify-center overflow-hidden selection:bg-[#E88973]/30 selection:text-[#13263F]"
     >
-      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-20 items-start">
+      <div className="max-w-7xl w-full grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-20 items-center">
         
-        {/* COLUMNA IZQUIERDA: GALERÍA */}
+        {/* COLUMNA IZQUIERDA: GALERÍA OPTIMIZADA PARA MÓVILES */}
         <div 
           ref={leftColumnRef} 
           className="md:col-span-5 flex flex-col items-center w-full relative"
         >
+          {/* FIX AQUÍ: En móvil se vuelve aspect-video para que no se corte, y md:aspect-[4/5] en escritorio */}
           <div 
-            className="w-full aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-[#1F3A5F]/5 relative group touch-pan-y"
+            className="w-full aspect-video md:aspect-[4/5] rounded-2xl overflow-hidden shadow-xl bg-[#1F3A5F]/5 relative group touch-pan-y"
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -153,7 +147,6 @@ export default function Proposito() {
               className="w-full h-full object-cover will-change-transform"
             />
             
-            {/* Controles del Carrusel */}
             <button 
               onClick={prevImage}
               className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-[#13263F]/40 hover:bg-[#13263F]/70 text-white flex items-center justify-center backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300 z-10"
@@ -169,17 +162,17 @@ export default function Proposito() {
               &#10095;
             </button>
 
-            {/* Contador de Fotos */}
             <div className="absolute bottom-4 right-4 bg-[#13263F]/60 backdrop-blur-md text-[#F4F1ED] px-3 py-1 rounded-full text-[10px] font-mono tracking-widest">
               {String(currentImg + 1).padStart(2, '0')} / {String(galeriaFotos.length).padStart(2, '0')}
             </div>
           </div>
         </div>
 
-        {/* COLUMNA DERECHA: TEXTOS DINÁMICOS CON HTML */}
+        {/* COLUMNA DERECHA: SCROLL VERTICAL INTERNO */}
         <div 
           ref={rightColumnRef}
-          className="md:col-span-7 flex flex-col justify-start space-y-12 md:space-y-16 w-full"
+          data-lenis-prevent
+          className="md:col-span-7 flex flex-col justify-start space-y-12 md:space-y-16 w-full max-h-[50dvh] md:max-h-[75dvh] overflow-y-auto pr-4 scrollbar-thin scrollbar-thumb-[#13263F]/20"
         >
           {/* BLOQUE: PROPÓSITO */}
           <div className="border-t border-[#13263F]/10 pt-8 flex flex-col space-y-4">

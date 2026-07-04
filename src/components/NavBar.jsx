@@ -1,7 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Diccionario local para la navegación, manteniendo el componente independiente
 const localNav = {
   es: [
     { etiqueta: "Inicio", href: "#inicio" },
@@ -22,30 +21,60 @@ const localNav = {
 const Navbar = () => {
   const { i18n } = useTranslation();
   const [visible, setVisible] = useState(true);
-  const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [isAtTop, setIsAtTop] = useState(true);
+  
+  // Guardamos la última posición del scroll y el ID del timer en refs
+  // Esto evita re-declaraciones basura y desfazamientos en el useEffect
+  const prevScrollPosRef = useRef(0);
+  const timeoutRef = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.scrollY;
+      const prevScrollPos = prevScrollPosRef.current;
       
-      // Controla si estamos en el tope absoluto de la página
-      setIsAtTop(currentScrollPos < 20);
+      // 1. Controlar si estamos en el tope absoluto de la página
+      const atTop = currentScrollPos < 20;
+      setIsAtTop(atTop);
 
-      // Oculta si scrolleas hacia abajo y pasa de los 80px. Muestra al subir.
-      setVisible(prevScrollPos > currentScrollPos || currentScrollPos < 80);
-      setPrevScrollPos(currentScrollPos);
+      // Limpiamos CUALQUIER temporizador activo inmediatamente al detectar scroll
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      // 2. Comportamiento base de dirección de scroll
+      if (atTop) {
+        // Si está arriba del todo, siempre es visible
+        setVisible(true);
+      } else if (currentScrollPos > prevScrollPos) {
+        // Si scrollea hacia abajo, la ocultamos de inmediato
+        setVisible(false);
+      } else if (prevScrollPos > currentScrollPos) {
+        // SI SCROLLEA HACIA ARRIBA: La hacemos visible...
+        setVisible(true);
+
+        // ...PERO programamos su desaparición por inactividad de scroll (ej. 2 segundos)
+        timeoutRef.current = setTimeout(() => {
+          setVisible(false);
+        }, 2000); // Ajusta el tiempo en milisegundos aquí
+      }
+
+      // Actualizamos la referencia de la posición actual
+      prevScrollPosRef.current = currentScrollPos;
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, [prevScrollPos]);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      if (timeoutRef.current) clearTimeout(timeoutRef.current);
+    };
+  }, []); // Efecto limpio sin dependencias reactivas que causen bucles intermitentes
 
   const changeLanguage = (lng) => {
     i18n.changeLanguage(lng);
   };
 
-  // Detecta el idioma activo (cae en español por defecto)
   const currentLang = localNav[i18n.language] ? i18n.language : 'es';
   const links = localNav[currentLang];
 
@@ -61,7 +90,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         
-        {/* BRANDING / LOGO OFICIAL (Flotando suavemente) */}
+        {/* BRANDING / LOGO OFICIAL */}
         <div className="flex items-center space-x-3 transition-opacity duration-300 hover:opacity-80">
           <a href="#inicio">
             <img 
@@ -86,7 +115,7 @@ const Navbar = () => {
           ))}
         </ul>
 
-        {/* SECCIÓN DE IDIOMA (Cápsula Frosted Glass translúcida) */}
+        {/* SECCIÓN DE IDIOMA */}
         <div className="flex items-center space-x-1.5 bg-white/[0.05] p-1 rounded-full border border-white/10 backdrop-blur-sm">
           <button
             onClick={() => changeLanguage('es')}
