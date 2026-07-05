@@ -1,33 +1,18 @@
 {
   "navegacion": [
-    {
-      "etiqueta": "Home",
-      "enlace": "#inicio"
-    },
-    {
-      "etiqueta": "About Us",
-      "enlace": "#quienes-somos"
-    },
-    {
-      "etiqueta": "Investment",
-      "enlace": "#inversion"
-    },
-    {
-      "etiqueta": "Graduate Profile",
-      "enlace": "#perfil-egresado"
-    },
-    {
-      "etiqueta": "Contact",
-      "enlace": "#contacto"
-    }
+    { "etiqueta": "Home", "enlace": "#inicio" },
+    { "etiqueta": "About Us", "enlace": "#quienes-somos" },
+    { "etiqueta": "Investment", "enlace": "#inversion" },
+    { "etiqueta": "Content", "enlace": "#contenido" },
+    { "etiqueta": "Contact", "enlace": "#contacto" }
   ],
   "organizacion": {
     "descripcion": "An interdisciplinary educational organization that integrates psychology, performing arts, and social sciences to generate formative experiences connecting body, mind, and society. More than courses, it creates spaces for research, community, and human transformation.",
     "filosofia": {
-      "lema_fundamental": "We believe that the body, mind, and social environment cannot be understood separately."
+      "lema_fundamental": "We believe that the body, the mind, and the social environment cannot be understood separately."
     },
-    "proposito": "Bringing knowledge into action to change lives -\n\nIn today's world, traditional answers are no longer enough. Our purpose is to build a direct bridge between theory and real practice, uniting psychology, performing arts, and social sciences in one single place.\n\nThrough this training, we give you the tools to become an agent of integral well-being. We transform learning into movement, and the understanding of the environment into real, ethical, and professional projects that generate a positive impact on human development.",
-    "metodologia": "A cutting-edge model: integrative, practical, and career-ready -\n\nOur methodology is designed for you to leave desks behind and learn by doing. We stand on three key pillars for your professional growth:\n\n1. Understanding the current environment: we learn to read the here and now of people. We cross analytical and human tools to understand the individual's subjectivity in all its complexity.\n\n2. Experiential and bodily tools: The body is our territory of learning. We integrate movement and art as innovative methodological vehicles to facilitate well-being, communication, and deep expression.\n\n3. Development of tangible projects: you do not come here to accumulate notes. Our methodology is structured so that, step by step, you design and structure your own self-managed project, ready to enter today's labor market."
+    "proposito": "Bringing knowledge into action to change lives -\n\nIn today's world, traditional answers are no longer enough. Our purpose is to build a direct bridge between theory and real practice, uniting psychology, performing arts, and social sciences in one single place.\n\nThrough this training, we give you the tools to become an agent of comprehensive well-being. We transform learning into movement, and the understanding of the environment into real, ethical, and professional projects that generate a positive impact on human development.",
+    "metodologia": "A cutting-edge model: integrative, practical, and career-oriented -\n\nOur methodology is designed for you to leave desks behind and learn by doing. We stand on three key pillars for your professional growth:\n\n1. Understanding the current environment: we learn to read the here and now of individuals. We cross analytical and human tools to understand the subjectivity of the individual in all its complexity.\n\n2. Experiential and bodily tools: The body is our territory for learning. We integrate movement and art as innovative methodological vehicles to facilitate well-being, communication, and deep expression.\n\n3. Development of tangible projects: you do not come here to accumulate notes. Our methodology is structured so that, step by step, you design and structure your own self-managed project, ready to enter today's labor market."
   },
   "diplomado": {
     "nombre": "Human Moove Arts",
@@ -37,26 +22,26 @@
       "horarios": "Saturdays from 9:00 am to 1:00 pm (CDMX Time)",
       "sedes": [
         "BUAP Faculty of Psychology",
-        "LEACT Dance Studio (Tragaluz Artistic and Cultural Experimentation Laboratory)"
+        "LEACT Dance Studio (Laboratorio de Experimentación Artística y Cultural Tragaluz)"
       ]
     },
     "perfil_egreso": {
-      "vision_general": "Training for professionals with an interdisciplinary and critical vision, capable of understanding well-being as a collective process linked to the socio-cultural context. It develops the ability to design high-impact psychotherapeutic, psychological, social, research, or artistic creation intervention projects as a tool for care, healing, and transformation.",
+      "vision_general": "Training for professionals with an interdisciplinary and critical vision, capable of understanding well-being as a collective process linked to the socio-cultural context. It develops the ability to design psychotherapeutic, psychological, social intervention, research, or artistic creation projects as tools for care, healing, and high-impact transformation.",
       "enfoques_por_disciplina": [
         {
           "id": 1,
-          "disciplina": "The Graduate from a Psychology Perspective",
-          "resumen": "Aligns traditional psychological foundations with a cutting-edge contextual approach to understand human subjectivity in the here and now. Upon graduation, you will possess innovative methodological tools that integrate social environment analysis and bodily work. This will allow you to build deep therapeutic bonds, offer clinical psychotherapy or orientation processes, guaranteeing the retention of your clients and consolidating your professional profile to revalue your fees."
+          "disciplina": "The Graduate from a psychological perspective",
+          "resumen": "Aligns traditional psychological foundations with a cutting-edge contextual approach to understand human subjectivity in the here and now. Upon graduation, you will possess innovative methodological tools that integrate social environment reading and bodywork. This will allow you to build deep therapeutic bonds, offer clinical guidance or psychotherapy processes, guaranteeing the continuity of your clients and consolidating your professional profile to revalue your fees."
         },
         {
           "id": 2,
-          "disciplina": "The Graduate from a Social Sciences Perspective",
-          "resumen": "Connects macro analysis (social, economic, and geopolitical) with direct human practice and the living territory. Upon graduation, you will know how to ground structural diagnostics into the design of tangible, human, and self-managed integral well-being projects. You will be qualified to implement community intervention and consulting strategies that practically respond to current complexities, opening a new field of independent job opportunities outside of traditional academia."
+          "disciplina": "The Graduate from a social sciences perspective",
+          "resumen": "Succeeds in connecting macro analysis (social, economic, and geopolitical) with direct human practice and the living territory. Upon graduation, you will know how to ground structural diagnoses into the design of tangible, human, and self-managed comprehensive well-being projects. You will be qualified to implement community intervention and consulting strategies that practically respond to today's complexity, opening up a new field for independent employment outside of traditional academia."
         },
         {
           "id": 3,
-          "disciplina": "The Graduate from a Performing Arts Perspective",
-          "resumen": "Learns to integrate their bodily and creative mastery with the foundations of integral well-being and the understanding of the current environment. Upon graduation, you will master cutting-edge tools for both teaching facilitation and artistic creation, allowing you to express and give voice to diverse subjectivities and human experiences through performances or stagings with deep social sensitivity. This provides professional methodologies to use movement as a vehicle for human development while consolidating a real, tangible, and sustainable project that responds to society's current needs."
+          "disciplina": "The Graduate from a performing arts perspective",
+          "resumen": "Learns to integrate their bodily and creative mastery with the foundations of comprehensive well-being and the understanding of the current environment. Upon graduation, you will master cutting-edge tools for both teaching facilitation and artistic creation, allowing you to shape and give voice to diverse human subjectivities and experiences through performances or stagings with deep social sensitivity. This will provide you with professional methodologies to use movement as a vehicle for human development and, at the same time, consolidate a real, tangible, and sustainable project that responds to the current needs of society."
         }
       ]
     }
@@ -65,244 +50,175 @@
     "modulos": [
       {
         "numero": 1,
-        "titulo": "Contemporary Perspectives and Epistemologies of Subjectivity",
+        "titulo": "Contemporary perspectives and epistemologies of subjectivity",
         "clases": [
           {
             "numero": 1,
-            "titulo": "Epistemological Framework, Qualitative Methodologies, and Space Co-construction",
-            "docentes": [
-              "Lic. Sahira Barrios"
-            ]
+            "titulo": "Epistemological framework, qualitative methodologies, and co-construction of space",
+            "docentes": ["Lic. Sahira Barrios", "Dra. Verónica Rosas"]
           },
           {
             "numero": 2,
-            "titulo": "Dimensions of Well-being and Integrality from Humanistic and Existential Approaches for Health Psychology",
-            "docentes": [
-              "Mtra. Isabel Quechol",
-              "Lic. Sahira Barrios"
-            ]
+            "titulo": "Dimensions of well-being and integrality from humanist and existential approaches for health psychology",
+            "docentes": ["Mtra. Isabel Quechol", "Lic. Sahira Barrios"]
           },
           {
             "numero": 3,
-            "titulo": "Identity Processes, Human Development, and Crisis Coping Strategies: From Growth to Self-Actualization",
-            "docentes": [
-              "Mtra. Isabel Quechol",
-              "Lic. Sahira Barrios"
-            ]
+            "titulo": "Identity processes, human development, and coping strategies in times of crisis: from growth to self-actualization",
+            "docentes": ["Mtra. Isabel Quechol", "Lic. Sahira Barrios"]
           },
           {
             "numero": 4,
-            "titulo": "Epistemologies of Subjectivity: Context Analysis and Creative Mediation",
-            "docentes": [
-              "Lic. Bryan Chavarría",
-              "Mtro. Greivin Quesada"
-            ]
+            "titulo": "Epistemologies of subjectivity: Context analysis and creative mediation",
+            "docentes": ["Lic. Bryan Chavarría", "Mtro. Greivin Quesada"]
           }
         ]
       },
       {
         "numero": 2,
-        "titulo": "Cultural Psychology: Diversity, Socio-cultural Context, and New Perspectives in Psychological and Artistic Practice",
+        "titulo": "Cultural Psychology: diversity, sociocultural context, and new perspectives in psychological and artistic practice",
         "clases": [
           {
             "numero": 1,
-            "titulo": "Social Psychology of Recognition: Community and Relational Dimension of Alterity",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Mtro. Greivin Quesada"
-            ]
+            "titulo": "Social psychology of recognition: Community and relational dimension of alterity",
+            "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
           },
           {
             "numero": 2,
-            "titulo": "Situated Epistemologies: Transcultural Contextualization in Psychology and the Arts",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Mtro. Greivin Quesada"
-            ]
+            "titulo": "Situated epistemologies: Cross-cultural contextualization in psychology and the arts",
+            "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
           },
           {
             "numero": 3,
-            "titulo": "Gender Studies, Representations, and Corporality in Contemporary Aesthetics",
-            "docentes": [
-              "Mtre. Ang. García"
-            ]
+            "titulo": "Gender studies, representations, and corporality in contemporary aesthetics",
+            "docentes": ["Mtre. Ang. García"]
           },
           {
             "numero": 4,
-            "titulo": "Integration of Knowing, Feeling, and Doing Through Expressive Languages",
-            "docentes": [
-              "Mtro. Jimmy Ortiz"
-            ]
+            "titulo": "Integration of knowing, feeling, and doing through expressive languages",
+            "docentes": ["Mtro. Jimmy Ortiz"]
           },
           {
             "numero": 5,
-            "titulo": "Practical Laboratory 1: Creative Methodologies and Tools for Psychological and Community Intervention",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Mtro. Greivin Quesada",
-              "Lic. Bryan Chavarría"
-            ]
+            "titulo": "Practical Laboratory 1: Creative methodologies and tools for psychological and community intervention",
+            "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada", "Lic. Bryan Chavarría"]
           }
         ]
       },
       {
         "numero": 3,
-        "titulo": "Contemporary Environments, Occupational Health, and Integral Care Models",
+        "titulo": "Contemporary environments, occupational health, and comprehensive care models",
         "clases": [
           {
             "numero": 1,
-            "titulo": "Socioeconomic Determinants and Subjectivity in Contemporary Mental Health",
-            "docentes": [
-              "Mtro. Luis A. Carranza",
-              "Dra. Verónica Rosas"
-            ]
+            "titulo": "Socioeconomic determinants and subjectivity in contemporary mental health",
+            "docentes": ["Mtro. Luis A. Carranza", "Dra. Verónica Rosas"]
           },
           {
             "numero": 2,
-            "titulo": "Social Context and Mental Health: An Integral Look at Vulnerability",
-            "docentes": [
-              "Mtra. Isabel Quechol",
-              "Mtro. Luis A. Carranza"
-            ]
+            "titulo": "Social context and mental health: A comprehensive look at vulnerability",
+            "docentes": ["Mtra. Isabel Quechol", "Mtro. Luis A. Carranza"]
           },
           {
             "numero": 3,
-            "titulo": "Psychosomatics, Corporeality, and Health: Somatic Well-being Face to Illness",
-            "docentes": [
-              "Lic. Laura Cruz"
-            ]
+            "titulo": "Psychosomatics, corporeity, and health: Somatic well-being in the face of illness",
+            "docentes": ["Lic. Laura Cruz"]
           },
           {
             "numero": 4,
-            "titulo": "Work Psychology and Occupational Health: Ethical Perspectives of Care",
-            "docentes": [
-              "Mexiro, A.C.",
-              "Mtro. Roberto Romero"
-            ]
+            "titulo": "Work psychology and occupational health: Ethical perspectives of care",
+            "docentes": ["Mtro. Roberto Romero"]
           },
           {
             "numero": 5,
-            "titulo": "Psychosocial Intervention Laboratory: Co-responsibility Strategies and Collective Support Networks",
-            "docentes": [
-              "Lic. Sahira Barrios",
-              "Mtra. Yea Jean Choi"
-            ]
+            "titulo": "Psychosocial intervention laboratory: Co-responsibility strategies and collective support networks",
+            "docentes": ["Lic. Sahira Barrios", "Mtra. Yea Jean Choi"]
           }
         ]
       },
       {
         "numero": 4,
-        "titulo": "Gender Perspective, Diversity, and Intervention Approaches in Mental Health",
+        "titulo": "Gender perspective, diversity, and intervention approaches in mental health",
         "clases": [
           {
             "numero": 1,
-            "titulo": "Introduction to Gender Perspective and its Relevance to Psychology",
-            "docentes": [
-              "Mtra. Claudia Ronson (KINDAA Collective)"
-            ]
+            "titulo": "Introduction to the gender perspective and its relevance to psychology",
+            "docentes": ["Mtra. Claudia Ronson (Colectivo KINDAA)"]
           },
           {
             "numero": 2,
-            "titulo": "Global Context, Culture, and Processes",
-            "docentes": [
-              "Mtra. Yea Jean Choi"
-            ]
+            "titulo": "Global context, culture, and processes",
+            "docentes": ["Mtra. Yea Jean Choi", "Mtra. Claudia Ronson (Colectivo KINDAA)"]
           },
           {
             "numero": 3,
-            "titulo": "Psychosocial Trauma and Comprehensive Approaches to Gender-Based Violence",
-            "docentes": [
-              "Mtra. Claudia Ronson (KINDAA Collective)",
-              "Lic. Sahira Barrios"
-            ]
+            "titulo": "Psychosocial trauma and comprehensive approaches to gender-based violence",
+            "docentes": ["Mtra. Claudia Ronson (Colectivo KINDAA)", "Lic. Sahira Barrios"]
           },
           {
             "numero": 4,
-            "titulo": "Psychology of Diversity, Corporeality, and Identities",
-            "docentes": [
-              "Mtro. Greivin Quesada",
-              "Lic. Bryan Chavarría"
-            ]
+            "titulo": "Psychology of diversity, corporality, and identities",
+            "docentes": ["Mtro. Greivin Quesada", "Lic. Bryan Chavarría"]
           },
           {
             "numero": 5,
-            "titulo": "Practical Laboratory 3: Project Design and Intervention Tools with a Gender Perspective",
-            "docentes": [
-              "Lic. Sahira Barrios"
-            ]
+            "titulo": "Practical Laboratory 3: Project design and intervention tools with a gender perspective",
+            "docentes": ["Lic. Sahira Barrios", "Mtra. Claudia Ronson (Colectivo KINDAA)"]
           }
         ]
       },
       {
         "numero": 5,
-        "titulo": "Competency Consolidation and Professionalization: Interdisciplinary Practice and Innovation in Integral Well-being Projects",
+        "titulo": "Consolidation of skills and professionalization: Interdisciplinary practice and innovation in comprehensive well-being projects",
         "clases": [
           {
             "numero": 1,
-            "titulo": "Specialized Lecture Series",
-            "docentes": []
+            "titulo": "Specialized conference symposium",
+            "docentes": ["Mtro. Roberto Romero", "Dr. José Luis Rodriguez", "Mtra. Yea Jean Choi", "Mtro. José Eduardo Espinoza", "Lic. Sahira Barrios"]
           },
           {
             "numero": 2,
-            "titulo": "Application Workshop: Design, Viability, and Operationalization of Interdisciplinary Projects",
-            "docentes": [
-              "Mtro. Roberto Romero",
-              "Lic. Bryan Chavarría"
-            ]
+            "titulo": "Application workshop: Design, viability, and operationalization of interdisciplinary projects",
+            "docentes": ["Mtro. Roberto Romero", "Lic. Bryan Chavarría"]
           },
           {
             "numero": 3,
-            "titulo": "Seminar: Professional Outlook, Ethics, and Fields of Incidence in Integral Well-being",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Lic. Sahira Barrios"
-            ]
+            "titulo": "Seminar: Professional prospects, ethics, and fields of incidence in comprehensive well-being",
+            "docentes": ["Dra. Verónica Rosas", "Lic. Sahira Barrios"]
           },
           {
             "numero": 4,
-            "titulo": "Collegial Supervision and Methodological Guidance for Project Development",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Mtro. Greivin Quesada"
-            ]
+            "titulo": "Collegiate supervision and methodological guidance for project development",
+            "docentes": ["Mtro. Roberto Romero", "Dra. Verónica Rosas", "Lic. Sahira Barrios"]
           },
           {
             "numero": 5,
-            "titulo": "Technical and Methodological Validation Lab I: Structuring and Argumentation",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Mtro. Greivin Quesada"
-            ]
+            "titulo": "Technical and methodological validation laboratory I: Structuring and argumentation",
+            "docentes": ["Lic. Sahira Barrios", "Mtro. Greivin Quesada"]
           },
           {
             "numero": 6,
-            "titulo": "Validation and Viability Lab II: Presentation Simulation and Impact Design",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Lic. Bryan Chavarría"
-            ]
+            "titulo": "Validation and viability laboratory II: Presentation simulation and impact design",
+            "docentes": ["Dra. Verónica Rosas", "Lic. Bryan Chavarría"]
           },
           {
             "numero": 7,
-            "titulo": "Academic Colloquium and Public Presentation of Applied Projects",
-            "docentes": [
-              "Dra. Verónica Rosas",
-              "Mtro. Greivin Quesada"
-            ]
+            "titulo": "Academic colloquium and public presentation of applied projects",
+            "docentes": ["Dra. Verónica Rosas", "Mtro. Greivin Quesada"]
           }
         ]
       }
-    ]
-  },
-  "evento_cierre": {
-    "nombre": "Gathering of Knowledges",
-    "descripcion": "It is the closing event of the diploma program, designed to function simultaneously as an <strong>academic convention</strong> and an <strong>artistic and community festival.</strong>\n\nFor a week, we will set aside traditional exams to open a living space where <strong>you can share the projects, reflections, and performances</strong> you developed during classes, as well as connect with local and international research and guests.\n\nThrough activities such as talks, workshops, exhibitions, and artistic presentations, this gathering is the key moment to take knowledge out of the notebook, and <strong>see how it transforms into real connection and collective celebration</strong>, an integral well-being approach that builds community."
+    ],
+    "evento_cierre": {
+      "nombre": "Gathering of Knowledge",
+      "descripcion": "This is the closing event of the diploma program, designed to function simultaneously as an <strong>academic convention</strong> and an <strong>artistic and community festival.</strong>\n\nFor one week, we will set aside traditional exams to open a living space where <strong>you will be able to share the projects, reflections, and performing proposals</strong> that you developed during classes, as well as connect with local and international research and guests.\n\nThrough activities such as talks, workshops, exhibitions, and artistic presentations, this gathering is the key moment to take knowledge out of the notebook, and <strong>see how it transforms into real connection and collective celebration</strong>, a comprehensive well-being approach that generates community."
+    }
   },
   "costos_y_financiamiento": {
     "inscripcion": {
       "monto": 1500,
       "moneda": "MXN",
-      "descripcion": "Mandatory initial payment required to secure your spot and enable access to financing schemes and tuition payments.",
+      "descripcion": "Mandatory initial payment required to secure your spot and enable access to financing schemes and tuition payment plans.",
       "detalles_adicionales": {
         "modalidad_stripe": "The registration fee IS credited toward the BUAP certificate payment ($2,200 MXN), so you would only pay $700 pesos in that category.",
         "modalidad_transferencia_efectivo": "The registration fee IS NOT credited toward the BUAP certificate payment ($2,200 MXN)."
@@ -318,18 +234,8 @@
         "costo_total_sin_beca": 24000,
         "moneda": "MXN",
         "opciones_financiamiento": [
-          {
-            "plazo_mensualidades": 9,
-            "porcentaje_beca": 20,
-            "monto_total_colegiaturas": 19200,
-            "pago_mensual": 2133
-          },
-          {
-            "plazo_mensualidades": 12,
-            "porcentaje_beca": 15,
-            "monto_total_colegiaturas": 20400,
-            "pago_mensual": 1700
-          }
+          { "plazo_mensualidades": 9, "porcentaje_beca": 20, "monto_total_colegiaturas": 19200, "pago_mensual": 2133 },
+          { "plazo_mensualidades": 12, "porcentaje_beca": 15, "monto_total_colegiaturas": 20400, "pago_mensual": 1700 }
         ]
       },
       {
@@ -341,38 +247,16 @@
         "costo_total_sin_beca": 20800,
         "moneda": "MXN",
         "opciones_financiamiento": [
-          {
-            "plazo_mensualidades": 9,
-            "porcentaje_beca": 20,
-            "monto_total_colegiaturas": 16640,
-            "pago_mensual": 1849
-          },
-          {
-            "plazo_mensualidades": 12,
-            "porcentaje_beca": 15,
-            "monto_total_colegiaturas": 17680,
-            "pago_mensual": 1473
-          }
+          { "plazo_mensualidades": 9, "porcentaje_beca": 20, "monto_total_colegiaturas": 16640, "pago_mensual": 1849 },
+          { "plazo_mensualidades": 12, "porcentaje_beca": 15, "monto_total_colegiaturas": 17680, "pago_mensual": 1473 }
         ]
       }
     ],
     "politicas": [
-      {
-        "tipo": "Regular payment period",
-        "regla": "Monthly payments must be made strictly from the 14th to the 18th of each month to preserve the benefit of the assigned scholarship."
-      },
-      {
-        "tipo": "Late payment",
-        "regla": "Starting from the 19th of each month, an automatic late fee of 8% will be applied on top of the regular payment amount."
-      },
-      {
-        "tipo": "Accumulated delinquency penalty",
-        "regla": "The accumulation of three late payments will result in the total and permanent cancellation of the granted scholarship, requiring coverage of the regular cost."
-      },
-      {
-        "tipo": "External certification",
-        "regla": "The cost of the BUAP certificate is $2,200 MXN. Upon purchasing the complete diploma program (in its in-person or online version), the registration fee is credited toward this concept, meaning the student will only pay $700 MXN for the certificate."
-      }
+      { "tipo": "Regular payment period", "regla": "Monthly payments must strictly be made from the 14th to the 18th of each month to retain the assigned scholarship benefit." },
+      { "tipo": "Late payment", "regla": "Starting on the 19th of each month, an automatic 8% late fee will be applied to the regular payment amount." },
+      { "tipo": "Penalty for accumulated default", "regla": "The accumulation of three late payments will result in the total and permanent cancellation of the awarded scholarship, requiring the regular cost to be covered." },
+      { "tipo": "External certification", "regla": "The cost of the BUAP certificate is $2,200 MXN. Upon purchasing the complete diploma program (either in-person or online), the registration fee amount is credited toward this concept, meaning the student will only pay $700 MXN for the certificate." }
     ],
     "ui": {
       "paso1": "Step 1",
@@ -382,78 +266,172 @@
       "codigo": "CODE",
       "aplicar": "Apply",
       "cupon_ok": "Coupon applied",
-      "politicas_titulo": "Financing and Usage Policies"
+      "politicas_titulo": "Financing and Use Policies"
     }
   },
-  "maestros": [],
+  "maestros": [
+    {
+      "nombre": "Bryan Chavarría Campos",
+      "pais": "Costa Rica",
+      "perfil": "Choreographer, performer, educator, and philologist. Awarded the National Culture Prize in Dance 2024, his work intertwines creation, research, and the decoloniality of the body. He is co-director of the collectives Yunta and Reinas Arte Escénico, and through laboratories like his workshop \"Maleable\", he proposes to enhance an \"extra-daily scenic body\", sharing his methodology in Costa Rica, Guatemala, and Mexico."
+    },
+    {
+      "nombre": "Sahira Barrios Hernández",
+      "pais": "Mexico",
+      "perfil": "General Director and Founder of Human MooveArts. Psychologist from BUAP, Bachelor in Dance from UDLAP, and master's student in Artistic-Creative Therapies, she has training in psychotherapy, psychological orientation, and clinical skills. With more than 15 years of scenic and teaching career, she has built an important bridge between mental health and movement arts. Her work covers teaching at all academic levels, choreographic research, and leadership in community intervention projects. Her participation in artistic projects and vulnerable sectors outside of Mexico includes Costa Rica, Guatemala, and New York. Her pedagogy fuses integrative psychology and bodily praxis under a deep conviction: \"In a world full of violence, tenderness is revolution\"."
+    },
+    {
+      "nombre": "Ang García Azofeifa",
+      "pais": "Costa Rica",
+      "perfil": "Performing artist, educator, creator, and philologist in English literature. Their artistic and investigative praxis is nurtured by theater directing, performance, and dissident spoken word. With an approach deeply rooted in decolonial, gender, and corporality narratives, they have shared their work and presentations in international spaces across Mexico, El Salvador, Kenya, and the United States, using performing arts as a territory of resistance, memory, and social transformation."
+    },
+    {
+      "nombre": "Laura Cruz Torres",
+      "pais": "Costa Rica",
+      "perfil": "Multidisciplinary artist, researcher, writer, and facilitator. Her practice pioneeringly intertwines movement arts, somatic education, neuroscience, and ecology. With a solid international background in Sweden, Spain, and Denmark, Laura investigates psycho-bodily processes in natural and aquatic environments through her own methodologies such as \"Danzar el Paisaje\" (Dancing the Landscape). Her pedagogical work approaches kinesis from ecofeminist and comprehensive well-being perspectives, facilitating laboratories in Latin America and Europe."
+    },
+    {
+      "nombre": "José Roberto Romero Espinosa",
+      "pais": "Mexico",
+      "perfil": "Specialist in political communication, branding, digital strategy, and public narrative construction. Master in Public Opinion and Political Marketing from BUAP and graduate from UDLAP, he has a solid career as a brand consultant, educator, and academic coordinator. His experience includes directing social and institutional communication, linking verbal and non-verbal communication strategies to enhance corporate identity and the development of projects with social and community impact."
+    },
+    {
+      "nombre": "Luis Ángel Carranza Pérez",
+      "pais": "Mexico",
+      "perfil": "Social psychologist, researcher, and educator. He is a PhD candidate in Psychological Research at ITESO and holds a Master's in Social Psychology from BUAP. His work specializes in qualitative research, discourse analysis, and the psychosocial approach to territory, public space, gender, and the cultural politics of emotions. He has participated in international research projects on social dynamics and is co-author of publications focused on moral judgments and social categorization in Latin America."
+    },
+    {
+      "nombre": "Jimmy Ortiz Chinchilla",
+      "pais": "Costa Rica",
+      "perfil": "Choreographer, director, actor, educator, and psychologist from the Universidad de Costa Rica (UCR). He holds an Academic Master's in Arts and is a doctoral student in Society and Culture Studies (UCR). A pioneer and leader of Central American contemporary dance, he founded the emblematic company Losdenmedium and the revolutionary El Barco Conservatory. He has been awarded more than ten National Dance and Theater Prizes, and his innovative pedagogical approach based on the concepts of Play, Fiction, and Surprise has trained generations of creators. He is currently a university professor, international guest educator, and general director of the ENSIMISMADOS platform."
+    },
+    {
+      "nombre": "Claudia Ronson",
+      "pais": "Mexico",
+      "perfil": "Internationalist, Master in Pedagogy (UPAEP), and master's student in Gender Studies (IAP). She is a specialist in Human Rights, gender perspective, violence prevention, and educational policies, with research stays and international presentations in the US, Spain, Colombia, and Ecuador. She has collaborated with the Ministry of Education and the Ministry of Substantive Equality of Puebla as a reflection circle facilitator and curriculum designer. Activist and co-founder of Colectiva Kindaa, her work focuses on the collective construction of the city, public space, and community education from a feminist approach."
+    },
+    {
+      "nombre": "Dra. Verónica Adriana Rosas Jiménez",
+      "pais": "Mexico",
+      "perfil": "Psychologist, sociologist, researcher, and educator with a humanist and critical perspective. She holds a PhD in Sociology from BUAP and has an outstanding career in university teaching (IBERO, BUAP, UPAEP) and in the coordination of social projects with community incidence. She has been responsible for the IBERO Puebla Community Center and has various publications focused on urban territorial issues, participatory methodologies, gender, spatial appropriation, and eco-technological alternatives in peripheral areas."
+    },
+    {
+      "nombre": "Yeajean Choi",
+      "pais": "South Korea",
+      "perfil": "Choreographer, video dance creator, educator, and international performer. She holds a Master of Fine Arts (M.F.A.) in Dance from Texas Woman's University and from Sung Kyun Kwan University in Seoul. She was a full-time professor and coordinator of the Dance program at UDLAP. Her interdisciplinary work, awarded at film and dance festivals in Asia, Europe, and America, investigates contact improvisation, traditional Korean dances, and site-specific work. She is co-founder of the artistic organization kNOwBOX Dance and programming director of the festival of the same name."
+    },
+    {
+      "nombre": "Grei Quezac",
+      "pais": "Costa Rica",
+      "perfil": "Choreographer, dancer, educator, and artistic producer. Master in Dance with an emphasis on pedagogy from the Universidad Nacional de Costa Rica and graduate of the prestigious El Barco Conservatory. He was Director of the National Dance Company of Costa Rica (2023-2025). His pedagogical proposal and movement research—materialized in international workshops such as Eyectado and Cyborg—focuses on bodily autonomy, horizontality, and subjectivity in movement. He is co-founder of the international platform ENSIMISMADOS and the collective Reinas Arte Escénico, weaving a solid history of creation in university networks and festivals throughout Latin America."
+    },
+    {
+      "nombre": "María Isabel Quechol Delgado",
+      "pais": "Mexico",
+      "perfil": "Psychologist from BUAP, she holds a double Master's degree in Psychoanalytic Psychotherapy (Centro Eleia) and in Pedagogy (UPAEP), as well as Doctoral studies in Psychoanalytic Clinical Practice. With over 8 years of experience, she specializes in institutional mental health, organizational well-being, and educational psychology. She has designed and implemented crisis intervention, psychological containment, and psychosocial risk prevention programs in large-scale school contexts. Her experience includes serving as Senior Manager at Fundación Azteca and Head of Department at the SEP of Puebla, as well as her multidisciplinary collaboration with UNICEF in emergency care. She holds an official certification by CONOCER for care provided to women victims of violence, consolidating an integrative vision that joins clinical rigor with contemporary psychopedagogical management."
+    },
+    {
+      "nombre": "Gabriela Carrasco Prisco",
+      "pais": "Mexico",
+      "perfil": "Musician, flutist, and music educator specialized in music therapy applied to education and psychomotor stimulation. With a solid background in neurosciences and inclusive music pedagogies, she has shared her research in international forums and congresses in Cuba and Brazil. Her practice intertwines chamber music, musical theater, and the study of neurodiversity, exploring sound and rhythm as fundamental tools for comprehensive human development and well-being."
+    },
+    {
+      "nombre": "Mtro. José Eduardo Espinosa Martínez",
+      "pais": "Mexico",
+      "perfil": "Electronic and Communications Engineer with an MBA in Services Marketing from UDLAP. He is a specialist in scenic technology, lighting design, and videomapping. He has a career spanning over two decades in technical direction, logistics, and the materialization of hundreds of theater, dance, and opera stagings, as well as international festivals like Performatica. His experience includes working as Crew Chief for Cirque du Soleil's show Joya, and his current management as Coordinator of Performing Arts Productions at UDLAP, uniquely blending engineering, teaching, and artistic sensitivity."
+    },
+    {
+      "nombre": "Pablo Antolín Blanco",
+      "pais": "Spain",
+      "perfil": "Primary Education Teacher, career civil servant, and Head of Studies specializing in educational innovation, active methodologies, and teaching digital competence. With an outstanding career in pedagogical coordination and the design of inclusive learning situations, his work focuses on the didactic integration of ICT, artificial intelligence applied to education, educational robotics, and school radio as a skill tool. Collaborator in pedagogical innovation groups, he stands out for his focus on the design of learning spaces and the creation of motivating educational resources connected with the community."
+    },
+    {
+      "nombre": "Alejandra Carmona",
+      "pais": "Spain",
+      "perfil": "Social educator, child and youth trauma therapist, and specialist in vulnerability contexts. She holds a Diploma in Systemic Child and Youth Trauma Therapy. Her professional and volunteer career focuses on socio-educational intervention with minors in the protection system, accompaniment in development and learning processes, and conflict management. She is an expert in the detection and treatment of early trauma, abuse, and attachment dynamics, promoting a clinical and educational practice with a deeply restorative approach."
+    },
+    {
+      "nombre": "Lu Bermúdez",
+      "pais": "Mexico",
+      "perfil": "Performing artist, social communicator, dance manager, and activist. Specialized in urban dances with a 10-year career on the national and international scene, she has represented Mexico in dance battle festivals in countries like Colombia and has trained in leading companies in the country. Her work as a choreographer fuses movement with activism, creating stagings focused on mental health, gender equality, and the visibility of women in collaboration with artists like Audry Funk. She is the founder and promoter of initiatives dedicated to creating safe spaces within the dance community."
+    },
+    {
+      "nombre": "Alejandra Garavito Aguilar",
+      "pais": "Guatemala",
+      "perfil": "Clinical psychologist (Cum Laude) with a diploma in Neuroscience (URL), dancer, and psycho-bodily therapist. Specialized in the \"Terapia de Reencuentro\" (Reencounter Therapy) methodology and Authentic Movement, she has a solid international track record in accompanying trauma survivors, youth at risk, and art therapy processes. She is a performing arts researcher, winner of the Iberescena prize and the Bienal en Resistencia, and co-founder of the prominent Central American platform CONNATURAL. As a teacher and facilitator, she intertwines deep psychology with Contact Improvisation for transformation and collective healing."
+    },
+    {
+      "nombre": "Dr. José Luis Rodríguez Sánchez",
+      "pais": "Mexico",
+      "perfil": "Psychologist, therapist, researcher, and current Director of the Faculty of Psychology at the Benemérita Universidad Autónoma de Puebla (BUAP) for the 2024-2028 period. Doctor in Psychological Research, he has served as Coordinator of the Master's degrees in Psychotherapy and in Neuropsychological Diagnosis and Rehabilitation at the same institution. His management and research lines focus on comprehensive well-being, a culture of peace, psychopathology, and personality, standing out for his drive towards graduate excellence and the creation of new curricula with social impact."
+    },
+    {
+      "nombre": "Andrei Niconoff",
+      "pais": "Mexico",
+      "perfil": "Communicator, music producer, and sound curator with more than 15 years of experience in the media, entertainment, and digital well-being industry. He holds a Bachelor's degree in Communication Sciences from the Universidad de León and is the founder of Subconscious Alchemy, an innovative audio brand focused on well-being that merges music production with principles of neuroplasticity, binaural frequencies, and nervous system stimulation. A specialist in sound identity and sensory branding, his work explores the power of audio design and musical curation as tools for transformation, healing, and psychophysical balance."
+    },
+    {
+      "nombre": "Brahim Zamora Salazar",
+      "pais": "Mexico",
+      "perfil": "Activist, public policy consultant, communicator, and poet with more than 25 years of experience in the defense of human rights. He is an advisory council member of the CDH Puebla, member of the CEEAVI board, and Director of Communication at Odesyr AC. A specialist in designing educational models on gender, masculinities, and sexual rights, his work intertwines the rigor of social sciences with the power of art. He is the winner of the Premio Letras Poblanas 2025 in Poetry and a historical reference in cultural management and community activism in the region."
+    }
+  ],
   "testimonios": [
     {
       "id": 1,
       "autor": "Sadali K.",
       "calificacion": 4.85,
-      "resumen": "A deeply transformative experience that invites questioning convictions about the body, care, and community. It highlights the richness of sharing with different disciplines and the value of collectivity and listening to develop a more critical, sensitive, and human professional practice."
+      "resumen": "A deeply transformative experience that invites you to question certainties about the body, care, and community. It highlights the richness of sharing with different disciplines and the value of collectivity and listening to develop a more critical, sensitive, and human professional practice."
     },
     {
       "id": 2,
       "autor": "Anel de Rodrigo",
       "calificacion": 5.0,
-      "resumen": "The program boosts professional growth, opening new paths to apply knowledge for the benefit of others. On a personal level, bodily and movement practice allows releasing emotions, guided by teachers capable of transmitting knowledge, hope, and change."
+      "resumen": "The diploma program boosts professional growth by opening new paths to apply knowledge for the benefit of others. On a personal level, bodily and movement practice allows for the release of emotions, guided by educators capable of transmitting knowledge, hope, and change."
     },
     {
       "id": 3,
       "autor": "Pato",
       "calificacion": 5.0,
-      "resumen": "An incredible program with top-tier information, activities, and professors. It engages participants as individuals, successfully building authentic bonds through shared experiences. It is a true hub for growth, deep learning, and community."
+      "resumen": "An incredible program with top-tier information, activities, and professors. It involves participants as individuals, successfully creating authentic bonds through shared experiences. It is a true node of growth, deep learning, and community."
     },
     {
       "id": 4,
       "autor": "Finn",
       "calificacion": 5.0,
-      "resumen": "Extremely valuable for questioning with historical and social context the harsh attitudes normalized in arts education. It offers bodily exploration tools that enrich the understanding of movement and emotional expression, being highly useful even for other visual areas such as animation."
+      "resumen": "Extremely valuable for questioning, within a historical and social context, the harsh attitudes normalized in art education. It offers bodily exploration tools that enrich the understanding of movement and emotional expression, being highly useful even for other visual areas such as animation."
     },
     {
       "id": 5,
       "autor": "Brenda ArSa",
       "calificacion": 5.0,
-      "resumen": "Ideal for complementing dance teaching work from a conscious psychological and social perspective. The program provides practical tools that go beyond theory; they are experienced in the body and transform personal, professional, and gender processes."
+      "resumen": "Ideal for complementing dance teaching from a conscious psychological and social perspective. The diploma program provides practical tools that go beyond theory; they are lived in the body and transform personal, professional, and gender processes."
     }
   ],
   "contacto": {
-    "manifiesto_invitacion": "Art and movement are not privileges of a few, they are tools of resistance and transformation within reach of any body willing to inhabit them -\n\nAt HUMAN MOOVEARTS we give you the space, critical theory, and community; you just bring the intention. Don't think twice.\n\nThe moment to connect your mind with collective experience, question the environment, and transform your reality through movement is now.",
+    "manifiesto_invitacion": "Art and movement are not privileges of a few, they are tools of resistance and transformation within reach of any body willing to inhabit them -\n\nAt HUMAN MOOVEARTS we give you the space, the critical theory, and the community; you just bring the intention. Don't think twice.\n\nThe moment to connect your mind with collective experience, question your environment, and transform your reality through movement is now.",
     "redes_sociales": [
-      {
-        "plataforma": "Instagram",
-        "url": "https://www.instagram.com/human.moovearts?igsh=MzljcDVxaG9xNWk3"
-      },
-      {
-        "plataforma": "TikTok",
-        "url": "https://www.tiktok.com/@human.moovearts?_r=1&_t=ZS-96E7wfVSqPw"
-      },
-      {
-        "plataforma": "YouTube",
-        "url": "https://youtube.com/@human.moovearts?si=dveDpkFDTPyCuhj7"
-      },
-      {
-        "plataforma": "Email",
-        "url": "mailto:mooveartshumanmoovearts@gmail.com"
-      }
+      { "plataforma": "Instagram", "url": "https://www.instagram.com/human.moovearts?igsh=MzljcDVxaG9xNWk3" },
+      { "plataforma": "TikTok", "url": "https://www.tiktok.com/@human.moovearts?_r=1&_t=ZS-96E7wfVSqPw" },
+      { "plataforma": "YouTube", "url": "https://youtube.com/@human.moovearts?si=dveDpkFDTPyCuhj7" },
+      { "plataforma": "Email", "url": "mailto:mooveartshumanmoovearts@gmail.com" }
     ]
   },
   "checkout": {
     "inscription": {
       "welcome": "Welcome to",
-      "desc": "Thank you for completing this mandatory step. Your spot in the program is completely secured. From now on, you are authorized to purchase your academic modules."
+      "desc": "Thank you for fulfilling this mandatory step. Your spot in the diploma program is fully secured. From now on, you are enabled to purchase your academic modules."
     },
     "module": {
       "title": "Thank you very much for your purchase!",
-      "desc": "Your module payment has been successfully processed. We appreciate your dedication throughout this interdisciplinary training journey."
+      "desc": "Your payment has been successfully processed. We appreciate your perseverance along this path of interdisciplinary training."
     },
     "stepsTitle": "Next required steps:",
     "formLink": "Fill out the registration form here",
-    "formDesc": "to formalize your official enrollment in the diploma file.",
-    "whatsappDesc": "Send us a direct message to validate your receipt and join our internal communication networks.",
+    "formDesc": "to formalize your official enrollment in the program file.",
+    "whatsappDesc": "Send us a direct message to validate your receipt and join the internal communication networks.",
     "whatsappLink": "Contact us via WhatsApp",
     "whatsappManual": "Or save the number manually:",
-    "buttonClose": "Understood & Continue"
+    "buttonClose": "Understood and Continue"
   }
 }

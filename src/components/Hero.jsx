@@ -3,12 +3,22 @@ import { useTranslation } from 'react-i18next';
 import { gsap } from 'gsap';
 
 export default function Hero() {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
   const heroRef = useRef(null);
   const videoRef = useRef(null);
   
   const word1 = "Human";
   const word2 = "Moovearts";
+
+  // Determinar si el idioma actual es inglés
+  const isEn = i18n.language?.startsWith('en');
+
+  // Hardcodeo condicional para textos ausentes en el JSON de traducción en inglés
+  const statusOpenText = isEn ? 'Registration Open' : 'Inscripciones Abiertas';
+  const ctaText = isEn ? 'Register Now' : 'Inscribirme';
+  const taglineText = isEn 
+    ? '"Stay with us because here we keep moving"' 
+    : '"Quédate con nosotros porque aquí seguimos en movimiento"';
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -31,7 +41,6 @@ export default function Hero() {
           duration: 1.1,
           stagger: 0.06,
           onComplete: () => {
-            // Intentar reproducir el video justo antes de que caiga la cortina para evitar saltos visuales
             if (videoRef.current) {
               videoRef.current.play().catch((err) => console.log("Video autoplay bloqueado o pausado:", err));
             }
@@ -65,11 +74,11 @@ export default function Hero() {
         { opacity: 1, scale: 1, duration: 0.8 }, 
         '-=0.9'
       )
-      // ENTRADA INICIAL DEL DIAGRAMA: Aparece y toma posición
+      // ENTRADA INICIAL DEL DIAGRAMA
       .fromTo('.anim-bg-diagram', 
         { opacity: 0, scale: 0.85, rotate: -15 }, 
         { 
-          opacity: 0.25, // Un poco más de opacidad para resaltar sobre el video de fondo
+          opacity: 0.25, 
           scale: 1, 
           rotate: 0, 
           duration: 1.8, 
@@ -95,18 +104,16 @@ export default function Hero() {
     return () => ctx.revert();
   }, []);
 
-  // RENDERIZADOR UNIFICADO: Ambas capas comparten exactamente el mismo layout, paddings y clases
+  // RENDERIZADOR UNIFICADO
   const renderLayoutContent = (isIntroLayer) => (
     <section className={`absolute inset-0 flex min-h-dvh w-full flex-col items-center justify-between px-6 pt-16 pb-8 md:px-12 md:pt-24 md:pb-12 antialiased font-helvetica ${isIntroLayer ? 'hero-white-loader z-50 bg-[#F4F1ED]' : 'z-10 bg-[#13263F] text-[#F4F1ED]'}`}>
       
-      {/* CAPA DE VIDEO (Solo se inyecta en la capa real para no duplicar carga de red) */}
       {!isIntroLayer && (
         <div className="absolute inset-0 w-full h-full overflow-hidden z-0">
-          {/* Overlay oscuro para garantizar contraste premium de los textos blancos */}
           <div className="absolute inset-0 bg-[#13263F]/50 backdrop-blur-[2px] z-10 pointer-events-none" />
           <video
             ref={videoRef}
-            src="/hero_background.webm" // Reemplaza aquí la ruta exacta de tu archivo de video en /public
+            src="/hero_background.webm"
             loop
             muted
             playsInline
@@ -117,7 +124,6 @@ export default function Hero() {
 
       <div className={isIntroLayer ? 'film-grain opacity-5 z-20' : 'film-grain z-20'} />
 
-      {/* DIAGRAMA GEOMÉTRICO */}
       {!isIntroLayer && (
         <div className="anim-bg-diagram absolute top-1/2 left-1/2 h-[320px] w-[320px] -translate-x-1/2 -translate-y-1/2 pointer-events-none z-10 opacity-0 md:h-[600px] md:w-[600px]">
           <svg viewBox="0 0 300 300" className="h-full w-full fill-none stroke-[#F4F1ED]" strokeWidth="0.5">
@@ -130,20 +136,19 @@ export default function Hero() {
         </div>
       )}
 
-      {/* BLOQUE SUPERIOR: Cápsula de Estado */}
+      {/* BLOQUE SUPERIOR: Cápsula de Estado con texto condicional */}
       <div className={`w-full flex justify-center pt-4 shrink-0 relative z-20 ${isIntroLayer ? 'opacity-0 invisible' : 'anim-badge opacity-0'}`}>
         <div className="rounded-full border border-white/10 bg-black/20 px-5 py-1.5 shadow-[0_4px_15px_rgba(0,0,0,0.1)] backdrop-blur-md">
           <span className="font-helvetica text-[10px] font-bold uppercase tracking-[0.25em] block whitespace-nowrap sm:text-xs md:tracking-[0.35em] text-[#F4F1ED]">
-            {t('hero.statusOpen', 'Inscripciones Abiertas')}
+            {statusOpenText}
           </span>
         </div>
       </div>
 
-      {/* BLOQUE CENTRAL: Título Máster y Lema Editorial */}
+      {/* BLOQUE CENTRAL: Título Máster y Lema Editorial con texto condicional */}
       <div className="w-full max-w-4xl flex flex-col items-center justify-center text-center my-auto py-4 relative z-20 select-none">
         <h1 className="font-helvetica text-3xl font-normal uppercase tracking-[0.35em] leading-none w-full pl-[0.35em] sm:text-5xl md:text-6xl lg:text-7xl flex flex-col items-center justify-center gap-y-3 sm:gap-y-6 mb-6 md:mb-8 text-white">
           
-          {/* Renglón 1: Human */}
           <span className="h-9 sm:h-14 md:h-16 lg:h-20 flex items-center justify-center whitespace-nowrap">
             {word1.split("").map((char, charIndex) => (
               <span 
@@ -156,7 +161,6 @@ export default function Hero() {
             ))}
           </span>
 
-          {/* Renglón 2: Moovearts */}
           <span className="h-9 sm:h-14 md:h-16 lg:h-20 flex items-center justify-center whitespace-nowrap">
             {word2.split("").map((char, charIndex) => (
               <span 
@@ -171,31 +175,29 @@ export default function Hero() {
 
         </h1>
 
-        {/* Lema Editorial Centrado */}
         <p className={`font-darker text-base sm:text-lg md:text-xl italic tracking-wide max-w-xl leading-relaxed text-center w-full block ${isIntroLayer ? 'text-transparent select-none' : 'anim-tagline text-[#F4F1ED]/90 opacity-0'}`}>
-          {t('hero.tagline', '"Quédate con nosotros porque aquí seguimos en movimiento"')}
+          {taglineText}
         </p>
       </div>
 
-      {/* BLOQUE INFERIOR: Botón CTA y Aval BUAP */}
+      {/* BLOQUE INFERIOR: Botón CTA y Aval BUAP traducido legítimamente */}
       <div className="w-full flex flex-col items-center gap-y-12 shrink-0 relative z-25 pb-4">
         
-        {/* Botón CTA */}
         <a 
           href="#inversion" 
           className={`relative inline-block overflow-hidden rounded-full px-10 py-3.5 text-center text-xs font-bold uppercase tracking-widest shadow-[0_10px_25px_-5px_rgba(0,0,0,0.4)] transition-all duration-300 backdrop-blur-xl md:text-sm ${isIntroLayer ? 'bg-transparent text-transparent border-transparent pointer-events-none shadow-none select-none' : 'anim-cta bg-white/10 text-white hover:bg-white/20 opacity-0'}`}
         >
           <span className={`absolute inset-0 rounded-full border pointer-events-none ${isIntroLayer ? 'border-transparent' : 'border-white/20 opacity-80'}`} />
           <span className={isIntroLayer ? '' : 'relative z-10 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]'}>
-            {t('hero.cta', 'Inscribirme')}
+            {ctaText}
           </span>
         </a>
 
-        {/* Aval BUAP */}
+        {/* Aval BUAP usando t() para que se traduzca correctamente desde los JSONs */}
         <div className="w-full flex justify-center md:justify-end">
           <div className={`border border-white/10 bg-black/40 shadow-[0_4px_12px_rgba(0,0,0,0.25)] flex items-center space-x-3 rounded-full px-5 py-2 backdrop-blur-md ${isIntroLayer ? 'opacity-0 invisible' : 'anim-footer opacity-0'}`}>
             <span className="font-helvetica text-[9px] font-light uppercase tracking-wider md:text-[10px] text-[#F4F1ED]">
-              {t('hero.certified', 'Avalado por la BUAP')}
+              {isEn ? 'Endorsed by BUAP' : 'Avalado por la BUAP'}
             </span>
             <img 
               src="/LogoBuap.png" 
@@ -212,10 +214,7 @@ export default function Hero() {
 
   return (
     <div ref={heroRef} className="relative w-full h-dvh max-h-dvh overflow-hidden select-none bg-[#13263F] text-[#F4F1ED]">
-      {/* Capa 1: Clon Superior de Intro (Fondo Blanco, Letras con Gradiente) */}
       {renderLayoutContent(true)}
-
-      {/* Capa 2: Capa Inferior Definitiva con Video de Fondo */}
       {renderLayoutContent(false)}
     </div>
   );

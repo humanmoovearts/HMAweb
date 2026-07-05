@@ -3,7 +3,7 @@
     { "etiqueta": "Inicio", "enlace": "#inicio" },
     { "etiqueta": "Quienes Somos", "enlace": "#quienes-somos" },
     { "etiqueta": "Inversión", "enlace": "#inversion" },
-    { "etiqueta": "Perfil del Egresado", "enlace": "#perfil-egresado" },
+    { "etiqueta": "Contenido", "enlace": "#contenido" },
     { "etiqueta": "Contacto", "enlace": "#contacto" }
   ],
   "organizacion": {
