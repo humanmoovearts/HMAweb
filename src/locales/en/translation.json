@@ -438,5 +438,22 @@
         "url": "mailto:mooveartshumanmoovearts@gmail.com"
       }
     ]
+  },
+  "checkout": {
+    "inscription": {
+      "welcome": "Welcome to",
+      "desc": "Thank you for completing this mandatory step. Your spot in the program is completely secured. From now on, you are authorized to purchase your academic modules."
+    },
+    "module": {
+      "title": "Thank you very much for your purchase!",
+      "desc": "Your module payment has been successfully processed. We appreciate your dedication throughout this interdisciplinary training journey."
+    },
+    "stepsTitle": "Next required steps:",
+    "formLink": "Fill out the registration form here",
+    "formDesc": "to formalize your official enrollment in the diploma file.",
+    "whatsappDesc": "Send us a direct message to validate your receipt and join our internal communication networks.",
+    "whatsappLink": "Contact us via WhatsApp",
+    "whatsappManual": "Or save the number manually:",
+    "buttonClose": "Understood & Continue"
   }
 }

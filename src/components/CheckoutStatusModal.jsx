@@ -1,50 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
-// Diccionario de textos localizado directamente en el archivo para evitar modificar el JSON externo
-const TEXTS = {
-  es: {
-    inscription: {
-      title: '¡Bienvenido a Human Moove Arts!',
-      desc: 'Gracias por cumplir este paso obligatorio. Tu lugar en el diplomado está completamente asegurado. A partir de ahora, estás habilitado para adquirir tus módulos académicos.'
-    },
-    module: {
-      title: '¡Muchas gracias por tu compra!',
-      desc: 'Tu pago ha sido procesado de manera exitosa. Agradecemos tu constancia en este trayecto de formación interdisciplinaria.'
-    },
-    stepsTitle: 'Próximos pasos requeridos:',
-    formLink: 'Llena el formulario de inscripción aquí',
-    formDesc: 'para formalizar el registro del módulo seleccionado en tu expediente.',
-    whatsappDesc: 'Envíanos un mensaje directo para validar tu comprobante e integrarte a las redes de comunicación interna: ',
-    whatsappLink: 'Comunícate por WhatsApp',
-    buttonClose: 'Entendido y Continuar'
-  },
-  en: {
-    inscription: {
-      title: 'Welcome to Human Moove Arts!',
-      desc: 'Thank you for completing this mandatory step. Your spot in the program is completely secured. From now on, you are authorized to purchase your academic modules.'
-    },
-    module: {
-      title: 'Thank you very much for your purchase!',
-      desc: 'Your module payment has been successfully processed. We appreciate your dedication throughout this interdisciplinary training journey.'
-    },
-    stepsTitle: 'Next required steps:',
-    formLink: 'Fill out the registration form here',
-    formDesc: 'to formalize the registration of the selected module in your student file.',
-    whatsappDesc: 'Send us a direct message to validate your receipt and join our internal communication networks: ',
-    whatsappLink: 'Contact us via WhatsApp',
-    buttonClose: 'Understood & Continue'
-  }
-};
-
 export default function CheckoutStatusModal() {
-  const { i18n } = useTranslation();
+  const { t } = useTranslation();
   const [paymentType, setPaymentType] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
 
-  // Obtener el idioma actual activo en la web (por defecto 'es' si no se detecta)
-  const currentLang = i18n.language?.startsWith('en') ? 'en' : 'es';
-  const content = TEXTS[currentLang];
+  // Enlaces directos a Stripe y contacto obtenidos del contexto del cliente
+  const WHATSAPP_NUMBER = "+52 2228635691"; 
+  const WHATSAPP_API_URL = "https://wa.me/5212228635691?text=Hola,%20ya%20realicé%20mi%20pago";
 
   useEffect(() => {
     // Leer los parámetros que envía Stripe en la URL tras el retorno a la web
@@ -67,100 +31,113 @@ export default function CheckoutStatusModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm p-4">
-      {/* Contenedor principal alineado a la Identidad Visual: Fondo Hueso (#F4F1ED) y Texto Azul Oscuro (#13263F) */}
-      <div className="bg-[#F4F1ED] text-[#13263F] max-w-lg w-full rounded-2xl p-8 shadow-2xl relative border border-[#E88973]/20 font-sans">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm p-4">
+      {/* Contenedor optimizado (max-w-md) para no saturar la pantalla con fondo Hueso (#F4F1ED) */}
+      <div className="bg-[#F4F1ED] text-[#13263F] max-w-md w-full rounded-2xl p-6 sm:p-7 shadow-2xl relative border border-[#E88973]/20 font-sans">
         
         {/* Botón Cerrar Superior */}
         <button 
           onClick={closeModal}
-          className="absolute top-4 right-4 text-[#13263F]/60 hover:text-[#13263F] text-xl font-bold transition-colors"
+          className="absolute top-4 right-4 text-[#13263F]/50 hover:text-[#13263F] text-lg font-bold transition-colors"
           aria-label="Close modal"
         >
           ✕
         </button>
 
         <div className="text-center">
-          {/* Icono de Confirmación Externa en color Coral/Terracota */}
-          <div className="mx-auto flex items-center justify-center h-16 w-16 rounded-full bg-[#E88973]/20 text-[#C46A4A] mb-6">
-            <svg className="h-10 w-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-            </svg>
+          {/* Logo optimizado a un tamaño más pequeño y elegante */}
+          <div className="mx-auto mb-5 max-w-[90px] flex justify-center items-center">
+            <img 
+              src="/HMA.png" 
+              alt="HMA Logo" 
+              className="w-full h-auto object-contain drop-shadow-sm"
+            />
           </div>
 
-          {/* Renderizado Dinámico de Textos hardcodeados por idioma */}
+          {/* Título dinámico con Salto de Línea e impacto visual basado en traducción */}
           {paymentType === 'inscription' ? (
-            <>
-              <h2 className="text-3xl font-bold tracking-tight mb-4 text-[#1F3A5F]">
-                {content.inscription.title}
+            <div className="mb-4">
+              <h2 className="text-xl sm:text-2xl font-medium tracking-tight text-[#1F3A5F] leading-tight">
+                {t('checkout.inscription.welcome')}
+                <span className="block text-2xl sm:text-3xl font-black text-[#C46A4A] mt-1 tracking-normal uppercase">
+                  Human Moove Arts!
+                </span>
               </h2>
-              <p className="text-base text-[#13263F]/80 mb-6 leading-relaxed">
-                {content.inscription.desc}
+              <p className="text-xs sm:text-sm text-[#13263F]/80 mt-3 leading-relaxed">
+                {t('checkout.inscription.desc')}
               </p>
-            </>
+            </div>
           ) : (
-            <>
-              <h2 className="text-3xl font-bold tracking-tight mb-4 text-[#1F3A5F]">
-                {content.module.title}
+            <div className="mb-4">
+              <h2 className="text-xl sm:text-2xl font-bold tracking-tight text-[#1F3A5F] leading-tight">
+                {t('checkout.module.title')}
               </h2>
-              <p className="text-base text-[#13263F]/80 mb-6 leading-relaxed">
-                {content.module.desc}
+              <p className="text-xs sm:text-sm text-[#13263F]/80 mt-3 leading-relaxed">
+                {t('checkout.module.desc')}
               </p>
-            </>
+            </div>
           )}
 
-          {/* Bloque de Seguimiento y Próximos Pasos Dinámicos */}
-          <div className="bg-white/60 rounded-xl p-5 mb-6 text-left border border-[#1F3A5F]/10">
-            <h4 className="text-sm font-bold uppercase tracking-wider text-[#1F3A5F] mb-3">
-              {content.stepsTitle}
+          {/* Bloque de Próximos Pasos Requeridos */}
+          <div className="bg-white/80 rounded-xl p-4 mb-5 text-left border border-[#1F3A5F]/5 shadow-sm">
+            <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#1F3A5F]/70 mb-3">
+              {t('checkout.stepsTitle')}
             </h4>
-            <ul className="space-y-3 text-sm text-[#13263F]/90">
+            
+            <ul className="space-y-3.5 text-xs sm:text-sm text-[#13263F]/90">
               
-              {/* PASO DEL FORMULARIO: Exclusivo para compras de Módulos (se oculta en inscripción ordinaria) */}
-              {paymentType !== 'inscription' && (
-                <li className="flex items-start gap-2">
-                  <span className="text-[#C46A4A] font-bold">1.</span>
+              {/* Enlace de Google Forms obligatorio SÓLO si es inscripción ordinaria */}
+              {paymentType === 'inscription' && (
+                <li className="flex items-start gap-2.5">
+                  <span className="text-[#C46A4A] font-bold mt-0.5">1.</span>
                   <div>
-                    {/* El cliente suministrará el enlace definitivo de Google Forms a la brevedad */}
                     <a 
                       href="https://forms.gle/ngttR21vMH9xQAjc9" 
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="text-[#1F3A5F] font-semibold underline hover:text-[#C46A4A] transition-colors"
                     >
-                      {content.formLink}
+                      {t('checkout.formLink')}
                     </a>
-                    <span> {content.formDesc}</span>
+                    <span className="text-[#13263F]/80"> {t('checkout.formDesc')}</span>
                   </div>
                 </li>
               )}
 
-              {/* PASO DE WHATSAPP: Común para todos los flujos de pago exitosos */}
-              <li className="flex items-start gap-2">
-                <span className="text-[#C46A4A] font-bold">
-                  {paymentType === 'inscription' ? '1.' : '2.'}
+              {/* Bloque de WhatsApp con número visible */}
+              <li className="flex items-start gap-2.5">
+                <span className="text-[#C46A4A] font-bold mt-0.5">
+                  {paymentType === 'inscription' ? '2.' : '1.'}
                 </span>
-                <div>
-                  <span>{content.whatsappDesc}</span>
-                  <a 
-                    href="https://wa.me/521XXXXXXXXXX?text=Hola,%20ya%20realicé%20mi%20pago" 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-[#C46A4A] font-semibold underline hover:text-[#1F3A5F] transition-colors"
-                  >
-                    {content.whatsappLink}
-                  </a>
+                <div className="space-y-2 w-full">
+                  <p className="text-[#13263F]/80">{t('checkout.whatsappDesc')}</p>
+                  
+                  <div className="pt-0.5 flex flex-col gap-2">
+                    <a 
+                      href={WHATSAPP_API_URL}
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-[#C46A4A] font-bold underline hover:text-[#1F3A5F] transition-colors w-fit text-xs sm:text-sm"
+                    >
+                      {t('checkout.whatsappLink')}
+                    </a>
+                    
+                    <div className="text-[11px] text-[#13263F]/70 bg-[#13263F]/5 px-2 py-1.5 rounded-lg border border-[#13263F]/10 w-fit">
+                      <span className="font-medium mr-1">{t('checkout.whatsappManual')}</span>
+                      <strong className="text-[#1F3A5F] font-bold tracking-wide select-all">{WHATSAPP_NUMBER}</strong>
+                    </div>
+                  </div>
                 </div>
               </li>
             </ul>
           </div>
 
-          {/* Acción Principal del Modal */}
+          {/* Acción Principal */}
           <button
             onClick={closeModal}
-            className="w-full py-3 px-6 bg-[#1F3A5F] hover:bg-[#13263F] text-[#F4F1ED] font-semibold rounded-xl shadow-md transition-all duration-200 uppercase tracking-wider text-sm"
+            className="w-full py-2.5 px-4 bg-[#1F3A5F] hover:bg-[#13263F] text-[#F4F1ED] font-semibold rounded-xl shadow-md transition-all duration-200 uppercase tracking-widest text-[11px]"
           >
-            {content.buttonClose}
+            {t('checkout.buttonClose')}
           </button>
         </div>
       </div>

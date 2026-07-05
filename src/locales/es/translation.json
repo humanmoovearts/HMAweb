@@ -416,5 +416,22 @@
       { "plataforma": "YouTube", "url": "https://youtube.com/@human.moovearts?si=dveDpkFDTPyCuhj7" },
       { "plataforma": "Email", "url": "mailto:mooveartshumanmoovearts@gmail.com" }
     ]
+  },
+  "checkout": {
+    "inscription": {
+      "welcome": "¡Bienvenidx a",
+      "desc": "Gracias por cumplir este paso obligatorio. Tu lugar en el diplomado está completamente asegurado. A partir de ahora, estás habilitadx para adquirir tus módulos académicos."
+    },
+    "module": {
+      "title": "¡Muchas gracias por tu compra!",
+      "desc": "Tu pago ha sido procesado de manera exitosa. Agradecemos tu constancia en este trayecto de formación interdisciplinaria."
+    },
+    "stepsTitle": "Próximos pasos requeridos:",
+    "formLink": "Llena el formulario de inscripción aquí",
+    "formDesc": "para formalizar tu alta oficial en el expediente del diplomado.",
+    "whatsappDesc": "Envíanos un mensaje directo para validar tu comprobante e integrarte a las redes de comunicación interna.",
+    "whatsappLink": "Comunícate por WhatsApp",
+    "whatsappManual": "O guarda el número manualmente:",
+    "buttonClose": "Entendido y Continuar"
   }
 }

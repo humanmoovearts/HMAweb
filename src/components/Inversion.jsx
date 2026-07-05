@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
+import DiscountModal from './DiscountModal'; // Componente modular externo
 
 export default function Inversion() {
   const { t, i18n } = useTranslation();
@@ -7,15 +8,19 @@ export default function Inversion() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState('completo'); 
   
-  // Control de interfaz: plazo seleccionado, cupones y estado del Modal (Pop-up)
+  // Control de plazos y modales
   const [selectedPlazo, setSelectedPlazo] = useState({});
-  const [couponInputs, setCouponInputs] = useState({});
-  const [appliedCoupons, setAppliedCoupons] = useState({});
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isPoliticasOpen, setIsPoliticasOpen] = useState(false);
 
-  // Textos e internacionalización hardcodeados localmente para no alterar el JSON global
+  // Sección de cupones global
+  const [globalCouponInput, setGlobalCouponInput] = useState('');
+  const [isDiscountModalOpen, setIsDiscountModalOpen] = useState(false);
+  const [validatedCoupon, setValidatedCoupon] = useState('');
+  const [couponInfo, setCouponInfo] = useState(null);
+
   const isEn = i18n.language === 'en';
   
+  // Textos e internacionalización locales
   const txtLoading = isEn ? "Loading investment options..." : "Cargando opciones de inversión...";
   const txtTitle = isEn ? "Investment" : "Inversión";
   const txtPaso1 = isEn ? "Step 1" : "Paso 1";
@@ -39,10 +44,9 @@ export default function Inversion() {
   const txtMeses = isEn ? "Months" : "Meses";
   const txtBeca = isEn ? "Scholarship" : "Beca";
   const txtMensualidadLabel = isEn ? "Monthly tuition:" : "Colegiatura mensual:";
-  const txtCuponPlaceholder = isEn ? "HAVE A CODE?" : "¿TIENES UN CÓDIGO?";
+  const txtCuponPlaceholder = isEn ? "HAVE A CODE?" : "¿TIENES UN CÓDIGO DE DESCUENTO?";
   const txtBtnAplicar = isEn ? "Apply" : "Aplicar";
   const txtBtnPagar = isEn ? "Pay" : "Pagar";
-  const txtConDescuento = isEn ? "with Discount" : "con Descuento";
   
   const txtModuloDefaultDesc = isEn 
     ? "Academic Specialization Module in Performing Arts and Psychology." 
@@ -71,29 +75,37 @@ export default function Inversion() {
       });
   }, []);
 
-  const handleApplyCoupon = (progId, plazoKey) => {
-    if (!db || !db.programas) return;
+  // Lógica de validación conectada al Cloudflare Worker de Descuentos
+  const handleValidateGlobalCoupon = async () => {
+    const cleanCoupon = globalCouponInput.toUpperCase().trim();
+    if (!cleanCoupon) return;
 
-    const rawInput = couponInputs[progId] || '';
-    const cleanCoupon = rawInput.toUpperCase().trim();
-    
-    const targetProgram = db.programas.find(p => p.id === progId);
-    if (!targetProgram) return;
+    try {
+      const VALIDATOR_URL = `https://winter-hill-329c.mooveartshumanmoovearts.workers.dev/?code=${cleanCoupon}`;
+      const res = await fetch(VALIDATOR_URL);
+      
+      if (!res.ok) {
+        throw new Error(isEn ? "Server error validating coupon." : "Error del servidor al validar el cupón.");
+      }
 
-    const validCouponsForPlazo = targetProgram.detalles?.[plazoKey]?.cuponesValidos || [];
+      const resData = await res.json();
 
-    if (cleanCoupon !== '' && validCouponsForPlazo.includes(cleanCoupon)) {
-      setAppliedCoupons((prev) => ({ ...prev, [progId]: cleanCoupon }));
-    } else {
-      setAppliedCoupons((prev) => ({ ...prev, [progId]: '' }));
-      alert(isEn ? "Invalid promotional code for this plan." : "Código promocional inválido para este plan.");
+      if (resData.valido === true) {
+        setValidatedCoupon(cleanCoupon);
+        setCouponInfo(resData.info); 
+        setIsDiscountModalOpen(true); 
+      } else {
+        setCouponInfo(null);
+        alert(isEn ? "The promotional code entered is invalid." : "El código promocional ingresado no es válido o ya expiró.");
+      }
+    } catch (err) {
+      console.error("Error validando el cupón:", err);
+      alert(isEn ? "Error checking coupon status." : "Error al conectar con el servidor de cupones.");
     }
   };
 
   const handleSelectPlazo = (progId, plazo) => {
     setSelectedPlazo(prev => ({ ...prev, [progId]: plazo }));
-    setCouponInputs(prev => ({ ...prev, [progId]: '' }));
-    setAppliedCoupons(prev => ({ ...prev, [progId]: '' }));
   };
 
   if (loading) {
@@ -106,21 +118,20 @@ export default function Inversion() {
     );
   }
 
-  const { inscripcion, programas = [], modulos = [] } = db || {};
-  // Las políticas se extraen del JSON de traducción lingüística para respetar el idioma dinámicamente
+  // Desestructuramos usando "modules" de acuerdo con el nuevo formato de tu JSON
+  const { inscripcion, programas = [], modules = [] } = db || {};
   const politicasTraducidas = t('costos_y_financiamiento.politicas', { returnObjects: true }) || [];
 
   return (
-    
     <div 
       id="inversion" 
       className="w-full h-dvh max-h-dvh bg-[#13263F] text-[#F4F1ED] font-sans overflow-hidden relative flex flex-col pt-8 pb-12"
     >
-      
       {/* CONTENEDOR CON SCROLL INTERNO */}
       <div 
-      data-lenis-prevent
-      className="w-full max-w-4xl mx-auto px-4 box-border overflow-y-auto flex-1 custom-scrollbar">
+        data-lenis-prevent
+        className="w-full max-w-4xl mx-auto px-4 box-border overflow-y-auto flex-1 custom-scrollbar"
+      >
         
         {/* Cabecera Principal */}
         <div className="text-center mb-8 w-full">
@@ -130,7 +141,7 @@ export default function Inversion() {
           <div className="w-14 h-1 bg-[#E88973] mx-auto rounded-full"></div>
         </div>
 
-        {/* Paso 1: Inscripción Inicial Obligatoria (Datos directo del Worker) */}
+        {/* Paso 1: Inscripción Inicial Obligatoria */}
         {inscripcion?.disponible && (
           <div className="mb-8 p-5 rounded-2xl bg-[#1F3A5F]/40 backdrop-blur-md border border-[#8B7AA8]/30 max-w-md mx-auto text-center shadow-lg">
             <h3 className="text-[10px] uppercase font-bold tracking-widest text-[#E88973] mb-1">
@@ -188,7 +199,6 @@ export default function Inversion() {
             {programas.map((prog) => {
               const esPresencial = prog.id === 'presencial_stripe';
               const currentPlazo = selectedPlazo[prog.id]; 
-              const appliedCoupon = appliedCoupons[prog.id] || '';
               
               return (
                 <div key={prog.id} className="p-5 rounded-2xl bg-[#1F3A5F]/30 backdrop-blur-md border border-[#8B7AA8]/30 flex flex-col justify-between shadow-md box-border w-full">
@@ -217,7 +227,7 @@ export default function Inversion() {
                         }`}
                       >
                         <span className="block text-[11px] uppercase tracking-wider">9 {txtMeses}</span>
-                        <span className="block text-[9px] opacity-75">{prog.detalles?.["9"]?.beca} {txtBeca}</span>
+                        <span className="block text-[9px] opacity-75">20% {txtBeca}</span>
                       </button>
 
                       <button
@@ -230,63 +240,75 @@ export default function Inversion() {
                         }`}
                       >
                         <span className="block text-[11px] uppercase tracking-wider">12 {txtMeses}</span>
-                        <span className="block text-[9px] opacity-75">{prog.detalles?.["12"]?.beca} {txtBeca}</span>
+                        <span className="block text-[9px] opacity-75">15% {txtBeca}</span>
                       </button>
                     </div>
 
-                    {currentPlazo && (
-                      <div className="bg-[#13263F]/70 border border-[#8B7AA8]/20 rounded-xl p-3.5 space-y-3 mb-2">
-                        <div className="flex justify-between items-center">
-                          <span className="text-[11px] text-gray-400">{txtMensualidadLabel}</span>
-                          <div className="font-mono text-right text-sm">
-                            {appliedCoupon ? (
-                              <div>
-                                <span className="text-gray-500 line-through text-[10px] mr-2">${prog.detalles?.[currentPlazo]?.mensual}</span>
-                                <span className="text-emerald-400 font-bold">${Math.round(prog.detalles?.[currentPlazo]?.mensual * 0.9)} MXN</span>
+                    {currentPlazo && (() => {
+                      const idTraduccion = esPresencial ? 1 : 3;
+                      const programasTraducidos = t('costos_y_financiamiento.programas', { returnObjects: true }) || [];
+                      const programaTraducido = programasTraducidos.find(p => p.id === idTraduccion);
+                      const financiamientoTraducido = programaTraducido?.opciones_financiamiento?.find(
+                        o => o.plazo_mensualidades === Number(currentPlazo)
+                      );
+
+                      const pagoMensualReal = prog.detalles?.[currentPlazo]?.mensual || 0;
+                      const totalColegiaturasCalculado = Number(currentPlazo) * pagoMensualReal;
+
+                      return (
+                        <div className="bg-[#13263F]/70 border border-[#8B7AA8]/20 rounded-xl p-3.5 space-y-3 mb-2">
+                          <div className="space-y-1.5 pb-2 border-b border-[#8B7AA8]/10">
+                            
+                            {/* Porcentaje de Beca oficial del translation.json */}
+                            <div className="flex justify-between items-center text-[11px]">
+                              <span className="text-gray-400">{txtBeca}:</span>
+                              <span className="text-[#E88973] font-bold tracking-wider">
+                                {financiamientoTraducido?.porcentaje_beca || (currentPlazo === '9' ? '20' : '15')}% {isEn ? "OFF" : "de Beca"}
+                              </span>
+                            </div>
+
+                            {/* Descuento Adicional del Cupón si existe */}
+                            {couponInfo && (
+                              <div className="flex justify-between items-center text-[11px] bg-emerald-950/30 p-1.5 rounded-lg border border-emerald-500/20">
+                                <span className="text-emerald-400 font-medium">
+                                  {isEn ? "Extra Discount:" : "Descuento Extra:"}
+                                </span>
+                                <span className="text-emerald-400 font-extrabold font-mono tracking-wider">
+                                  -{couponInfo.valor}% ({couponInfo.codigo})
+                                </span>
                               </div>
-                            ) : (
-                              <span className="text-[#F4F1ED] font-bold">${prog.detalles?.[currentPlazo]?.mensual} MXN</span>
                             )}
-                          </div>
-                        </div>
 
-                        <div className="pt-2 border-t border-[#8B7AA8]/10">
-                          <div className="flex gap-2">
-                            <input 
-                              type="text"
-                              value={couponInputs[prog.id] || ''}
-                              onChange={(e) => setCouponInputs(prev => ({ ...prev, [prog.id]: e.target.value }))}
-                              placeholder={txtCuponPlaceholder}
-                              className={`w-full bg-[#13263F] border rounded-xl px-2 py-1.5 uppercase text-[9px] tracking-wider focus:outline-none font-mono min-w-0 ${
-                                appliedCoupon ? 'border-emerald-500 text-emerald-400 bg-emerald-950/20' : 'border-[#8B7AA8]/20 text-white focus:border-[#E88973]'
-                              }`}
-                            />
-                            <button 
-                              type="button"
-                              onClick={() => handleApplyCoupon(prog.id, currentPlazo)}
-                              className={`font-bold px-3 py-1.5 rounded-xl text-[9px] uppercase tracking-wider transition-colors shrink-0 ${
-                                appliedCoupon ? 'bg-emerald-500 text-black' : 'bg-[#8B7AA8] hover:bg-[#a394c2] text-white'
-                              }`}
+                            {/* Colegiatura mensual */}
+                            <div className="flex justify-between items-center text-[11px]">
+                              <span className="text-gray-400">{txtMensualidadLabel}</span>
+                              <span className="text-[#F4F1ED] font-mono font-bold">
+                                ${pagoMensualReal} MXN
+                              </span>
+                            </div>
+
+                            {/* Total acumulado */}
+                            <div className="flex justify-between items-center text-[11px]">
+                              <span className="text-gray-400">{isEn ? "Total tuition cost:" : "Total de colegiaturas:"}</span>
+                              <span className="text-[#F4F1ED] font-mono font-semibold opacity-90">
+                                ${totalColegiaturasCalculado} MXN
+                              </span>
+                            </div>
+                          </div>
+
+                          <div className="pt-1">
+                            <a 
+                              href={currentPlazo === '9' ? prog.link9Meses : prog.link12Meses} 
+                              target="_blank" 
+                              rel="noreferrer" 
+                              className="block text-center text-[11px] font-bold uppercase tracking-wider py-2 rounded-xl transition-all shadow-md bg-[#E88973] text-black hover:bg-[#C46A4A] hover:text-white"
                             >
-                              {appliedCoupon ? 'OK' : txtBtnAplicar}
-                            </button>
+                              {txtBtnPagar} {currentPlazo} {txtMeses}
+                            </a>
                           </div>
                         </div>
-
-                        <div className="pt-1">
-                          <a 
-                            href={appliedCoupon ? `${currentPlazo === '9' ? prog.link9Meses : prog.link12Meses}?prefilled_promo_code=${appliedCoupon}` : (currentPlazo === '9' ? prog.link9Meses : prog.link12Meses)} 
-                            target="_blank" 
-                            rel="noreferrer" 
-                            className={`block text-center text-[11px] font-bold uppercase tracking-wider py-2 rounded-xl transition-all shadow-md ${
-                              appliedCoupon ? 'bg-emerald-400 text-black' : 'bg-[#E88973] text-black hover:bg-[#C46A4A] hover:text-white'
-                            }`}
-                          >
-                            {txtBtnPagar} {currentPlazo} {txtMeses} {appliedCoupon && txtConDescuento}
-                          </a>
-                        </div>
-                      </div>
-                    )}
+                      );
+                    })()}
                   </div>
                 </div>
               );
@@ -294,16 +316,16 @@ export default function Inversion() {
           </div>
         )}
 
-        {/* FLUJO B: MÓDULOS INDIVIDUALES */}
+        {/* FLUJO B: MÓDULOS INDIVIDUALES (Corregido mapeando con .filter sobre "modules") */}
         {viewMode === 'modulos' && (
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-2xl mx-auto mb-6 box-border">
-            {modulos.filter(mod => mod.disponible === true).map((mod) => {
+            {modules.filter(mod => mod.disponible === true).map((mod) => {
               return (
                 <div key={mod.numero} className="p-4 rounded-2xl bg-[#1F3A5F]/30 backdrop-blur-md border border-[#8B7AA8]/20 flex flex-col justify-between shadow-md box-border w-full">
                   <div className="mb-3 w-full">
                     <div className="flex justify-between items-center mb-1 gap-2 w-full">
                       <h3 className="text-sm font-bold text-[#F4F1ED] truncate">
-                        Módulo {mod.numero}
+                        {isEn ? 'Module' : 'Módulo'} {mod.numero}
                       </h3>
                       <span className="text-xs font-bold font-mono text-[#E88973] bg-[#13263F]/60 px-2 py-0.5 rounded-md border border-gray-800 shrink-0">
                         ${mod.monto} MXN
@@ -330,11 +352,31 @@ export default function Inversion() {
           </div>
         )}
 
+        {/* SECCIÓN DE CÓDIGO DE DESCUENTO CENTRALIZADA (FUERA DE LOS DIVS CONDICIONALES, ARRIBA DE LAS POLÍTICAS) */}
+        <div className="w-full max-w-md mx-auto p-4 rounded-2xl bg-[#1F3A5F]/20 border border-[#8B7AA8]/20 text-center mt-4 mb-6">
+          <div className="flex gap-2">
+            <input 
+              type="text"
+              value={globalCouponInput}
+              onChange={(e) => setGlobalCouponInput(e.target.value)}
+              placeholder={txtCuponPlaceholder}
+              className="w-full bg-[#13263F] border border-[#8B7AA8]/30 rounded-xl px-3 py-2 uppercase text-[10px] tracking-wider focus:outline-none font-mono text-white focus:border-[#E88973]"
+            />
+            <button 
+              type="button"
+              onClick={handleValidateGlobalCoupon}
+              className="font-bold px-4 py-2 rounded-xl text-[10px] uppercase tracking-wider transition-colors shrink-0 bg-[#8B7AA8] hover:bg-[#a394c2] text-white"
+            >
+              {txtBtnAplicar}
+            </button>
+          </div>
+        </div>
+
         {/* BOTÓN DISPARADOR DEL POP-UP (POLÍTICAS) */}
-        <div className="w-full text-center mt-4 mb-2">
+        <div className="w-full text-center mt-2 mb-2">
           <button
             type="button"
-            onClick={() => setIsModalOpen(true)}
+            onClick={() => setIsPoliticasOpen(true)}
             className="text-[11px] uppercase font-bold tracking-widest text-[#E88973] hover:text-[#C46A4A] underline transition-colors cursor-pointer"
           >
             {txtVerPoliticas}
@@ -343,31 +385,53 @@ export default function Inversion() {
 
       </div>
 
-      {/* MODAL POP-UP DE POLÍTICAS FLOTANTE */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
-          <div className="bg-[#13263F] border border-[#8B7AA8]/40 rounded-2xl w-full max-w-lg max-h-[80dvh] flex flex-col p-6 shadow-2xl relative">
-            
-            {/* Cabecera del Pop-up */}
-            <div className="flex justify-between items-center border-b border-[#8B7AA8]/20 pb-3 mb-4 shrink-0">
-              <h3 className="text-xs uppercase font-bold tracking-widest text-[#E88973]">
-                {txtPoliticasTituloModal}
-              </h3>
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                className="text-gray-400 hover:text-white font-bold font-mono text-base px-2 cursor-pointer"
-              >
-                ✕
-              </button>
-            </div>
+      {/* COMPONENTE MODULAR EXTRAÍDO: POP-UP DE FELICITACIONES CUPÓN VÁLDO */}
+      <DiscountModal 
+        isOpen={isDiscountModalOpen}
+        onClose={() => setIsDiscountModalOpen(false)}
+        couponCode={validatedCoupon}
+        isEn={isEn}
+      />
 
-            {/* Cuerpo del Pop-up con scroll interno independiente */}
-            <div className="overflow-y-auto flex-1 pr-1 space-y-4 custom-scrollbar">
-              {Array.isArray(politicasTraducidas) && politicasTraducidas.map((pol, idx) => (
-                <div key={idx} className="text-[11px] leading-relaxed border-b border-gray-800/40 pb-3">
-                  <span className="font-bold text-[#8B7AA8] uppercase tracking-wider block mb-1">
-                    {pol.tipo}:
+ {/* MODAL POP-UP DE POLÍTICAS FLOTANTE */}
+{isPoliticasOpen && (() => {
+  // Separamos las políticas del translation.json dinámicamente
+  // Primeras 3: Efectivo o transferencia
+  const politicasEfectivo = politicasTraducidas.slice(0, 3) || [];
+  // Última (Índice 3): Certificación Externa aplicable a Pago en Línea
+  const politicaLinea = politicasTraducidas[3];
+
+  return (
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm animate-fade-in">
+      <div className="bg-[#13263F] border border-[#8B7AA8]/40 rounded-2xl w-full max-w-lg max-h-[80dvh] flex flex-col p-6 shadow-2xl relative">
+        
+        {/* Cabecera del Pop-up */}
+        <div className="flex justify-between items-center border-b border-[#8B7AA8]/20 pb-3 mb-4 shrink-0">
+          <h3 className="text-xs uppercase font-bold tracking-widest text-[#E88973]">
+            {txtPoliticasTituloModal}
+          </h3>
+          <button
+            type="button"
+            onClick={() => setIsPoliticasOpen(false)}
+            className="text-gray-400 hover:text-white font-bold font-mono text-base px-2 cursor-pointer"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Cuerpo del Pop-up con desglose segmentado */}
+        <div className="overflow-y-auto flex-1 pr-1 space-y-5 custom-scrollbar">
+          
+          {/* CATEGORÍA 1: SÓLO EFECTIVO / TRANSFERENCIA */}
+          <div className="space-y-3">
+            <h4 className="text-[10px] uppercase font-bold tracking-widest text-[#8B7AA8] bg-[#1F3A5F]/30 px-2.5 py-1 rounded-md border border-[#8B7AA8]/10 w-fit">
+              {isEn ? "Cash or Bank Transfer Policies" : "Políticas para Pago en Efectivo o Transferencia"}
+            </h4>
+            <div className="space-y-3 pl-1">
+              {politicasEfectivo.map((pol, idx) => (
+                <div key={idx} className="text-[11px] leading-relaxed border-b border-gray-800/40 pb-2.5 last:border-none">
+                  <span className="font-bold text-[#F4F1ED] uppercase tracking-wide block mb-0.5">
+                    • {pol.tipo}:
                   </span>
                   <p className="text-gray-300">
                     {pol.regla}
@@ -375,21 +439,42 @@ export default function Inversion() {
                 </div>
               ))}
             </div>
-
-            {/* Botón de Cierre Inferior */}
-            <div className="pt-4 border-t border-[#8B7AA8]/20 mt-3 text-center shrink-0">
-              <button
-                type="button"
-                onClick={() => setIsModalOpen(false)}
-                className="py-2 px-6 rounded-xl font-bold uppercase tracking-wider bg-[#8B7AA8] text-white hover:bg-[#a394c2] transition-colors text-[10px]"
-              >
-                {txtBtnEntendido}
-              </button>
-            </div>
-
           </div>
+
+          {/* CATEGORÍA 2: PAGO EN LÍNEA / TARJETA */}
+          {politicaLinea && (
+            <div className="space-y-3 pt-2 border-t border-gray-800">
+              <h4 className="text-[10px] uppercase font-bold tracking-widest text-[#E88973] bg-[#E88973]/10 px-2.5 py-1 rounded-md border border-[#E88973]/20 w-fit">
+                {isEn ? "Online & Card Payment Policies" : "Políticas aplicables a Pago en Línea (Tarjeta)"}
+              </h4>
+              <div className="pl-1 text-[11px] leading-relaxed">
+                <span className="font-bold text-[#F4F1ED] uppercase tracking-wide block mb-0.5">
+                  • {politicaLinea.tipo}:
+                </span>
+                <p className="text-gray-300">
+                  {politicaLinea.regla}
+                </p>
+              </div>
+            </div>
+          )}
+
         </div>
-      )}
+
+        {/* Botón de Cierre Inferior */}
+        <div className="pt-4 border-t border-[#8B7AA8]/20 mt-3 text-center shrink-0">
+          <button
+            type="button"
+            onClick={() => setIsPoliticasOpen(false)}
+            className="py-2 px-6 rounded-xl font-bold uppercase tracking-wider bg-[#8B7AA8] text-white hover:bg-[#a394c2] transition-colors text-[10px]"
+          >
+            {txtBtnEntendido}
+          </button>
+        </div>
+
+      </div>
+    </div>
+  );
+})()}
 
     </div>
   );
