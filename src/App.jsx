@@ -4,7 +4,7 @@ import Lenis from 'lenis';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-// IMPORTACIÓN EN TU ORDEN EXACTO SOLICITADO
+
 import Navbar from './components/NavBar';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -65,6 +65,22 @@ function App() {
       const currentSection = sections[currentSectionIndex];
       const nextSection = sections[currentSectionIndex + 1];
 
+      // --- CONTROL DE SCROLL INTERNO PARA COMPONENTES LARGOS ---
+      // Si la sección actual está marcada con scroll interno, verificamos sus límites nativos
+      if (currentSection.classList.contains('internal-scroll')) {
+        // Buscamos el contenedor real que tiene el overflow (puede ser la sección o el componente hijo)
+        const scrollContainer = currentSection.querySelector('[data-lenis-prevent]') || currentSection;
+        
+        const isAtBottom = scrollContainer.scrollTop + scrollContainer.clientHeight >= scrollContainer.scrollHeight - 5;
+        const isAtTop = scrollContainer.scrollTop <= 5;
+        const direction = lenis.direction; // 1 = Abajo, -1 = Arriba
+
+        // Bloquear el snap si estás navegando en medio del contenido
+        if (direction === 1 && !isAtBottom) return;
+        if (direction === -1 && !isAtTop) return;
+      }
+      // ---------------------------------------------------------
+
       // Calcular el progreso del scroll dentro de la sección actual
       const distanceIntoCurrent = currentScroll - currentSection.offsetTop;
       const progressIntoCurrent = distanceIntoCurrent / windowHeight;
@@ -117,11 +133,11 @@ function App() {
     lenis.on('scroll', () => {
       if (isSnapping) return;
       clearTimeout(snapTimeout);
-      // 150ms es el tiempo ideal para absorber la inercia del dedo en pantallas táctiles
+      // 150ms absorbe la inercia del trackpad/dedo de forma óptima
       snapTimeout = setTimeout(handleSnap, 150);
     });
 
-    // Limpieza estricta para React 19 Strict Mode
+    // Limpieza estricta para React 19 / Strict Mode
     return () => {
       lenis.destroy();
       gsap.ticker.remove(handleTicker);
@@ -136,39 +152,40 @@ function App() {
       <Navbar />
 
       {/* FLUJO EN TU ORDEN EXACTO */}
-      <section id="inicio" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <Hero />
       </section>
 
-      <section id="quienes-somos" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <About />
       </section>
 
-      <section id="diplomado" className="snap-section h-[100dvh] w-full overflow-y-auto relative">
+      {/* Añadida la clase 'internal-scroll' para interceptar el comportamiento tipo TikTok */}
+      <section className="snap-section internal-scroll h-[100dvh] w-full overflow-y-auto relative">
         <Diplomado />
       </section>
 
-      <section id="contenido" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <Contenido />
       </section>
 
-      <section id="inversion" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <Inversion />
       </section>
 
-      <section id="maestros" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <Maestros />
       </section>
 
-      <section id="testimonios" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <Testimonios />
       </section>
 
-      <section id="proposito" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <Proposito />
       </section>
 
-      <section id="contacto" className="snap-section h-[100dvh] w-full overflow-hidden relative">
+      <section className="snap-section h-[100dvh] w-full overflow-hidden relative">
         <ContactoFooter />
       </section>
       
